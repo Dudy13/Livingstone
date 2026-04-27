@@ -1,20 +1,20 @@
 /* ===================================================================
    LIVINGSTONE — Stylesheet
-   Palette : navy #0B1C38 · or #C9A84C · or clair #d4b07a · crème #F5F0E8
+   Palette : charbon #111111 · alt #1a1a1a · or #8B7355 · crème #E8E4DC
    =================================================================== */
 
 :root {
-  --navy: #0B1C38;
-  --navy-2: #0F2444;
-  --gold: #C9A84C;
-  --gold-light: #d4b07a;
-  --cream: #F5F0E8;
+  --navy: #111111;
+  --navy-2: #1a1a1a;
+  --gold: #8B7355;
+  --gold-light: #a89070;
+  --cream: #1a1a1a;
   --white: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.6);
   --text-soft: rgba(255, 255, 255, 0.7);
   --text-faint: rgba(255, 255, 255, 0.4);
-  --border-gold: rgba(201, 168, 76, 0.2);
-  --border-gold-strong: rgba(201, 168, 76, 0.3);
+  --border-gold: rgba(139, 115, 85, 0.2);
+  --border-gold-strong: rgba(139, 115, 85, 0.3);
   --pad-x: 56px;
 }
 
@@ -26,8 +26,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--navy);
-  background: var(--white);
+  color: #E8E4DC;
+  background: var(--navy);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -38,18 +38,18 @@ a { color: inherit; text-decoration: none; }
 
 /* === TYPOGRAPHY === */
 h1, h2, h3 {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 500;
   letter-spacing: 0.02em;
   line-height: 1.2;
 }
 
 h1 { font-size: 38px; color: var(--white); }
-h2 { font-size: 32px; color: var(--navy); }
+h2 { font-size: 32px; color: #E8E4DC; }
 h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 
 .eyebrow {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -62,7 +62,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .btn {
   display: inline-block;
   padding: 14px 28px;
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 11px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -72,10 +72,10 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   transition: all 0.3s ease;
   background: transparent;
 }
-.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-gold { background: var(--gold); color: var(--white); }
 .btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
 .btn-outline { color: var(--gold); background: transparent; }
-.btn-outline:hover { background: var(--gold); color: var(--navy); }
+.btn-outline:hover { background: var(--gold); color: var(--white); }
 .btn-full { width: 100%; }
 
 /* === ORNEMENTS === */
@@ -114,7 +114,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  background: rgba(11, 28, 56, 0.96);
+  background: rgba(17, 17, 17, 0.96);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-gold);
@@ -142,7 +142,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   justify-content: center;
 }
 .nav-links a {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -152,7 +152,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .nav-links a:hover { color: var(--gold); }
 .nav-cta {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -162,7 +162,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   transition: all 0.3s ease;
   white-space: nowrap;
 }
-.nav-cta:hover { background: var(--gold); color: var(--navy); }
+.nav-cta:hover { background: var(--gold); color: var(--white); }
 .nav-burger {
   display: none;
   flex-direction: column;
@@ -188,7 +188,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .nav-mobile.open { display: flex; }
 .nav-mobile a {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -249,7 +249,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .stat { min-width: 0; }
 .stat-num {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 22px;
   color: var(--gold);
   letter-spacing: 0.03em;
@@ -290,7 +290,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   font-weight: 400;
 }
 .quote-accent {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-style: normal;
   color: var(--gold);
   font-size: 22px;
@@ -316,7 +316,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .section-head h2 { margin-top: 14px; }
 .section-sub {
   font-size: 14px;
-  color: rgba(11, 28, 56, 0.65);
+  color: rgba(232, 228, 220,0.65);
   line-height: 1.7;
   max-width: 640px;
   margin: 0 auto;
@@ -344,9 +344,9 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   position: relative;
   transition: background 0.3s ease;
 }
-.card:hover { background: var(--white); }
+.card:hover { background: rgba(255, 255, 255, 0.03); }
 .card-num {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 11px;
   letter-spacing: 2px;
   color: var(--gold);
@@ -354,7 +354,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 18px;
 }
 .card h3 {
-  color: var(--navy);
+  color: #E8E4DC;
   font-size: 14px;
   margin-bottom: 8px;
   line-height: 1.4;
@@ -368,7 +368,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .card p {
   font-size: 13px;
-  color: rgba(11, 28, 56, 0.7);
+  color: rgba(232, 228, 220,0.7);
   line-height: 1.7;
 }
 .card-wide {
@@ -393,9 +393,9 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .luxembourg {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: var(--white);
+  background: var(--navy);
 }
-.lux-photo { background: #cfd6e0; }
+.lux-photo { background: #1a1a1a; }
 .lux-photo img {
   width: 100%;
   height: 100%;
@@ -418,7 +418,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   gap: 18px;
   align-items: flex-start;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(11, 28, 56, 0.08);
+  border-bottom: 1px solid rgba(232, 228, 220,0.08);
 }
 .check-list li:last-child { border-bottom: none; }
 .check-list .dash {
@@ -431,11 +431,11 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .check-list strong {
   font-weight: 600;
-  color: var(--navy);
+  color: #E8E4DC;
 }
 .check-list div {
   font-size: 13.5px;
-  color: rgba(11, 28, 56, 0.75);
+  color: rgba(232, 228, 220,0.75);
   line-height: 1.7;
 }
 
@@ -454,7 +454,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin: 0 auto 56px;
 }
 .pole {
-  background: var(--white);
+  background: var(--navy);
   padding: 44px 32px;
   border: 0.5px solid var(--border-gold);
   text-align: center;
@@ -466,7 +466,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 18px;
 }
 .pole h3 {
-  color: var(--navy);
+  color: #E8E4DC;
   font-size: 14px;
   margin-bottom: 24px;
   padding-bottom: 18px;
@@ -478,7 +478,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .pole li {
   font-size: 13px;
-  color: rgba(11, 28, 56, 0.75);
+  color: rgba(232, 228, 220,0.75);
   padding: 8px 0;
   position: relative;
   padding-left: 18px;
@@ -515,7 +515,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
    SECTION 6 — COMPARATIF
    ============================================================ */
 .comparatif {
-  background: var(--white);
+  background: var(--navy);
   padding: 96px var(--pad-x);
 }
 .table-wrap {
@@ -532,34 +532,34 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .compare th, .compare td {
   padding: 18px 16px;
   text-align: left;
-  border-bottom: 1px solid rgba(11, 28, 56, 0.08);
+  border-bottom: 1px solid rgba(232, 228, 220,0.08);
 }
 .compare thead th {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--navy);
+  color: #E8E4DC;
   border-bottom: 1px solid var(--gold);
   padding-bottom: 16px;
 }
 .compare .th-livingstone {
   color: var(--gold);
-  background: rgba(201, 168, 76, 0.06);
+  background: rgba(139, 115, 85, 0.06);
 }
 .compare tbody td:first-child {
   font-weight: 500;
-  color: var(--navy);
+  color: #E8E4DC;
   font-size: 13px;
 }
 .compare td.ok {
   color: #2a7a4f;
   font-weight: 500;
-  background: rgba(201, 168, 76, 0.04);
+  background: rgba(139, 115, 85, 0.04);
 }
 .compare td.ko { color: #c0392b; }
 .compare td.mid { color: var(--gold); }
-.compare tbody tr:hover { background: rgba(201, 168, 76, 0.03); }
+.compare tbody tr:hover { background: rgba(139, 115, 85, 0.03); }
 
 /* ============================================================
    SECTION 7 — FRAIS
@@ -576,20 +576,20 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin: 0 auto;
 }
 .frais-card {
-  background: var(--white);
+  background: var(--navy);
   padding: 44px 32px;
   border: 0.5px solid var(--border-gold);
   text-align: left;
 }
 .frais-num {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 28px;
   color: var(--gold);
   display: block;
   margin-bottom: 18px;
 }
 .frais-card h3 {
-  color: var(--navy);
+  color: #E8E4DC;
   font-size: 14px;
   margin-bottom: 14px;
   padding-bottom: 14px;
@@ -597,7 +597,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .frais-card p {
   font-size: 13px;
-  color: rgba(11, 28, 56, 0.7);
+  color: rgba(232, 228, 220,0.7);
   line-height: 1.75;
 }
 
@@ -609,7 +609,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   grid-template-columns: 1fr 1fr;
   background: var(--navy);
 }
-.portrait-photo { background: #cfd6e0; }
+.portrait-photo { background: #1a1a1a; }
 .portrait-photo img {
   width: 100%;
   height: 100%;
@@ -636,7 +636,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 32px;
 }
 .portrait-name {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 18px;
   color: var(--gold);
   letter-spacing: 0.08em;
@@ -715,7 +715,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   gap: 18px;
   align-items: flex-start;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(11, 28, 56, 0.08);
+  border-bottom: 1px solid rgba(232, 228, 220,0.08);
 }
 .contact-points li:last-child { border-bottom: none; }
 .contact-points .dash {
@@ -727,12 +727,12 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   flex-shrink: 0;
 }
 .contact-points strong {
-  color: var(--navy);
+  color: #E8E4DC;
   font-weight: 600;
   font-size: 14px;
 }
 .contact-points span {
-  color: rgba(11, 28, 56, 0.65);
+  color: rgba(232, 228, 220,0.65);
   font-size: 13px;
 }
 
@@ -806,7 +806,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 24px;
 }
 .footer-links a {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -926,7 +926,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   justify-content: space-between;
   padding: 20px var(--pad-x);
   border-bottom: 1px solid var(--border-gold);
-  background: rgba(11, 28, 56, 0.96);
+  background: rgba(17, 17, 17, 0.96);
   gap: 24px;
 }
 .legal-logo img {
@@ -936,7 +936,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   display: block;
 }
 .legal-back {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -946,7 +946,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   transition: all 0.3s ease;
   white-space: nowrap;
 }
-.legal-back:hover { background: var(--gold); color: var(--navy); }
+.legal-back:hover { background: var(--gold); color: var(--white); }
 .legal-main {
   max-width: 920px;
   margin: 0 auto;
@@ -958,7 +958,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 14px;
 }
 .legal-content h1 {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 32px;
   color: var(--white);
   text-align: center;
@@ -973,7 +973,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   color: rgba(255, 255, 255, 0.78);
 }
 .legal-body h2 {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 16px;
   color: var(--gold);
   letter-spacing: 0.08em;
@@ -985,7 +985,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   line-height: 1.4;
 }
 .legal-body h3 {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1055,7 +1055,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 18px;
 }
 .legal-footer-links a {
-  font-family: "Cinzel", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
