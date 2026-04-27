@@ -203,68 +203,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
    SECTION 1 — HERO
    ============================================================ */
 .hero {
-  display: grid;
-  grid-template-columns: 55% 45%;
-  min-height: 620px;
-  margin-top: 196px;
-}
-.hero-photo {
   position: relative;
-  overflow: hidden;
-  background: var(--navy);
-}
-.hero-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  filter: brightness(0.85);
-}
-.hero-content {
-  background: var(--navy);
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  min-width: 0;
-}
-.hero h1 { margin-top: 14px; }
-.hero-text {
-  font-size: 13px;
-  color: rgba(245, 240, 232, 0.7);
-  line-height: 1.75;
-  margin-bottom: 36px;
-  max-width: 520px;
-}
-.hero-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px 24px;
-  margin-bottom: 36px;
-  padding: 28px 0;
-  border-top: 1px solid var(--border-gold);
-  border-bottom: 1px solid var(--border-gold);
-  min-width: 0;
-}
-.stat { min-width: 0; }
-.stat-num {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 22px;
-  color: var(--gold);
-  letter-spacing: 0.03em;
-  margin-bottom: 4px;
-  word-break: break-word;
-}
-.stat-lbl {
-  font-size: 11px;
-  color: var(--text-muted);
-  letter-spacing: 0.5px;
-}
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
 }
 
 /* ============================================================
@@ -834,7 +773,6 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   .nav-links { gap: 22px; }
   .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
   .nav-logo img { height: 140px; max-width: 240px; }
-  .hero { margin-top: 156px; }
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
   .card-wide { grid-column: span 2; }
   .poles-grid { grid-template-columns: 1fr; }
@@ -843,9 +781,6 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   .contact { grid-template-columns: 1fr; gap: 40px; }
   .luxembourg { grid-template-columns: 1fr; }
   .portrait { grid-template-columns: 1fr; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-photo { min-height: 360px; }
-  .hero-content { padding: 56px 32px; }
 }
 
 @media (max-width: 768px) {
@@ -857,13 +792,6 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   .nav-burger { display: flex; }
   .nav-logo img { height: 96px; max-width: 200px; }
   .nav-inner { padding: 8px 24px; }
-
-  .hero { margin-top: 112px; min-height: auto; }
-  .hero-photo { min-height: 300px; }
-  .hero-content { padding: 48px 24px; }
-  .hero-stats { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .stat-num { font-size: 22px; }
-  .hero-buttons .btn { flex: 1; padding: 14px 16px; font-size: 10px; }
 
   .manifeste { padding: 56px 24px; }
   .manifeste blockquote { font-size: 20px; }
@@ -907,9 +835,6 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 @media (max-width: 480px) {
   h1 { font-size: 24px; }
   h2 { font-size: 20px; }
-  .hero-stats { grid-template-columns: 1fr; }
-  .hero-buttons { flex-direction: column; }
-  .hero-buttons .btn { width: 100%; }
 }
 
 /* ============================================================

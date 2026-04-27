@@ -16,7 +16,7 @@
   <!-- NAVIGATION -->
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
+      <a href="#accueil" class="nav-logo">
         <img src="images/livingstone_logo_carre_1080.png" alt="Livingstone" />
       </a>
       <nav class="nav-links">
@@ -44,28 +44,141 @@
   </header>
 
   <!-- SECTION 1 — HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-photo">
-      <img src="images/mikael-portrait.jpg" alt="Mikael Gueviguian, fondateur de Livingstone" />
-    </div>
-    <div class="hero-content">
-      <div class="ornament"><span class="rule"></span><span class="diamond">◆</span><span class="rule"></span></div>
-      <p class="eyebrow">Family Office Privée · Accès sur Sélection</p>
-      <h1>L'excellence patrimoniale,<br/>sans concession.</h1>
-      <span class="rule-gold"></span>
-      <p class="hero-text">Livingstone gère le patrimoine de 30 familles fortunées représentant 400 millions d'euros d'encours, avec des solutions que nous concevons intégralement. Aucun fonds collectif. Aucun compromis. Chaque opportunité est réservée à nos seuls clients.</p>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">30</div><div class="stat-lbl">Familles accompagnées</div></div>
-        <div class="stat"><div class="stat-num">400M€</div><div class="stat-lbl">Encours sous gestion</div></div>
-        <div class="stat"><div class="stat-num">0</div><div class="stat-lbl">Fonds collectif vendu</div></div>
-        <div class="stat"><div class="stat-num">Accès</div><div class="stat-lbl">Sur sélection uniquement</div></div>
+  <section class="hero" id="accueil" style="height:100vh;position:relative;overflow:hidden;background:#111111;">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+.hero-anim *{margin:0;padding:0;box-sizing:border-box;}
+.stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.rule{position:absolute;left:6%;right:6%;height:1px;background:#8B7355;opacity:0;transform:scaleX(0);transform-origin:left center;transition:transform 1.4s ease,opacity .6s ease;}
+.rule.show{opacity:.55;transform:scaleX(1);}
+.rule.top{top:7%;}.rule.bottom{bottom:7%;}
+.rule.faint{opacity:0;}.rule.top.faint{top:calc(7% + 7px);}.rule.bottom.faint{bottom:calc(7% + 7px);}
+.rule.faint.show{opacity:.22;}
+.cities{position:absolute;top:calc(7% - 28px);left:0;right:0;text-align:center;font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.4em;color:rgba(232,228,220,0.55);text-transform:uppercase;opacity:0;transition:opacity 1s ease .8s;}
+.cities.show{opacity:1;}
+.footer-line{position:absolute;bottom:calc(7% - 28px);left:0;right:0;text-align:center;font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.4em;color:rgba(232,228,220,0.4);text-transform:uppercase;opacity:0;transition:opacity 1s ease;}
+.footer-line.show{opacity:1;}
+.progress-hero{position:absolute;bottom:0;left:0;height:1.5px;background:#8B7355;width:0%;opacity:.8;}
+.anim-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;transition:opacity 1s ease;}
+.anim-scene.active{opacity:1;}
+.logo-wrap-a{display:flex;align-items:center;gap:36px;}
+.gull-svg path{fill:none;stroke:#E8E4DC;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:280;stroke-dashoffset:280;transition:stroke-dashoffset 1.6s cubic-bezier(.65,.05,.36,1);}
+.anim-scene.active .gull-svg path{stroke-dashoffset:0;}
+.vbar-a{width:1px;height:0;background:rgba(232,228,220,0.45);transition:height 0.7s ease 0.9s;}
+.anim-scene.active .vbar-a{height:90px;}
+.wordmark-a{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5vw,64px);letter-spacing:8px;color:#E8E4DC;text-transform:uppercase;line-height:1;display:flex;}
+.wordmark-a span{opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease;}
+.anim-scene.active .wordmark-a span{opacity:1;transform:translateY(0);}
+.baseline-a{font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(232,228,220,0.6);margin-top:14px;opacity:0;transition:opacity .8s ease 2.2s;}
+.anim-scene.active .baseline-a{opacity:1;}
+.text-block-a{display:flex;flex-direction:column;align-items:flex-start;}
+.stats-a{display:flex;align-items:center;gap:clamp(32px,6vw,90px);}
+.stat-a{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.stat-num-a{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,8vw,96px);color:#E8E4DC;line-height:1;}
+.stat-label-a{font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(232,228,220,0.55);}
+.stat-div-a{width:1px;height:110px;background:#8B7355;opacity:.5;}
+.philo-a{display:flex;flex-direction:column;align-items:center;gap:22px;max-width:80%;text-align:center;}
+.philo-a p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,3vw,30px);color:rgba(232,228,220,0.78);line-height:1.4;opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease;}
+.philo-a p.bright{color:#E8E4DC;}
+.philo-a p.show{opacity:1;transform:translateY(0);}
+.pillars-a{display:flex;flex-direction:column;gap:28px;}
+.pillar-a{display:flex;align-items:center;gap:18px;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.5vw,26px);color:#E8E4DC;opacity:0;transform:translateX(-24px);transition:opacity .8s ease,transform .8s ease;}
+.pillar-a.show{opacity:1;transform:translateX(0);}
+.pillar-dot-a{width:6px;height:6px;border-radius:50%;background:#8B7355;flex-shrink:0;}
+.final-a{display:flex;flex-direction:column;align-items:center;gap:36px;}
+.final-a .vbar-a{height:90px;}
+.final-a .wordmark-a span{opacity:1;transform:none;}
+.final-a .baseline-a{opacity:1;}
+.tagline-a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,2.5vw,26px);color:rgba(232,228,220,0.78);letter-spacing:.02em;opacity:0;transition:opacity 1s ease .4s;}
+.anim-scene.active .tagline-a{opacity:1;}
+</style>
+<div class="stage">
+  <div class="rule top" id="aRuleTop"></div>
+  <div class="rule top faint" id="aRuleTopF"></div>
+  <div class="rule bottom" id="aRuleBot"></div>
+  <div class="rule bottom faint" id="aRuleBotF"></div>
+  <div class="cities" id="aCities">PARIS · GENÈVE · MARSEILLE · CANNES</div>
+  <div class="footer-line" id="aFooter">MMXXVI · LIVINGSTONE.FO</div>
+  <div class="anim-scene" id="aS1">
+    <div class="logo-wrap-a">
+      <svg class="gull-svg" viewBox="0 0 120 56" width="170" height="79"><path d="M4 38 C 20 14, 36 14, 60 32 C 84 14, 100 14, 116 38"/></svg>
+      <div class="vbar-a"></div>
+      <div class="text-block-a">
+        <div class="wordmark-a" id="aWordmark"></div>
+        <div class="baseline-a">Family Office</div>
       </div>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-gold">Demander un entretien</a>
-        <a href="#approche" class="btn btn-outline">Notre approche</a>
-      </div>
     </div>
-  </section>
+  </div>
+  <div class="anim-scene" id="aS2">
+    <div class="stats-a">
+      <div class="stat-a"><div class="stat-num-a" id="aStat1">0</div><div class="stat-label-a">Familles accompagnées</div></div>
+      <div class="stat-div-a"></div>
+      <div class="stat-a"><div class="stat-num-a" id="aStat2">0M€</div><div class="stat-label-a">Encours sous gestion</div></div>
+    </div>
+  </div>
+  <div class="anim-scene" id="aS3">
+    <div class="philo-a">
+      <p>Pas de fonds collectifs.</p>
+      <p>Pas de compromis.</p>
+      <p class="bright">Des solutions conçues uniquement pour vous.</p>
+    </div>
+  </div>
+  <div class="anim-scene" id="aS4">
+    <div class="pillars-a">
+      <div class="pillar-a"><span class="pillar-dot-a"></span>Ingénierie financière sur-mesure</div>
+      <div class="pillar-a"><span class="pillar-dot-a"></span>Protection luxembourgeoise</div>
+      <div class="pillar-a"><span class="pillar-dot-a"></span>Accès aux plus grandes banques privées suisses</div>
+    </div>
+  </div>
+  <div class="anim-scene" id="aS5">
+    <div class="final-a">
+      <div class="logo-wrap-a">
+        <svg class="gull-svg" viewBox="0 0 120 56" width="170" height="79"><path style="stroke-dashoffset:0" d="M4 38 C 20 14, 36 14, 60 32 C 84 14, 100 14, 116 38"/></svg>
+        <div class="vbar-a"></div>
+        <div class="text-block-a">
+          <div class="wordmark-a"><span>L</span><span>I</span><span>V</span><span>I</span><span>N</span><span>G</span><span>S</span><span>T</span><span>O</span><span>N</span><span>E</span></div>
+          <div class="baseline-a">Family Office</div>
+        </div>
+      </div>
+      <div class="tagline-a">Votre patrimoine. Votre liberté.</div>
+    </div>
+  </div>
+  <div class="progress-hero" id="aProgress"></div>
+</div>
+<script>
+(function(){
+  var TOTAL=20000,start=performance.now();
+  var w=document.getElementById('aWordmark');
+  'LIVINGSTONE'.split('').forEach(function(c,i){var s=document.createElement('span');s.textContent=c;s.style.transitionDelay=(1.0+i*0.07)+'s';w.appendChild(s);});
+  function activate(id){document.querySelectorAll('.anim-scene').forEach(function(s){s.classList.remove('active');});document.getElementById(id).classList.add('active');}
+  function showEl(el){el.classList.add('show');}
+  setTimeout(function(){showEl(document.getElementById('aRuleTop'));showEl(document.getElementById('aRuleTopF'));showEl(document.getElementById('aRuleBot'));showEl(document.getElementById('aRuleBotF'));},100);
+  setTimeout(function(){showEl(document.getElementById('aCities'));},400);
+  activate('aS1');
+  setTimeout(function(){
+    activate('aS2');
+    showEl(document.getElementById('aFooter'));
+    var s1=document.getElementById('aStat1'),s2=document.getElementById('aStat2'),dur=1800,t0=performance.now();
+    function tick(now){var t=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-t,3);s1.textContent=Math.round(e*30);s2.textContent=Math.round(e*400)+'M€';if(t<1)requestAnimationFrame(tick);}
+    requestAnimationFrame(tick);
+  },4000);
+  setTimeout(function(){
+    activate('aS3');
+    var lines=document.querySelectorAll('#aS3 .philo-a p');
+    lines.forEach(function(l,i){setTimeout(function(){l.classList.add('show');},200+i*1100);});
+  },8000);
+  setTimeout(function(){
+    activate('aS4');
+    var items=document.querySelectorAll('#aS4 .pillar-a');
+    items.forEach(function(p,i){setTimeout(function(){p.classList.add('show');},200+i*800);});
+  },13000);
+  setTimeout(function(){activate('aS5');},18000);
+  var pb=document.getElementById('aProgress');
+  function loop(now){var el=Math.min(TOTAL,now-start);pb.style.width=(el/TOTAL*100)+'%';if(el<TOTAL)requestAnimationFrame(loop);}
+  requestAnimationFrame(loop);
+})();
+</script>
+</section>
 
   <!-- SECTION 2 — MANIFESTE -->
   <section class="manifeste" id="approche">
