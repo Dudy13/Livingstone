@@ -91,6 +91,39 @@
 .final-a .baseline-a{opacity:1;}
 .tagline-a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,2.5vw,26px);color:rgba(232,228,220,0.78);letter-spacing:.02em;opacity:0;transition:opacity 1s ease .4s;}
 .anim-scene.active .tagline-a{opacity:1;}
+@media (max-width:768px){
+  .rule.top{top:15%;}
+  .rule.top.faint{top:calc(15% + 7px);}
+  .rule.bottom{bottom:11%;}
+  .rule.bottom.faint{bottom:calc(11% + 7px);}
+  .cities{top:calc(15% - 22px);font-size:9px;letter-spacing:.2em;padding:0 12px;}
+  .footer-line{bottom:calc(11% - 22px);font-size:9px;letter-spacing:.2em;padding:0 12px;}
+  .logo-wrap-a{flex-direction:column;gap:14px;}
+  .logo-wrap-a .vbar-a{display:none;}
+  .text-block-a{align-items:center;}
+  .gull-svg{width:120px;height:56px;}
+  .wordmark-a{letter-spacing:4px;font-size:clamp(22px,6vw,40px);}
+  .stats-a{flex-direction:column;gap:28px;}
+  .stat-div-a{width:60px;height:1px;}
+  .stat-num-a{font-size:clamp(44px,12vw,72px);}
+  .pillars-a{gap:18px;max-width:90vw;padding:0 16px;}
+  .pillar-a{font-size:clamp(15px,4vw,22px);gap:14px;}
+  .philo-a{max-width:92%;gap:16px;}
+  .philo-a p{font-size:clamp(16px,4.5vw,24px);}
+  .final-a{gap:24px;}
+  .final-a .vbar-a{display:none;}
+  .tagline-a{font-size:clamp(14px,3.5vw,20px);padding:0 20px;text-align:center;}
+}
+@media (max-width:480px){
+  .gull-svg{width:100px;height:47px;}
+  .wordmark-a{letter-spacing:3px;font-size:clamp(20px,7vw,32px);}
+  .cities{font-size:8px;letter-spacing:.15em;}
+  .footer-line{font-size:8px;letter-spacing:.15em;}
+  .stat-num-a{font-size:clamp(40px,13vw,60px);}
+  .stat-label-a{font-size:10px;letter-spacing:3px;}
+  .pillars-a{gap:14px;}
+  .baseline-a{font-size:10px;letter-spacing:3px;}
+}
 </style>
 <div class="stage">
   <div class="rule top" id="aRuleTop"></div>
