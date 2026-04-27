@@ -130,9 +130,8 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   gap: 24px;
 }
 .nav-logo img {
-  height: 180px;
+  height: 60px;
   width: auto;
-  max-width: 280px;
   display: block;
 }
 .nav-links {
@@ -731,9 +730,8 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   border-top: 1px solid var(--border-gold);
 }
 .footer-logo img {
-  height: 108px;
+  height: 60px;
   width: auto;
-  max-width: 220px;
   margin: 0 auto 28px;
 }
 .footer-links {
@@ -772,7 +770,6 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   h2 { font-size: 28px; }
   .nav-links { gap: 22px; }
   .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
-  .nav-logo img { height: 140px; max-width: 240px; }
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
   .card-wide { grid-column: span 2; }
   .poles-grid { grid-template-columns: 1fr; }
@@ -790,7 +787,6 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   h2 { font-size: 24px; }
   .nav-links, .nav-cta { display: none; }
   .nav-burger { display: flex; }
-  .nav-logo img { height: 96px; max-width: 200px; }
   .nav-inner { padding: 8px 24px; }
 
   .manifeste { padding: 56px 24px; }
