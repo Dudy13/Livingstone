@@ -1,6 +1,6 @@
 /* ===================================================================
    LIVINGSTONE — Stylesheet
-   Palette : charbon #111111 · alt #1a1a1a · or #8B7355 · crème #E8E4DC
+   Palette : charbon #111111 · alt #1a1a1a · or #8B7355 · crème #F5F0E8
    =================================================================== */
 
 :root {
@@ -8,13 +8,18 @@
   --navy-2: #1a1a1a;
   --gold: #8B7355;
   --gold-light: #a89070;
-  --cream: #1a1a1a;
+  --cream: #F5F0E8;
+  --text-dark: #1a1a1a;
   --white: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.6);
   --text-soft: rgba(255, 255, 255, 0.7);
   --text-faint: rgba(255, 255, 255, 0.4);
+  --text-dark-muted: rgba(26, 26, 26, 0.65);
+  --text-dark-soft: rgba(26, 26, 26, 0.75);
+  --text-dark-faint: rgba(26, 26, 26, 0.45);
   --border-gold: rgba(139, 115, 85, 0.2);
   --border-gold-strong: rgba(139, 115, 85, 0.3);
+  --border-dark: rgba(26, 26, 26, 0.12);
   --pad-x: 56px;
 }
 
@@ -45,7 +50,7 @@ h1, h2, h3 {
 }
 
 h1 { font-size: 38px; color: var(--white); }
-h2 { font-size: 32px; color: #E8E4DC; }
+h2 { font-size: 32px; color: var(--text-dark); }
 h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 
 .eyebrow {
@@ -254,7 +259,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .section-head h2 { margin-top: 14px; }
 .section-sub {
   font-size: 14px;
-  color: rgba(232, 228, 220,0.65);
+  color: var(--text-dark-muted);
   line-height: 1.7;
   max-width: 640px;
   margin: 0 auto;
@@ -282,7 +287,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   position: relative;
   transition: background 0.3s ease;
 }
-.card:hover { background: rgba(255, 255, 255, 0.03); }
+.card:hover { background: rgba(0, 0, 0, 0.03); }
 .card-num {
   font-family: "Cormorant Garamond", serif;
   font-size: 11px;
@@ -292,7 +297,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 18px;
 }
 .card h3 {
-  color: #E8E4DC;
+  color: var(--text-dark);
   font-size: 14px;
   margin-bottom: 8px;
   line-height: 1.4;
@@ -306,24 +311,25 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .card p {
   font-size: 13px;
-  color: rgba(232, 228, 220,0.7);
+  color: var(--text-dark-soft);
   line-height: 1.7;
 }
 .card-wide {
   grid-column: span 3;
-  background: var(--navy);
-  color: var(--white);
+  background: var(--cream);
+  color: var(--text-dark);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
   flex-wrap: wrap;
   padding: 48px 40px;
+  border-top: 1px solid var(--border-gold);
 }
-.card-wide:hover { background: var(--navy); }
+.card-wide:hover { background: rgba(0, 0, 0, 0.03); }
 .card-wide-content { flex: 1; min-width: 260px; }
-.card-wide h3 { color: var(--white); margin-bottom: 12px; font-size: 16px; }
-.card-wide p { color: var(--text-soft); font-size: 13px; max-width: 720px; }
+.card-wide h3 { color: var(--text-dark); margin-bottom: 12px; font-size: 16px; }
+.card-wide p { color: var(--text-dark-soft); font-size: 13px; max-width: 720px; }
 
 /* ============================================================
    SECTION 4 — LUXEMBOURG
@@ -331,7 +337,8 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .luxembourg {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: var(--navy);
+  background: var(--cream);
+  color: var(--text-dark);
 }
 .lux-photo { background: #1a1a1a; }
 .lux-photo img {
@@ -356,7 +363,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   gap: 18px;
   align-items: flex-start;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(232, 228, 220,0.08);
+  border-bottom: 1px solid var(--border-dark);
 }
 .check-list li:last-child { border-bottom: none; }
 .check-list .dash {
@@ -369,11 +376,11 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .check-list strong {
   font-weight: 600;
-  color: #E8E4DC;
+  color: var(--text-dark);
 }
 .check-list div {
   font-size: 13.5px;
-  color: rgba(232, 228, 220,0.75);
+  color: var(--text-dark-soft);
   line-height: 1.7;
 }
 
@@ -392,7 +399,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin: 0 auto 56px;
 }
 .pole {
-  background: var(--navy);
+  background: var(--cream);
   padding: 44px 32px;
   border: 0.5px solid var(--border-gold);
   text-align: center;
@@ -404,7 +411,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 18px;
 }
 .pole h3 {
-  color: #E8E4DC;
+  color: var(--text-dark);
   font-size: 14px;
   margin-bottom: 24px;
   padding-bottom: 18px;
@@ -416,7 +423,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .pole li {
   font-size: 13px;
-  color: rgba(232, 228, 220,0.75);
+  color: var(--text-dark-soft);
   padding: 8px 0;
   position: relative;
   padding-left: 18px;
@@ -430,8 +437,8 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   top: 13px;
 }
 .equipe-banner {
-  background: var(--navy);
-  color: var(--white);
+  background: var(--cream);
+  color: var(--text-dark);
   text-align: center;
   padding: 48px 32px;
   display: flex;
@@ -446,14 +453,15 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-size: 22px;
-  color: var(--white);
+  color: var(--text-dark);
 }
 
 /* ============================================================
    SECTION 6 — COMPARATIF
    ============================================================ */
 .comparatif {
-  background: var(--navy);
+  background: var(--cream);
+  color: var(--text-dark);
   padding: 96px var(--pad-x);
 }
 .table-wrap {
@@ -470,34 +478,34 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .compare th, .compare td {
   padding: 18px 16px;
   text-align: left;
-  border-bottom: 1px solid rgba(232, 228, 220,0.08);
+  border-bottom: 1px solid var(--border-dark);
 }
 .compare thead th {
   font-family: "Cormorant Garamond", serif;
   font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #E8E4DC;
+  color: var(--text-dark);
   border-bottom: 1px solid var(--gold);
   padding-bottom: 16px;
 }
 .compare .th-livingstone {
   color: var(--gold);
-  background: rgba(139, 115, 85, 0.06);
+  background: rgba(139, 115, 85, 0.08);
 }
 .compare tbody td:first-child {
   font-weight: 500;
-  color: #E8E4DC;
+  color: var(--text-dark);
   font-size: 13px;
 }
 .compare td.ok {
   color: #2a7a4f;
   font-weight: 500;
-  background: rgba(139, 115, 85, 0.04);
+  background: rgba(139, 115, 85, 0.06);
 }
 .compare td.ko { color: #c0392b; }
 .compare td.mid { color: var(--gold); }
-.compare tbody tr:hover { background: rgba(139, 115, 85, 0.03); }
+.compare tbody tr:hover { background: rgba(139, 115, 85, 0.05); }
 
 /* ============================================================
    SECTION 7 — FRAIS
@@ -514,7 +522,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin: 0 auto;
 }
 .frais-card {
-  background: var(--navy);
+  background: var(--cream);
   padding: 44px 32px;
   border: 0.5px solid var(--border-gold);
   text-align: left;
@@ -527,7 +535,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   margin-bottom: 18px;
 }
 .frais-card h3 {
-  color: #E8E4DC;
+  color: var(--text-dark);
   font-size: 14px;
   margin-bottom: 14px;
   padding-bottom: 14px;
@@ -535,7 +543,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 .frais-card p {
   font-size: 13px;
-  color: rgba(232, 228, 220,0.7);
+  color: var(--text-dark-soft);
   line-height: 1.75;
 }
 
@@ -637,6 +645,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
    ============================================================ */
 .contact {
   background: var(--cream);
+  color: var(--text-dark);
   padding: 96px var(--pad-x);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -653,7 +662,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   gap: 18px;
   align-items: flex-start;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(232, 228, 220,0.08);
+  border-bottom: 1px solid var(--border-dark);
 }
 .contact-points li:last-child { border-bottom: none; }
 .contact-points .dash {
@@ -665,17 +674,17 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   flex-shrink: 0;
 }
 .contact-points strong {
-  color: #E8E4DC;
+  color: var(--text-dark);
   font-weight: 600;
   font-size: 14px;
 }
 .contact-points span {
-  color: rgba(232, 228, 220,0.65);
+  color: var(--text-dark-muted);
   font-size: 13px;
 }
 
 .contact-form {
-  background: var(--navy);
+  background: var(--cream);
   padding: 48px 40px;
   border: 1px solid var(--border-gold-strong);
   display: flex;
@@ -692,8 +701,8 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .contact-form textarea {
   width: 100%;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--white);
+  border: 1px solid rgba(26, 26, 26, 0.18);
+  color: var(--text-dark);
   padding: 14px 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
@@ -701,9 +710,9 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   font-weight: 400;
 }
 .contact-form input::placeholder,
-.contact-form textarea::placeholder { color: var(--text-muted); }
-.contact-form select { color: var(--text-muted); }
-.contact-form select option { background: var(--navy); color: var(--white); }
+.contact-form textarea::placeholder { color: var(--text-dark-muted); }
+.contact-form select { color: var(--text-dark-muted); }
+.contact-form select option { background: var(--cream); color: var(--text-dark); }
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
@@ -714,7 +723,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .contact-form .btn { margin-top: 8px; }
 .form-note {
   font-size: 11px;
-  color: var(--text-faint);
+  color: var(--text-dark-faint);
   text-align: center;
   margin-top: 6px;
   line-height: 1.5;
