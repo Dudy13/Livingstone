@@ -603,6 +603,52 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
+   SECTION 8 BIS — MÉDIAS
+   ============================================================ */
+.medias {
+  background: var(--cream);
+  color: var(--text-dark);
+  padding: 96px var(--pad-x);
+}
+.medias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.media-item {
+  display: flex;
+  flex-direction: column;
+}
+.media-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 0.5px solid var(--border-gold);
+  overflow: hidden;
+}
+.media-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.media-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--text-dark);
+  margin-top: 22px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ============================================================
    SECTION 9 — VALORISATION
    ============================================================ */
 .valorisation {
@@ -823,6 +869,10 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   .compare th, .compare td { padding: 14px 10px; }
 
   .frais { padding: 64px 24px; }
+
+  .medias { padding: 64px 24px; }
+  .medias-grid { grid-template-columns: 1fr; gap: 32px; }
+  .media-title { font-size: 16px; margin-top: 18px; }
 
   .portrait-content { padding: 56px 24px; }
   .portrait-quote { font-size: 18px; padding-left: 18px; }
