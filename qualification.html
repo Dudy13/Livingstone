@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Livingstone — Investissement obligataire garanti</title>
+<meta name="description" content="Obligations privées garanties par fiducie-sûreté. Réservé à un cercle restreint d'investisseurs avertis.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --noir: #0B0B0B;
+    --noir-soft: #1a1a1a;
+    --ivoire: #F2EBDF;
+    --ivoire-clair: #FAF6EE;
+    --or: #C9A87C;
+    --or-clair: #D4B88A;
+    --or-vif: #F5D89E;
+    --or-fonce: #A88455;
+    --texte: #2a2a2a;
+    --texte-doux: #555;
+    --bordure: #e0d6c0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--texte);
+    background: var(--ivoire);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* === HEADER === */
+  .site-header {
+    background: var(--noir);
+    padding: 22px 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--or);
+  }
+
+  .gull-svg { display: block; margin: 0 auto 8px auto; }
+
+  .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 8px;
+    color: var(--ivoire);
+    margin-left: 8px;
+  }
+
+  .brand-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: var(--or);
+    text-transform: uppercase;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+
+  /* === HERO === */
+  .hero {
+    background: var(--noir);
+    color: var(--ivoire);
+    padding: 70px 24px 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse at center, rgba(212, 184, 138, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 6px;
+    color: var(--or-clair);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--or);
+  }
+
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--or-vif);
+    letter-spacing: 0;
+    text-transform: lowercase;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #d4c8b0;
+    line-height: 1.5;
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
+
+  .hero-mention {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--or-fonce);
+    text-transform: uppercase;
+    padding-top: 24px;
+    border-top: 1px solid rgba(201, 168, 124, 0.3);
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  /* === SECTIONS === */
+  section {
+    padding: 64px 24px;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--noir);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .section-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--or);
+    margin: 0 auto 36px auto;
+  }
+
+  p {
+    margin-bottom: 18px;
+    color: var(--texte);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  p strong { font-weight: 600; color: var(--noir); }
+
+  /* === SECTION POURQUOI === */
+  .section-pourquoi { background: var(--ivoire-clair); }
+
+  /* === TROIS PROTECTIONS === */
+  .protections {
+    background: var(--noir);
+    color: var(--ivoire);
+  }
+
+  .protections h2 { color: var(--ivoire); }
+
+  .protections p { color: #d4c8b0; }
+
+  .protection-item {
+    margin-bottom: 32px;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .protection-item::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--or-vif);
+    font-size: 14px;
+  }
+
+  .protection-item h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--or-clair);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .protection-item p {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+
+  /* === PRINCIPES LIVINGSTONE === */
+  .section-principes { background: var(--ivoire); }
+
+  .principes-list {
+    margin: 24px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .principes-list li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    padding: 12px 0 12px 32px;
+    border-bottom: 1px solid var(--bordure);
+    position: relative;
+  }
+
+  .principes-list li:last-child { border-bottom: none; }
+
+  .principes-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    color: var(--or);
+    font-size: 11px;
+  }
+
+  .principes-list strong {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--noir);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* === SECTION POUR QUI === */
+  .section-pourqui { background: var(--ivoire-clair); }
+
+  /* === CONDITIONS FINANCIÈRES === */
+  .section-conditions {
+    background: var(--ivoire);
+    padding: 64px 24px;
+  }
+
+  .rendement-block {
+    background: linear-gradient(180deg, #fff 0%, #fbf6ec 100%);
+    border: 1px solid var(--or);
+    border-top: 3px solid var(--or);
+    padding: 36px 28px 28px 28px;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+    box-shadow: 0 4px 24px rgba(168, 132, 85, 0.08);
+  }
+
+  .rendement-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--or-fonce);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .rendement-chiffre {
+    font-family: 'Cinzel', 'Latin Modern Roman Caps', serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--noir);
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .rendement-chiffre em {
+    font-family: 'Cormorant Garamond', 'Caladea', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--or-fonce);
+    font-size: 38px;
+    letter-spacing: 0;
+  }
+
+  .rendement-warning {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--noir);
+    text-transform: uppercase;
+    line-height: 1.6;
+    padding-top: 18px;
+    border-top: 1px solid var(--bordure);
+  }
+
+  .rendement-warning .diamond {
+    color: var(--or-fonce);
+    font-size: 9px;
+    margin: 0 6px;
+  }
+
+  @media (max-width: 600px) {
+    .rendement-chiffre { font-size: 22px; }
+    .rendement-chiffre em { font-size: 30px; }
+    .rendement-warning { font-size: 10px; letter-spacing: 1px; }
+  }
+
+  /* === FORMULAIRE === */
+  .section-form {
+    background: var(--noir);
+    padding: 70px 24px;
+    color: var(--ivoire);
+  }
+
+  .section-form h2 { color: var(--ivoire); }
+  .section-form .section-rule { background: var(--or-clair); }
+
+  .form-intro {
+    text-align: center;
+    color: #d4c8b0;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Avertissement encadré */
+  .warning-box {
+    max-width: 680px;
+    margin: 0 auto 40px auto;
+    background: rgba(242, 235, 223, 0.05);
+    border-left: 2px solid var(--or);
+    padding: 20px 24px;
+  }
+
+  .warning-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    color: var(--or-clair);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .warning-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #c4b89e;
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* Formulaire styling */
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--ivoire);
+    padding: 36px 32px;
+    color: var(--texte);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--or-fonce);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  label .req { color: #b85a3c; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--bordure);
+    background: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--texte);
+    transition: border-color 0.2s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--or);
+    box-shadow: 0 0 0 2px rgba(201, 168, 124, 0.15);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* Checkboxes */
+  .checkbox-group {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--bordure);
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .checkbox-item input[type="checkbox"] {
+    margin-top: 4px;
+    flex-shrink: 0;
+    accent-color: var(--or-fonce);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .checkbox-item label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texte);
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .checkbox-item a {
+    color: var(--or-fonce);
+    text-decoration: underline;
+  }
+
+  /* Bouton CTA */
+  .btn-submit {
+    display: block;
+    width: 100%;
+    margin-top: 32px;
+    padding: 18px 24px;
+    background: linear-gradient(180deg, var(--or-vif) 0%, var(--or-clair) 50%, var(--or) 100%);
+    color: var(--noir);
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-submit:active { transform: translateY(0); }
+
+  /* === TAGLINE === */
+  .tagline-section {
+    background: var(--noir);
+    color: var(--or-clair);
+    text-align: center;
+    padding: 36px 24px;
+    border-top: 1px solid var(--or-fonce);
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--or-clair);
+    margin-bottom: 8px;
+  }
+
+  .cities {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--or-fonce);
+    text-transform: uppercase;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: #f5efe2;
+    padding: 40px 24px 30px 24px;
+    border-top: 1px solid var(--bordure);
+  }
+
+  .footer-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .footer-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    line-height: 1.7;
+    color: var(--texte-doux);
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  .footer-content p strong { color: var(--noir); }
+
+  .footer-links {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--bordure);
+  }
+
+  .footer-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: var(--or-fonce);
+    text-decoration: none;
+    margin: 0 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .footer-links a:hover { text-decoration: underline; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    .hero { padding: 50px 20px 60px 20px; }
+    .hero h1 { font-size: 32px; }
+    .hero-sub { font-size: 18px; }
+    .eyebrow { font-size: 10px; letter-spacing: 4px; gap: 10px; }
+    .eyebrow::before, .eyebrow::after { width: 24px; }
+
+    section { padding: 48px 20px; }
+    h2 { font-size: 22px; letter-spacing: 1.5px; }
+    p { font-size: 16px; }
+
+    form { padding: 28px 22px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-row .form-group { margin-bottom: 20px; }
+
+    .protection-item { padding-left: 22px; }
+    .principes-list li { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <svg class="gull-svg" width="60" height="22" viewBox="0 0 100 36" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 8 26 Q 28 4, 50 22 Q 72 4, 92 26" stroke="#C9A87C" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  </svg>
+  <div class="brand-name">LIVINGSTONE</div>
+  <div class="brand-sub">Family Office</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Investissement obligataire garanti</div>
+    <h1>Des obligations privées<br>garanties par <em>fiducie-sûreté</em>.</h1>
+    <p class="hero-sub">Le rendement obligataire, sécurisé<br>par une garantie réelle de premier rang.</p>
+    <div class="hero-mention">Réservé à un cercle restreint d'investisseurs avertis</div>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section class="section-pourquoi">
+  <div class="container">
+    <h2>Pourquoi cette opération</h2>
+    <div class="section-rule"></div>
+    <p>Livingstone sélectionne pour ses clients investisseurs des opérations obligataires structurées avec une exigence simple : <strong>la sécurité juridique avant le rendement</strong>.</p>
+    <p>L'opération en cours associe un coupon attractif à une garantie d'exception : la <strong>fiducie-sûreté</strong>, mécanisme prévu par les articles 2011 et suivants du Code civil, encore largement méconnu des réseaux bancaires.</p>
+  </div>
+</section>
+
+<!-- TROIS PROTECTIONS -->
+<section class="protections">
+  <div class="container">
+    <h2>Trois protections, trois certitudes</h2>
+    <div class="section-rule"></div>
+
+    <div class="protection-item">
+      <h3>Patrimoine d'affectation séparé</h3>
+      <p>Les actifs gagés sont placés hors du bilan du débiteur. Ils deviennent insaisissables par ses créanciers personnels, y compris en cas de procédure collective.</p>
+    </div>
+
+    <div class="protection-item">
+      <h3>Avocat-fiduciaire indépendant</h3>
+      <p>Le contrat est porté par un avocat inscrit au Registre national des fiducies (RNF), tiers de confiance neutre dont la mission est exclusivement protectrice de l'investisseur.</p>
+    </div>
+
+    <div class="protection-item">
+      <h3>Réalisation rapide en cas de défaillance</h3>
+      <p>La garantie peut être attribuée ou cédée directement au bénéficiaire, sans procédure judiciaire longue. Une efficacité que les sûretés classiques (hypothèque, nantissement) n'offrent pas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPES LIVINGSTONE -->
+<section class="section-principes">
+  <div class="container">
+    <h2>Pourquoi Livingstone</h2>
+    <div class="section-rule"></div>
+    <p>Notre approche repose sur trois principes&nbsp;:</p>
+
+    <ul class="principes-list">
+      <li>
+        <strong>Indépendance totale</strong>
+        vis-à-vis des réseaux bancaires de distribution
+      </li>
+      <li>
+        <strong>Solutions construites en direct</strong>
+        avec les émetteurs et les fiduciaires
+      </li>
+      <li>
+        <strong>Co-investissement systématique</strong>
+        aux côtés de nos clients ("skin in the game")
+      </li>
+    </ul>
+
+    <p>Nous ne distribuons pas de produits standardisés. Chaque opération est sélectionnée, négociée et structurée pour notre cercle de clients investisseurs avertis.</p>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="section-pourqui">
+  <div class="container">
+    <h2>Pour qui</h2>
+    <div class="section-rule"></div>
+    <p>Cette opération s'adresse à des investisseurs avertis, personnes physiques ou personnes morales soumises à l'IS, disposant d'une capacité d'investissement adaptée à un placement obligataire de moyen terme.</p>
+    <p>Les caractéristiques précises de l'opération (montants, durée, rendement, sous-jacent de la garantie) vous seront communiquées <strong>après qualification de votre profil et signature d'un engagement de confidentialité</strong>.</p>
+  </div>
+</section>
+
+<!-- CONDITIONS FINANCIÈRES -->
+<section class="section-conditions">
+  <div class="container">
+    <h2>Conditions financières</h2>
+    <div class="section-rule"></div>
+
+    <div class="rendement-block">
+      <div class="rendement-eyebrow">Rémunération</div>
+      <div class="rendement-chiffre">Coupons mensuels<br>jusqu'à <em>8 %</em> brut par an</div>
+      <div class="rendement-warning">
+        <span class="diamond">◆</span> Risque de perte en capital partiel ou total — Réservé aux investisseurs avertis <span class="diamond">◆</span>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:32px;">Durée de l'opération, montants minimum de souscription, sous-jacent de la garantie et caractéristiques détaillées vous seront communiqués lors de l'échange téléphonique, <strong>après validation de votre profil</strong>.</p>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="section-form" id="formulaire">
+  <h2>Être rappelé(e) par Livingstone</h2>
+  <div class="section-rule"></div>
+  <p class="form-intro">Renseignez les informations ci-dessous. Un membre de l'équipe vous recontacte sous 48 heures ouvrées pour un premier échange confidentiel et, le cas échéant, une présentation personnalisée de l'opération.</p>
+
+  <div class="warning-box">
+    <div class="warning-tag">Avertissement réglementaire</div>
+    <p class="warning-text">Le présent site et les opérations qui y sont présentées sont strictement réservés à des investisseurs avertis dans le cadre d'un placement privé au sens de l'article L.411-2 du Code monétaire et financier. Aucune information ne constitue une offre publique de titres financiers, un conseil en investissement, une recommandation personnalisée ou une sollicitation. Tout investissement présente un risque de perte en capital partiel ou total.</p>
+  </div>
+
+  <form action="https://formspree.io/f/xqegldel" method="POST">
+    <!-- Anti-spam honeypot -->
+    <input type="text" name="_gotcha" style="display:none">
+
+    <!-- Sujet email -->
+    <input type="hidden" name="_subject" value="Nouvelle demande de rappel — Livingstone">
+
+    <!-- Civilité + Prénom -->
+    <div class="form-row">
+      <div class="form-group">
+        <label>Civilité <span class="req">*</span></label>
+        <select name="civilite" required>
+          <option value="">— Choisir —</option>
+          <option value="Mme">Mme</option>
+          <option value="M.">M.</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Prénom <span class="req">*</span></label>
+        <input type="text" name="prenom" required>
+      </div>
+    </div>
+
+    <!-- Nom -->
+    <div class="form-group">
+      <label>Nom <span class="req">*</span></label>
+      <input type="text" name="nom" required>
+    </div>
+
+    <!-- Téléphone -->
+    <div class="form-group">
+      <label>Téléphone <span class="req">*</span></label>
+      <input type="tel" name="telephone" required placeholder="+33 6 XX XX XX XX">
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label>Email professionnel <span class="req">*</span></label>
+      <input type="email" name="email" required>
+    </div>
+
+    <!-- Plage horaire -->
+    <div class="form-group">
+      <label>Plage horaire préférée pour l'appel <span class="req">*</span></label>
+      <select name="plage_horaire" required>
+        <option value="">— Choisir —</option>
+        <option value="Matin (9h-12h)">Matin (9h–12h)</option>
+        <option value="Après-midi (14h-18h)">Après-midi (14h–18h)</option>
+        <option value="Indifférent">Indifférent</option>
+      </select>
+    </div>
+
+    <!-- Type souscripteur -->
+    <div class="form-group">
+      <label>Type de souscripteur <span class="req">*</span></label>
+      <select name="type_souscripteur" required>
+        <option value="">— Choisir —</option>
+        <option value="Personne physique">Personne physique</option>
+        <option value="Personne morale soumise à l'IS">Personne morale soumise à l'IS</option>
+      </select>
+    </div>
+
+    <!-- Capacité d'investissement -->
+    <div class="form-group">
+      <label>Capacité d'investissement envisagée <span class="req">*</span></label>
+      <select name="capacite_investissement" required>
+        <option value="">— Choisir —</option>
+        <option value="50 000 € à 100 000 €">50 000 € à 100 000 €</option>
+        <option value="100 000 € à 250 000 €">100 000 € à 250 000 €</option>
+        <option value="250 000 € à 500 000 €">250 000 € à 500 000 €</option>
+        <option value="Au-delà de 500 000 €">Au-delà de 500 000 €</option>
+      </select>
+    </div>
+
+    <!-- Profession -->
+    <div class="form-group">
+      <label>Profession / Fonction</label>
+      <input type="text" name="profession">
+    </div>
+
+    <!-- Message -->
+    <div class="form-group">
+      <label>Message (facultatif)</label>
+      <textarea name="message" rows="3"></textarea>
+    </div>
+
+    <!-- Cases à cocher obligatoires -->
+    <div class="checkbox-group">
+      <div class="checkbox-item">
+        <input type="checkbox" id="averti" name="confirmation_averti" required value="oui">
+        <label for="averti">Je déclare être un investisseur averti au sens de l'article D.411-1 du Code monétaire et financier, et reconnais avoir la connaissance et l'expérience nécessaires pour comprendre les risques inhérents à un placement obligataire privé.</label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="rgpd" name="confirmation_rgpd" required value="oui">
+        <label for="rgpd">J'ai pris connaissance des <a href="/mentions-legales">mentions légales</a> et de la <a href="/confidentialite">politique de confidentialité</a> de Livingstone, et j'accepte d'être recontacté(e) par téléphone dans le cadre de ma demande.</label>
+      </div>
+
+      <div class="checkbox-item">
+        <input type="checkbox" id="confidentialite" name="confirmation_confidentialite" required value="oui">
+        <label for="confidentialite">Je comprends que les caractéristiques détaillées de l'opération me seront communiquées lors de l'échange téléphonique, après validation de mon profil et signature d'un engagement de confidentialité.</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit">Demander à être rappelé(e) →</button>
+  </form>
+</section>
+
+<!-- TAGLINE -->
+<section class="tagline-section">
+  <div class="tagline">Votre patrimoine. Votre liberté.</div>
+  <div class="cities">Paris · Genève · Marseille · Cannes</div>
+</section>
+
+<!-- FOOTER MENTIONS LÉGALES -->
+<footer>
+  <div class="footer-content">
+    <p><strong>Communication à caractère promotionnel.</strong> Le présent site et les informations qu'il contient sont strictement confidentiels et destinés à des investisseurs avertis. Les opérations présentées par Livingstone constituent des placements privés au sens de l'article L.411-2 du Code monétaire et financier. Aucune information ne constitue une offre publique de titres financiers, un conseil en investissement, une recommandation personnalisée ou une sollicitation. Tout investissement présente un risque de perte en capital partiel ou total. Les performances passées ne préjugent pas des performances futures.</p>
+
+    <p><strong>LIVINGSTONE</strong> — SARL au capital social de 500 € — RCS Paris n° 951 716 349 — APE 6619B — 49 rue de Courcelles, 75008 Paris — 01 86 27 00 93 — mikael.gueviguian@livingstone-wealth.com — www.livingstone-wealth.com.</p>
+
+    <p>Enregistrée à l'ORIAS sous le n° <strong>23007478</strong> (www.orias.fr) en qualité de Conseiller en Investissement Financier adhérent de <strong>LA COMPAGNIE CIF</strong>, association agréée par l'Autorité des Marchés Financiers, et Intermédiaire en assurance courtier adhérent de <strong>LA CNCEF</strong>, association agréée auprès de l'ACPR.</p>
+
+    <p>Assurance Responsabilité Civile Professionnelle : Assurup, contrat n° RCP23051083028. Médiateur : MEDIATION CONSOMMATION DÉVELOPPEMENT (MED CONSO DEV), Centre d'Affaires Stéphanois SAS, immeuble l'Horizon, Esplanade de France, 3 rue J. Constant Milleret, 42000 Saint-Étienne. <strong>Livingstone ne peut recevoir aucun fonds, effet, ou valeur.</strong></p>
+
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/confidentialite">Confidentialité</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/reclamations">Réclamations</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
