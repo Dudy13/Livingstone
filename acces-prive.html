@@ -221,10 +221,12 @@ textarea.f{resize:vertical;min-height:74px}
       <h2>Échanger avec un conseiller</h2>
       <p class="sub">Ticket d'entrée 100 000 € · aucune souscription en ligne · vous serez recontacté pour un entretien personnalisé.</p>
 
-      <form id="leadForm" action="https://formspree.io/f/xqegldel" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Le Capitole — demande d'entretien">
+      <form id="leadForm" action="https://formsubmit.co/ajax/mikael.gueviguian@livingstone-wealth.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Le Capitole — nouvelle demande d'entretien">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="operation" value="Le Capitole · Obligation Foncière Beauvau 5M€">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
         <div class="grid2">
           <div><label class="fld" for="prenom">Prénom</label><input class="f" id="prenom" name="prenom" required></div>
@@ -306,17 +308,5 @@ textarea.f{resize:vertical;min-height:74px}
       err.style.display='block';return;
     }
     sBtn.disabled=true;sBtn.textContent='Envoi…';
-    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-      .then(function(r){
-        if(r.ok){form.style.display='none';thanks.classList.add('show');thanks.scrollIntoView({block:'center'});}
-        else{throw new Error('bad');}
-      })
-      .catch(function(){
-        err.textContent='Une erreur est survenue. Réessayez ou écrivez à mikael.gueviguian@livingstone-wealth.com.';
-        err.style.display='block';sBtn.disabled=false;sBtn.textContent='Demander un entretien confidentiel';
-      });
-  });
-})();
-</script>
-</body>
-</html>
+    var payload=Object.fromEntries(new FormData(form).entries());
+    fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload
