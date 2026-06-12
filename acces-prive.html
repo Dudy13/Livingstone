@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!--
+  LE CAPITOLE — page d'accès privé (placement privé, art. L. 411-2 I CMF)
+  Page NON répertoriée : à greffer sur le site sans lien dans la navigation.
+  noindex/nofollow actifs. Accès par URL directe uniquement.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Le Capitole — Opération confidentielle | Livingstone</title>
+<meta name="description" content="Document confidentiel réservé aux investisseurs qualifiés.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#232019; --ink2:#2B2720; --sec:#5C5648; --mut:#8A8170;
+  --cream:#F2EBDF; --paper:#FBF7EE; --tint:#ECE3D2;
+  --gold:#C9A87C; --gold-d:#A9885C; --gold-dd:#9C7B45;
+  --line:#D8CDB6; --line2:#E0D6C3; --green:#2E7D52;
+  --cz:'Cinzel',serif; --ga:'EB Garamond',serif; --mo:'Montserrat',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink2);font-family:var(--ga);
+  -webkit-font-smoothing:antialiased;line-height:1.6}
+.banner{background:var(--tint);border-bottom:1px solid var(--line);text-align:center;
+  font:500 11px/1.2 var(--mo);letter-spacing:1.5px;color:var(--mut);
+  text-transform:uppercase;padding:9px 14px}
+.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+.cz{font-family:var(--cz)} .mo{font-family:var(--mo)} .gold{color:var(--gold-d)}
+.gull{display:block;margin:0 auto}
+.eyebrow{font:500 11px var(--mo);letter-spacing:2px;color:var(--gold-d);text-transform:uppercase}
+h1,h2,h3{font-family:var(--cz);color:var(--ink);font-weight:500;margin:0}
+.muted{color:var(--mut)} .sec{color:var(--sec)}
+
+/* ---------- GATE ---------- */
+#gate{min-height:calc(100vh - 40px);display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:48px 0}
+#gate .inner{max-width:480px}
+.wordmark{font-family:var(--cz);color:var(--ink);font-size:22px;letter-spacing:7px}
+.subwm{font:500 10px var(--mo);letter-spacing:5px;color:var(--gold-d);margin-top:4px}
+#gate h1{font-size:clamp(26px,6vw,32px);margin-top:30px}
+.lead{font-size:16px;color:var(--sec);margin-top:14px}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.chip{background:var(--paper);border:1px solid var(--line);border-radius:20px;
+  color:var(--sec);font:400 12px var(--mo);padding:6px 14px}
+.divider{height:1px;background:var(--line);border:0;margin:26px auto;max-width:440px}
+.attest{display:flex;gap:11px;align-items:flex-start;text-align:left;cursor:pointer;
+  font:400 12.5px/1.55 var(--mo);color:var(--sec)}
+.box{width:19px;height:19px;border:1px solid var(--gold-d);border-radius:4px;flex:none;
+  margin-top:1px;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.box svg{opacity:0;transition:opacity .15s}
+input[type=checkbox]:checked + .box{background:var(--gold)}
+input[type=checkbox]:focus-visible + .box{outline:2px solid var(--gold);outline-offset:2px}
+input[type=checkbox]:checked + .box svg{opacity:1}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.btn{display:block;width:100%;background:var(--gold);color:var(--ink2);
+  font:500 14px var(--mo);letter-spacing:.5px;border:0;border-radius:8px;
+  padding:14px 20px;margin-top:18px;cursor:pointer;transition:filter .15s,opacity .15s}
+.btn:hover{filter:brightness(1.04)} .btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.finePrint{font:400 11px/1.5 var(--mo);color:var(--mut);margin-top:14px}
+
+/* ---------- OFFER ---------- */
+#offer{display:none;padding:46px 0 60px}
+#offer.show{display:block}
+.heroTag{text-align:center}
+#offer h1.title{font-size:clamp(40px,9vw,52px);letter-spacing:2px;margin-top:8px}
+.heroSub{font-family:var(--ga);font-style:italic;color:var(--gold-d);font-size:17px;margin-top:8px}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px;margin-top:30px}
+.metric{background:var(--paper);border:1px solid var(--line);border-radius:9px;
+  padding:15px;display:flex;flex-direction:column;min-width:0}
+.mval{font-family:var(--cz);color:var(--gold-d);font-size:21px;line-height:28px;height:28px;
+  display:flex;align-items:center;white-space:nowrap}
+.mlab{font:400 11px/1.35 var(--mo);color:var(--mut);margin-top:7px;min-height:30px}
+.callout{background:var(--paper);border:1px solid var(--line);border-left:2px solid var(--gold);
+  border-radius:0 9px 9px 0;padding:18px 22px;margin-top:22px}
+.callout h2{font-size:18px} .callout p{margin:7px 0 0;font-size:14.5px;color:var(--sec)}
+.rule{height:1px;background:var(--line);border:0;margin:34px 0}
+.sectionHead{font-size:19px}
+.sectionLead{font-size:14.5px;color:var(--sec);margin:8px 0 0}
+table{width:100%;border-collapse:collapse;margin-top:14px;table-layout:fixed}
+th{font:500 11px var(--mo);color:var(--sec);text-align:right;padding:10px;
+  background:var(--tint);border:1px solid var(--line)}
+td{font:400 13px var(--mo);color:#3B362C;text-align:right;padding:10px;border:1px solid var(--line2)}
+th:first-child,td:first-child{text-align:left}
+td b{color:var(--gold-dd);font-weight:500}
+tr.tot td{background:var(--tint);color:var(--ink2);font-weight:500}
+.note{font:italic 400 10.5px/1.5 var(--mo);color:var(--mut);margin-top:8px}
+.kicker{text-align:center;font-family:var(--ga);font-style:italic;color:var(--gold-d);
+  font-size:14px;margin-top:11px}
+.green{color:var(--green)}
+
+/* ---------- FORM ---------- */
+.contact{background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:26px 26px;margin-top:30px}
+.contact h2{text-align:center;font-size:20px}
+.contact .sub{text-align:center;font-family:var(--ga);font-style:italic;color:var(--mut);
+  font-size:13px;margin-top:5px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}
+.full{grid-column:1/3}
+label.fld{display:block;font:500 11px var(--mo);color:var(--sec);margin:0 0 5px;letter-spacing:.3px}
+input.f,select.f,textarea.f{width:100%;background:#FFFDF8;border:1px solid var(--line);
+  border-radius:8px;color:var(--ink2);font:400 14px var(--mo);padding:11px 12px}
+textarea.f{resize:vertical;min-height:74px}
+.f:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px;cursor:pointer;
+  font:400 12px/1.5 var(--mo);color:var(--sec)}
+.formMsg{display:none;font:400 13px var(--mo);margin-top:14px;padding:12px 14px;border-radius:8px}
+.formMsg.err{display:block;background:#F7E7E2;color:#8a3b27;border:1px solid #e6c3b6}
+.thanks{display:none;text-align:center;padding:16px 0}
+.thanks.show{display:block}
+.thanks .tick{width:46px;height:46px;border-radius:50%;background:var(--tint);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--gold-d)}
+
+.legal{font:400 10.5px/1.6 var(--mo);color:var(--mut);text-align:center;margin-top:30px}
+.foot{text-align:center;margin-top:38px}
+.foot .cities{font:500 10px var(--mo);letter-spacing:3px;color:var(--mut);margin-top:12px}
+
+@media (max-width:560px){
+  .grid2{grid-template-columns:1fr}.full{grid-column:auto}
+  .wrap{padding:0 18px}.contact{padding:22px 18px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===================== ÉCRAN 1 — PORTE D'ACCÈS ===================== -->
+<div class="banner">Communication à caractère promotionnel · Réservé aux investisseurs qualifiés</div>
+
+<section id="gate">
+  <div class="wrap"><div class="inner">
+    <svg class="gull" viewBox="0 0 100 60" width="78" height="23" aria-hidden="true"><path d="M 5 40 Q 27 15, 50 32 Q 73 15, 95 40" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"/></svg>
+    <div class="wordmark">LIVINGSTONE</div>
+    <div class="subwm">FAMILY OFFICE</div>
+
+    <h1>Une opération confidentielle</h1>
+    <p class="lead">Obligation privée adossée à une fiducie-sûreté, à revenus mensuels, sur un horizon de 18 mois. Une solution pensée pour la trésorerie, réservée à un cercle restreint d'investisseurs qualifiés.</p>
+
+    <div class="chips">
+      <span class="chip">Revenus mensuels</span>
+      <span class="chip">Fiducie-sûreté</span>
+      <span class="chip">Horizon 18 mois</span>
+    </div>
+
+    <hr class="divider">
+
+    <label class="attest">
+      <input type="checkbox" id="attestChk" class="vh">
+      <span class="box" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2B2720" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+      <span>Je déclare être un investisseur qualifié au sens de l'article&nbsp;L.&nbsp;411-2 du Code monétaire et financier et accéder à ce document à titre privé.</span>
+    </label>
+
+    <button class="btn" id="enterBtn" disabled>Accéder à la présentation →</button>
+    <p class="finePrint">Risque de perte en capital · Ne constitue ni une offre au public ni un conseil personnalisé · Document non contractuel</p>
+  </div></div>
+</section>
+
+<!-- ===================== ÉCRAN 2 — PRÉSENTATION ===================== -->
+<section id="offer" aria-hidden="true">
+  <div class="banner" style="margin-bottom:46px">Communication promotionnelle · Investisseur qualifié · Confidentiel</div>
+  <div class="wrap">
+
+    <div class="heroTag">
+      <svg class="gull" viewBox="0 0 100 60" width="60" height="18" aria-hidden="true"><path d="M 5 40 Q 27 15, 50 32 Q 73 15, 95 40" fill="none" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="round"/></svg>
+      <div class="eyebrow" style="margin-top:12px">Obligation privée · Foncière Beauvau</div>
+      <h1 class="title" id="offerTitle" tabindex="-1">LE CAPITOLE</h1>
+      <div class="heroSub">Le placement de trésorerie qui verse un revenu chaque mois.</div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><div class="mval">5 · 6 · 7 %</div><div class="mlab">Coupon progressif par an</div></div>
+      <div class="metric"><div class="mval">Mensuelle</div><div class="mlab">Distribution des coupons</div></div>
+      <div class="metric"><div class="mval">500 %</div><div class="mlab">Fiducie-sûreté du capital</div></div>
+      <div class="metric"><div class="mval">18 mois</div><div class="mlab">3 sorties (mois 6 · 12 · 18)</div></div>
+      <div class="metric"><div class="mval">100 000 €</div><div class="mlab">Ticket d'entrée</div></div>
+    </div>
+
+    <div class="callout">
+      <h2>Pensé pour votre trésorerie</h2>
+      <p>Entreprises, holdings et SCI à l'IS : un horizon court de 18 mois, des coupons versés chaque mois et un capital adossé à une fiducie-sûreté. Une façon de faire travailler une trésorerie excédentaire, sans l'immobiliser sur le long terme.</p>
+    </div>
+
+    <hr class="rule">
+    <h2 class="sectionHead">Des revenus chaque mois</h2>
+    <p class="sectionLead">Le coupon est crédité dès le premier mois et sa cadence progresse : 5 %, puis 6 %, puis 7 % l'an. Une sortie possible au mois 6, 12 ou 18.</p>
+    <table>
+      <colgroup><col style="width:30%"><col style="width:18%"><col style="width:26%"><col style="width:26%"></colgroup>
+      <thead><tr><th scope="col">Période</th><th scope="col">Taux / an</th><th scope="col">Pour 100 000 €</th><th scope="col">Pour 250 000 €</th></tr></thead>
+      <tbody>
+        <tr><td>Mois 1 à 6</td><td>5 %</td><td><b>417 €/mois</b></td><td><b>1 042 €/mois</b></td></tr>
+        <tr><td>Mois 7 à 12</td><td>6 %</td><td><b>500 €/mois</b></td><td><b>1 250 €/mois</b></td></tr>
+        <tr><td>Mois 13 à 18</td><td>7 %</td><td><b>583 €/mois</b></td><td><b>1 458 €/mois</b></td></tr>
+        <tr class="tot"><td>Total sur 18 mois</td><td>9 %</td><td>9 000 €</td><td>22 500 €</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Montants bruts, illustratifs. Coupon calculé prorata temporis sur le nominal.</p>
+
+    <hr class="rule">
+    <h2 class="sectionHead">Un capital sécurisé, même à la casse</h2>
+    <p class="sectionLead">La fiducie loge <span class="gold">25 M€ d'actifs pour environ 5,45 M€ dus</span>. Même fortement décotés à la revente, ils couvriraient le capital et les coupons.</p>
+    <table>
+      <colgroup><col style="width:42%"><col style="width:29%"><col style="width:29%"></colgroup>
+      <thead><tr><th scope="col">Décote sur les actifs</th><th scope="col">Valeur récupérée</th><th scope="col">Couverture du dû</th></tr></thead>
+      <tbody>
+        <tr><td>− 30 %</td><td>17,5 M€</td><td class="green">× 3,2</td></tr>
+        <tr><td>− 50 %</td><td>12,5 M€</td><td class="green">× 2,3</td></tr>
+        <tr><td>− 70 %</td><td>7,5 M€</td><td class="green">× 1,4</td></tr>
+        <tr class="tot"><td>− 78 % (seuil de rupture)</td><td>5,5 M€</td><td class="gold">× 1,0</td></tr>
+      </tbody>
+    </table>
+    <p class="kicker">Les actifs devraient perdre près de 78 % de leur valeur avant d'entamer le capital.</p>
+
+    <!-- ===================== PRISE DE CONTACT ===================== -->
+    <div class="contact">
+      <h2>Échanger avec un conseiller</h2>
+      <p class="sub">Ticket d'entrée 100 000 € · aucune souscription en ligne · vous serez recontacté pour un entretien personnalisé.</p>
+
+      <form id="leadForm" action="https://formspree.io/f/xqegldel" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Le Capitole — demande d'entretien">
+        <input type="hidden" name="operation" value="Le Capitole · Obligation Foncière Beauvau 5M€">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="grid2">
+          <div><label class="fld" for="prenom">Prénom</label><input class="f" id="prenom" name="prenom" required></div>
+          <div><label class="fld" for="nom">Nom</label><input class="f" id="nom" name="nom" required></div>
+          <div><label class="fld" for="email">Email</label><input class="f" id="email" name="email" type="email" required></div>
+          <div><label class="fld" for="tel">Téléphone</label><input class="f" id="tel" name="telephone" type="tel"></div>
+          <div><label class="fld" for="profil">Vous êtes</label>
+            <select class="f" id="profil" name="profil">
+              <option>Particulier</option>
+              <option>Personne morale (société / holding)</option>
+            </select>
+          </div>
+          <div><label class="fld" for="montant">Montant envisagé</label>
+            <select class="f" id="montant" name="montant">
+              <option value="">À préciser</option>
+              <option>100 000 – 250 000 €</option>
+              <option>250 000 – 500 000 €</option>
+              <option>500 000 € et plus</option>
+            </select>
+          </div>
+          <div class="full"><label class="fld" for="msg">Message (facultatif)</label><textarea class="f" id="msg" name="message"></textarea></div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="consentChk" class="vh" required>
+          <span class="box" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2B2720" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <span>Je confirme être un investisseur qualifié et accepter d'être recontacté par Livingstone au sujet de cette opération.</span>
+        </label>
+
+        <button type="submit" class="btn" id="submitBtn">Demander un entretien confidentiel</button>
+        <div class="formMsg err" id="formErr">Une erreur est survenue. Réessayez ou écrivez à mikael.gueviguian@livingstone-wealth.com.</div>
+      </form>
+
+      <div class="thanks" id="thanks">
+        <div class="tick"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <h2>Demande bien reçue</h2>
+        <p class="sub" style="font-style:normal">Un conseiller Livingstone vous recontactera très prochainement pour un entretien personnalisé.</p>
+      </div>
+    </div>
+
+    <p class="legal">
+      LIVINGSTONE — SARL · RCS Paris 951&nbsp;716&nbsp;349 · ORIAS 23007478 (Conseiller en Investissement Financier, La Compagnie CIF · Intermédiaire en assurance courtier, La CNCEF). Communication à caractère promotionnel et non contractuelle. Document strictement confidentiel réservé aux investisseurs qualifiés, dans le cadre d'un placement privé (art. L.&nbsp;411-2&nbsp;I du Code monétaire et financier) ; il ne constitue ni une offre au public, ni une sollicitation, ni un conseil en investissement personnalisé. L'investissement présente un risque de perte en capital, partielle ou totale, et un risque d'illiquidité. Les performances passées ne préjugent pas des performances futures. Capital adossé à une fiducie-sûreté, non garanti.
+    </p>
+
+    <div class="foot">
+      <svg class="gull" viewBox="0 0 100 60" width="52" height="16" aria-hidden="true"><path d="M 5 40 Q 27 15, 50 32 Q 73 15, 95 40" fill="none" stroke="#A9885C" stroke-width="3.2" stroke-linecap="round"/></svg>
+      <div class="cities">PARIS · GENÈVE · MARSEILLE · CANNES</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  var chk=document.getElementById('attestChk'),
+      btn=document.getElementById('enterBtn'),
+      gate=document.getElementById('gate'),
+      offer=document.getElementById('offer');
+  chk.addEventListener('change',function(){btn.disabled=!chk.checked;});
+  btn.addEventListener('click',function(){
+    if(!chk.checked)return;
+    gate.style.display='none';
+    offer.classList.add('show');
+    offer.setAttribute('aria-hidden','false');
+    window.scrollTo(0,0);
+    document.getElementById('offerTitle').focus();
+  });
+
+  var form=document.getElementById('leadForm'),
+      err=document.getElementById('formErr'),
+      thanks=document.getElementById('thanks'),
+      sBtn=document.getElementById('submitBtn'),
+      consent=document.getElementById('consentChk');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    err.style.display='none';
+    if(!form.prenom.value.trim()||!form.nom.value.trim()||!form.email.value.trim()||!consent.checked){
+      err.textContent='Merci de renseigner vos nom, prénom, email et de cocher la confirmation.';
+      err.style.display='block';return;
+    }
+    sBtn.disabled=true;sBtn.textContent='Envoi…';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){form.style.display='none';thanks.classList.add('show');thanks.scrollIntoView({block:'center'});}
+        else{throw new Error('bad');}
+      })
+      .catch(function(){
+        err.textContent='Une erreur est survenue. Réessayez ou écrivez à mikael.gueviguian@livingstone-wealth.com.';
+        err.style.display='block';sBtn.disabled=false;sBtn.textContent='Demander un entretien confidentiel';
+      });
+  });
+})();
+</script>
+</body>
+</html>
