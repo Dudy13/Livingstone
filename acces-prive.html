@@ -309,4 +309,17 @@ textarea.f{resize:vertical;min-height:74px}
     }
     sBtn.disabled=true;sBtn.textContent='Envoi…';
     var payload=Object.fromEntries(new FormData(form).entries());
-    fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload
+    fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){
+        if(r.ok){form.style.display='none';thanks.classList.add('show');thanks.scrollIntoView({block:'center'});}
+        else{throw new Error('bad');}
+      })
+      .catch(function(){
+        err.textContent='Une erreur est survenue. Réessayez ou écrivez à mikael.gueviguian@livingstone-wealth.com.';
+        err.style.display='block';sBtn.disabled=false;sBtn.textContent='Demander un entretien confidentiel';
+      });
+  });
+})();
+</script>
+</body>
+</html>
