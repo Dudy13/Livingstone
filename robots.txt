@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /qualification
+Disallow: /qualification.html
+Disallow: /acces-prive
+Disallow: /acces-prive.html
+
+Sitemap: https://www.livingstone-wealth.com/sitemap.xml

@@ -11,15 +11,11 @@ if (burger && navMobile) {
   });
 }
 
-// Subtle navbar shadow on scroll
+// Navbar border opacity bump on scroll (same gold tint as the resting border).
 const nav = document.getElementById('nav');
 if (nav) {
   const onScroll = () => {
-    if (window.scrollY > 12) {
-      nav.style.boxShadow = '0 1px 0 rgba(201, 168, 76, 0.15)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
+    nav.classList.toggle('scrolled', window.scrollY > 12);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
