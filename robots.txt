@@ -1,4 +1,21 @@
+# Robots — Livingstone Family Office
+# Accès ouvert à tous, y compris les robots d'IA générative (GEO).
+
 User-agent: *
+Allow: /
+Disallow: /qualification
+Disallow: /qualification.html
+Disallow: /acces-prive
+Disallow: /acces-prive.html
+
+# Robots d'IA générative — explicitement autorisés (indexation & citation)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Google-Extended
 Allow: /
 Disallow: /qualification
 Disallow: /qualification.html

@@ -23,6 +23,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
+  <style>
+    /* Scroll par sections — limité à la page d'accueil */
+    html { scroll-snap-type: y proximity; }
+    .pv { scroll-snap-align: start; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; } }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -100,541 +107,123 @@
 <body>
 
   <!-- NAVIGATION -->
-  <header class="nav" id="nav">
+  <header class="nav portal-nav" id="nav">
     <div class="nav-inner">
       <a href="#accueil" class="nav-logo">
-        <img src="images/livingstone_nav.png" alt="Livingstone" />
+        <img src="images/livingstone_nav.png" alt="Livingstone Family Office" />
       </a>
       <nav class="nav-links">
-        <a href="#approche">Notre approche</a>
-        <a href="#solutions">Solutions</a>
-        <a href="a-propos.html">À propos</a>
-        <a href="#frais">Frais</a>
-        <a href="#medias">Médias</a>
+        <a href="a-propos.html">Notre approche</a>
+        <a href="nos-solutions.html">Solutions</a>
         <a href="cas-pratiques.html">Cas pratiques</a>
         <a href="faq.html">FAQ</a>
-        <a href="#valorisation">Valorisation</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <a href="#contact" class="nav-cta">Demander un accès</a>
+      <a href="contact.html" class="nav-cta">Demander un accès</a>
       <button class="nav-burger" aria-label="Menu" id="burger">
         <span></span><span></span><span></span>
       </button>
     </div>
     <nav class="nav-mobile" id="navMobile">
-      <a href="#approche">Notre approche</a>
-      <a href="#solutions">Solutions</a>
-      <a href="a-propos.html">À propos</a>
-      <a href="#frais">Frais</a>
-      <a href="#medias">Médias</a>
+      <a href="a-propos.html">Notre approche</a>
+      <a href="nos-solutions.html">Solutions</a>
       <a href="cas-pratiques.html">Cas pratiques</a>
       <a href="faq.html">FAQ</a>
-      <a href="#valorisation">Valorisation</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="nav-cta nav-cta-mobile">Demander un accès</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta nav-cta-mobile">Demander un accès</a>
     </nav>
   </header>
 
-  <!-- SECTION 1 — HERO -->
-  <section class="hero" id="accueil" style="height:100vh;position:relative;overflow:hidden;background:#111111;">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-.hero-anim *{margin:0;padding:0;box-sizing:border-box;}
-.stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-.rule{position:absolute;left:6%;right:6%;height:1px;background:#8B7355;opacity:0;transform:scaleX(0);transform-origin:left center;transition:transform 1.4s ease,opacity .6s ease;}
-.rule.show{opacity:.55;transform:scaleX(1);}
-.rule.top{top:7%;}.rule.bottom{bottom:7%;}
-.rule.faint{opacity:0;}.rule.top.faint{top:calc(7% + 7px);}.rule.bottom.faint{bottom:calc(7% + 7px);}
-.rule.faint.show{opacity:.22;}
-.cities{position:absolute;top:calc(7% - 28px);left:0;right:0;text-align:center;font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.4em;color:rgba(232,228,220,0.55);text-transform:uppercase;opacity:0;transition:opacity 1s ease .8s;}
-.cities.show{opacity:1;}
-.footer-line{position:absolute;bottom:calc(7% - 28px);left:0;right:0;text-align:center;font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:.4em;color:rgba(232,228,220,0.4);text-transform:uppercase;opacity:0;transition:opacity 1s ease;}
-.footer-line.show{opacity:1;}
-.progress-hero{position:absolute;bottom:0;left:0;height:1.5px;background:#8B7355;width:0%;opacity:.8;}
-.anim-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;transition:opacity 1s ease;}
-.anim-scene.active{opacity:1;}
-.logo-wrap-a{display:flex;align-items:center;gap:36px;}
-.gull-svg path{fill:none;stroke:#E8E4DC;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:280;stroke-dashoffset:280;transition:stroke-dashoffset 1.6s cubic-bezier(.65,.05,.36,1);}
-.anim-scene.active .gull-svg path{stroke-dashoffset:0;}
-.vbar-a{width:1px;height:0;background:rgba(232,228,220,0.45);transition:height 0.7s ease 0.9s;}
-.anim-scene.active .vbar-a{height:90px;}
-.wordmark-a{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5vw,64px);letter-spacing:8px;color:#E8E4DC;text-transform:uppercase;line-height:1;display:flex;}
-.wordmark-a span{opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease;}
-.anim-scene.active .wordmark-a span{opacity:1;transform:translateY(0);}
-.baseline-a{font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(232,228,220,0.6);margin-top:14px;opacity:0;transition:opacity .8s ease 2.2s;}
-.anim-scene.active .baseline-a{opacity:1;}
-.text-block-a{display:flex;flex-direction:column;align-items:flex-start;}
-.stats-a{display:flex;align-items:center;gap:clamp(32px,6vw,90px);}
-.stat-a{display:flex;flex-direction:column;align-items:center;gap:14px;}
-.stat-num-a{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,8vw,96px);color:#E8E4DC;line-height:1;}
-.stat-label-a{font-family:-apple-system,sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(232,228,220,0.55);}
-.stat-div-a{width:1px;height:110px;background:#8B7355;opacity:.5;}
-.philo-a{display:flex;flex-direction:column;align-items:center;gap:22px;max-width:80%;text-align:center;}
-.philo-a p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,3vw,30px);color:rgba(232,228,220,0.78);line-height:1.4;opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease;}
-.philo-a p.bright{color:#E8E4DC;}
-.philo-a p.show{opacity:1;transform:translateY(0);}
-.pillars-a{display:flex;flex-direction:column;gap:28px;}
-.pillar-a{display:flex;align-items:center;gap:18px;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.5vw,26px);color:#E8E4DC;opacity:0;transform:translateX(-24px);transition:opacity .8s ease,transform .8s ease;}
-.pillar-a.show{opacity:1;transform:translateX(0);}
-.pillar-dot-a{width:6px;height:6px;border-radius:50%;background:#8B7355;flex-shrink:0;}
-.final-a{display:flex;flex-direction:column;align-items:center;gap:36px;}
-.final-a .vbar-a{height:90px;}
-.final-a .wordmark-a span{opacity:1;transform:none;}
-.final-a .baseline-a{opacity:1;}
-.tagline-a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,2.5vw,26px);color:rgba(232,228,220,0.78);letter-spacing:.02em;opacity:0;transition:opacity 1s ease .4s;}
-.anim-scene.active .tagline-a{opacity:1;}
-@media (max-width:768px){
-  .rule.top{top:15%;}
-  .rule.top.faint{top:calc(15% + 7px);}
-  .rule.bottom{bottom:11%;}
-  .rule.bottom.faint{bottom:calc(11% + 7px);}
-  .cities{top:calc(15% - 22px);font-size:9px;letter-spacing:.2em;padding:0 12px;}
-  .footer-line{bottom:calc(11% - 22px);font-size:9px;letter-spacing:.2em;padding:0 12px;}
-  .logo-wrap-a{flex-direction:column;gap:14px;}
-  .logo-wrap-a .vbar-a{display:none;}
-  .text-block-a{align-items:center;}
-  .gull-svg{width:120px;height:56px;}
-  .wordmark-a{letter-spacing:4px;font-size:clamp(22px,6vw,40px);}
-  .stats-a{flex-direction:column;gap:28px;}
-  .stat-div-a{width:60px;height:1px;}
-  .stat-num-a{font-size:clamp(44px,12vw,72px);}
-  .pillars-a{gap:18px;max-width:90vw;padding:0 16px;}
-  .pillar-a{font-size:clamp(15px,4vw,22px);gap:14px;}
-  .philo-a{max-width:92%;gap:16px;}
-  .philo-a p{font-size:clamp(16px,4.5vw,24px);}
-  .final-a{gap:24px;}
-  .final-a .vbar-a{display:none;}
-  .tagline-a{font-size:clamp(14px,3.5vw,20px);padding:0 20px;text-align:center;}
-}
-@media (max-width:480px){
-  .gull-svg{width:100px;height:47px;}
-  .wordmark-a{letter-spacing:3px;font-size:clamp(20px,7vw,32px);}
-  .cities{font-size:8px;letter-spacing:.15em;}
-  .footer-line{font-size:8px;letter-spacing:.15em;}
-  .stat-num-a{font-size:clamp(40px,13vw,60px);}
-  .stat-label-a{font-size:10px;letter-spacing:3px;}
-  .pillars-a{gap:14px;}
-  .baseline-a{font-size:10px;letter-spacing:3px;}
-}
-</style>
-<div class="stage">
-  <div class="rule top" id="aRuleTop"></div>
-  <div class="rule top faint" id="aRuleTopF"></div>
-  <div class="rule bottom" id="aRuleBot"></div>
-  <div class="rule bottom faint" id="aRuleBotF"></div>
-  <div class="cities" id="aCities">PARIS · GENÈVE · MARSEILLE · CANNES</div>
-  <div class="footer-line" id="aFooter">MMXXVI · LIVINGSTONE.FO</div>
-  <div class="anim-scene" id="aS1">
-    <div class="logo-wrap-a">
-      <svg class="gull-svg" viewBox="0 0 120 56" width="170" height="79"><path d="M4 38 C 20 14, 36 14, 60 32 C 84 14, 100 14, 116 38"/></svg>
-      <div class="vbar-a"></div>
-      <div class="text-block-a">
-        <div class="wordmark-a" id="aWordmark"></div>
-        <div class="baseline-a">Family Office</div>
+  <!-- SECTION VIDÉO 1 — MARQUE -->
+  <section class="pv" id="accueil">
+    <video class="pv-media" data-vid="gulls" muted loop playsinline preload="none" poster="images/cote-poster.jpg" aria-hidden="true"></video>
+    <div class="pv-scrim"></div>
+    <div class="pv-inner">
+      <p class="eyebrow">Family Office indépendant · Paris</p>
+      <h1 class="pv-title">Votre patrimoine. Votre liberté.</h1>
+      <p class="pv-lead">Une gestion de fortune conçue pour une famille à la fois.</p>
+      <div class="pv-stats">
+        <span><b>30</b> familles accompagnées</span>
+        <span class="sep"></span>
+        <span><b>400 M€</b> encours conseillés</span>
+        <span class="sep"></span>
+        <span>Paris · Genève · Marseille · Cannes</span>
       </div>
     </div>
-  </div>
-  <div class="anim-scene" id="aS2">
-    <div class="stats-a">
-      <div class="stat-a"><div class="stat-num-a" id="aStat1">0</div><div class="stat-label-a">Familles accompagnées</div></div>
-      <div class="stat-div-a"></div>
-      <div class="stat-a"><div class="stat-num-a" id="aStat2">0M€</div><div class="stat-label-a">Encours conseillés</div></div>
-    </div>
-  </div>
-  <div class="anim-scene" id="aS3">
-    <div class="philo-a">
-      <p>Pas de fonds collectifs.</p>
-      <p>Pas de compromis.</p>
-      <p class="bright">Des solutions conçues uniquement pour vous.</p>
-    </div>
-  </div>
-  <div class="anim-scene" id="aS4">
-    <div class="pillars-a">
-      <div class="pillar-a"><span class="pillar-dot-a"></span>Ingénierie financière sur-mesure</div>
-      <div class="pillar-a"><span class="pillar-dot-a"></span>Protection luxembourgeoise</div>
-      <div class="pillar-a"><span class="pillar-dot-a"></span>Accès aux plus grandes banques privées suisses</div>
-    </div>
-  </div>
-  <div class="anim-scene" id="aS5">
-    <div class="final-a">
-      <div class="logo-wrap-a">
-        <svg class="gull-svg" viewBox="0 0 120 56" width="170" height="79"><path style="stroke-dashoffset:0" d="M4 38 C 20 14, 36 14, 60 32 C 84 14, 100 14, 116 38"/></svg>
-        <div class="vbar-a"></div>
-        <div class="text-block-a">
-          <div class="wordmark-a"><span>L</span><span>I</span><span>V</span><span>I</span><span>N</span><span>G</span><span>S</span><span>T</span><span>O</span><span>N</span><span>E</span></div>
-          <div class="baseline-a">Family Office</div>
-        </div>
-      </div>
-      <div class="tagline-a">Votre patrimoine. Votre liberté.</div>
-    </div>
-  </div>
-  <div class="progress-hero" id="aProgress"></div>
-</div>
-<script>
-(function(){
-  var TOTAL=20000;
-  var w=document.getElementById('aWordmark');
-  'LIVINGSTONE'.split('').forEach(function(c,i){var s=document.createElement('span');s.textContent=c;s.style.transitionDelay=(1.0+i*0.07)+'s';w.appendChild(s);});
-  var timeouts=[],rafIds=[];
-  function later(fn,ms){var id=setTimeout(fn,ms);timeouts.push(id);return id;}
-  function raf(fn){var id=requestAnimationFrame(fn);rafIds.push(id);return id;}
-  function activate(id){document.querySelectorAll('.anim-scene').forEach(function(s){s.classList.remove('active');});document.getElementById(id).classList.add('active');}
-  function showEl(el){el.classList.add('show');}
-  function hideEl(el){el.classList.remove('show');}
-  function reset(){
-    timeouts.forEach(clearTimeout);timeouts=[];
-    rafIds.forEach(cancelAnimationFrame);rafIds=[];
-    document.querySelectorAll('.anim-scene').forEach(function(s){s.classList.remove('active');});
-    document.querySelectorAll('.rule').forEach(hideEl);
-    hideEl(document.getElementById('aCities'));
-    hideEl(document.getElementById('aFooter'));
-    document.querySelectorAll('#aS3 .philo-a p').forEach(hideEl);
-    document.querySelectorAll('#aS4 .pillar-a').forEach(hideEl);
-    document.getElementById('aStat1').textContent='0';
-    document.getElementById('aStat2').textContent='0M€';
-    document.getElementById('aProgress').style.width='0%';
-  }
-  function runCycle(){
-    reset();
-    var start=performance.now();
-    later(function(){showEl(document.getElementById('aRuleTop'));showEl(document.getElementById('aRuleTopF'));showEl(document.getElementById('aRuleBot'));showEl(document.getElementById('aRuleBotF'));},100);
-    later(function(){showEl(document.getElementById('aCities'));},400);
-    activate('aS1');
-    later(function(){
-      activate('aS2');
-      showEl(document.getElementById('aFooter'));
-      var s1=document.getElementById('aStat1'),s2=document.getElementById('aStat2'),dur=1800,t0=performance.now();
-      function tick(now){var t=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-t,3);s1.textContent=Math.round(e*30);s2.textContent=Math.round(e*400)+'M€';if(t<1)raf(tick);}
-      raf(tick);
-    },4000);
-    later(function(){
-      activate('aS3');
-      var lines=document.querySelectorAll('#aS3 .philo-a p');
-      lines.forEach(function(l,i){later(function(){l.classList.add('show');},200+i*1100);});
-    },8000);
-    later(function(){
-      activate('aS4');
-      var items=document.querySelectorAll('#aS4 .pillar-a');
-      items.forEach(function(p,i){later(function(){p.classList.add('show');},200+i*800);});
-    },13000);
-    later(function(){activate('aS5');},18000);
-    var pb=document.getElementById('aProgress');
-    function loop(now){var el=Math.min(TOTAL,now-start);pb.style.width=(el/TOTAL*100)+'%';if(el<TOTAL)raf(loop);}
-    raf(loop);
-    later(runCycle,TOTAL);
-  }
-  runCycle();
-})();
-</script>
-</section>
-
-  <!-- SECTION 2 — MANIFESTE -->
-  <section class="manifeste" id="approche">
-    <div class="ornament"><span class="rule"></span><span class="diamond">◆</span><span class="rule"></span></div>
-    <blockquote>Nos clients n'accèdent pas à des produits du marché. Ils accèdent à des <span class="quote-accent">solutions que nous avons conçues</span> — pour eux, et pour eux seuls.</blockquote>
-    <div class="ornament"><span class="rule"></span><span class="diamond">◆</span><span class="rule"></span></div>
-    <p class="signature">— Mikael Gueviguian, Fondateur &amp; Directeur de la gestion</p>
+    <div class="pv-scroll">Découvrir</div>
   </section>
 
-  <!-- SECTION 3 — SOLUTIONS -->
-  <section class="solutions" id="solutions">
-    <div class="section-head">
-      <p class="eyebrow eyebrow-dark">Nos solutions exclusives</p>
-      <h2>Un univers d'opportunités<br/>inaccessibles ailleurs</h2>
-      <span class="rule-gold center"></span>
-      <p class="section-sub">Pas de SCPI. Pas de produits structurés de campagne. Pas de fonds UC collectifs. Chaque solution est conçue sur-mesure, avec des garanties intégrées dès la conception.</p>
-    </div>
-    <div class="solutions-grid">
-      <article class="card">
-        <span class="card-num">01</span>
-        <h3>Assurance vie luxembourgeoise</h3>
-        <p class="card-sub">Protection &amp; transmission</p>
-        <p>Garantie illimitée des capitaux, accès actifs non cotés, neutralité fiscale européenne.</p>
-      </article>
-      <article class="card">
-        <span class="card-num">02</span>
-        <h3>Private Equity sélectionné</h3>
-        <p class="card-sub">Rendement &amp; croissance</p>
-        <p>Opérations de capital-investissement exclusives, conditions négociées pour nos clients.</p>
-      </article>
-      <article class="card">
-        <span class="card-num">03</span>
-        <h3>Club deals immobiliers</h3>
-        <p class="card-sub">Immobilier premium</p>
-        <p>Co-investissement petit cercle, actifs hors marché, aucune SCPI.</p>
-      </article>
-      <article class="card">
-        <span class="card-num">04</span>
-        <h3>Produits structurés sur-mesure</h3>
-        <p class="card-sub">Ingénierie financière</p>
-        <p>Calibrés sur la situation de chaque client, jamais des produits de campagne.</p>
-      </article>
-      <article class="card">
-        <span class="card-num">05</span>
-        <h3>Dette privée</h3>
-        <p class="card-sub">Fiducie-Sûreté</p>
-        <p>Financement alternatif sécurisé juridiquement, rendement attractif.</p>
-      </article>
-      <article class="card">
-        <span class="card-num">06</span>
-        <h3>Foncières immobilières privées</h3>
-        <p class="card-sub">Immobilier institutionnel</p>
-        <p>Véhicules fonciers privés non accessibles au grand public.</p>
-      </article>
-      <article class="card card-wide">
-        <div class="card-wide-content">
-          <span class="card-num">07</span>
-          <h3>Ouverture aux plus grandes banques privées suisses</h3>
-          <p>Livingstone vous ouvre les portes d'établissements bancaires privés suisses parmi les plus prestigieux, accès sur introduction exclusive.</p>
-        </div>
-        <a href="#contact" class="btn btn-gold">En savoir plus</a>
-      </article>
+  <!-- SECTION VIDÉO 2 — NOTRE APPROCHE -->
+  <section class="pv">
+    <video class="pv-media" data-vid="paris" muted loop playsinline preload="none" poster="images/hero-paris-poster.jpg" aria-hidden="true"></video>
+    <div class="pv-scrim"></div>
+    <span class="pv-index">01 — La maison</span>
+    <div class="pv-inner">
+      <p class="eyebrow">Notre approche</p>
+      <h2 class="pv-title">Une architecture patrimoniale sur-mesure</h2>
+      <p class="pv-lead">Nous ne distribuons pas de produits. Nous concevons des solutions, en accès direct au gérant.</p>
+      <a href="a-propos.html" class="pv-link">Découvrir la maison →</a>
     </div>
   </section>
 
-  <!-- SECTION 4 — PROTECTION LUXEMBOURGEOISE -->
-  <section class="luxembourg">
-    <div class="lux-photo">
-      <img src="images/bureau-web.jpg" alt="Bureau Livingstone" />
-    </div>
-    <div class="lux-content">
-      <p class="eyebrow eyebrow-dark">Protection luxembourgeoise</p>
-      <h2>Une garantie sans limite pour votre capital</h2>
-      <span class="rule-gold"></span>
-      <ul class="check-list">
-        <li><span class="dash"></span><div><strong>Garantie des capitaux sans plafond</strong> — contre 70 000€ en France</div></li>
-        <li><span class="dash"></span><div><strong>Ségrégation des actifs</strong> : avoirs totalement isolés du bilan de l'assureur</div></li>
-        <li><span class="dash"></span><div><strong>Accès actifs non cotés</strong> et fonds dédiés inaccessibles en France</div></li>
-        <li><span class="dash"></span><div><strong>Neutralité fiscale</strong> dans toute l'UE</div></li>
-        <li><span class="dash"></span><div><strong>Solutions construites sur-mesure</strong> — jamais de fonds UC collectifs</div></li>
-      </ul>
+  <!-- SECTION VIDÉO 3 — SOLUTIONS -->
+  <section class="pv">
+    <video class="pv-media" data-vid="gulls" muted loop playsinline preload="none" poster="images/cote-poster.jpg" aria-hidden="true"></video>
+    <div class="pv-scrim"></div>
+    <span class="pv-index">02 — Ce que nous concevons</span>
+    <div class="pv-inner">
+      <p class="eyebrow">Nos solutions</p>
+      <h2 class="pv-title">Un univers inaccessible ailleurs</h2>
+      <p class="pv-lead">Assurance-vie luxembourgeoise, private equity, club deals, dette privée — jamais de produits de catalogue.</p>
+      <a href="nos-solutions.html" class="pv-link">Explorer les solutions →</a>
     </div>
   </section>
 
-  <!-- SECTION 5 — ÉQUIPE & PÔLES -->
-  <section class="equipe" id="equipe">
-    <div class="section-head">
-      <p class="eyebrow eyebrow-dark">Notre équipe</p>
-      <h2>Trois pôles, une vision unique</h2>
-      <span class="rule-gold center"></span>
-      <p class="section-sub">Une organisation pensée pour couvrir l'intégralité des enjeux patrimoniaux de nos clients.</p>
-    </div>
-    <div class="poles-grid">
-      <div class="pole">
-        <span class="pole-icon">◆</span>
-        <h3>Pôle gestion</h3>
-        <ul>
-          <li>Solutions 100% propriétaires</li>
-          <li>Suivi personnalisé</li>
-          <li>Reporting détaillé</li>
-          <li>Accès direct au gérant</li>
-        </ul>
-      </div>
-      <div class="pole">
-        <span class="pole-icon">◆</span>
-        <h3>Pôle fiscal &amp; juridique</h3>
-        <ul>
-          <li>Optimisation fiscale France</li>
-          <li>Expatriation</li>
-          <li>Relations administration fiscale</li>
-          <li>Restructuration patrimoniale</li>
-        </ul>
-      </div>
-      <div class="pole">
-        <span class="pole-icon">◆</span>
-        <h3>Pôle conciergerie</h3>
-        <ul>
-          <li>Événements privés</li>
-          <li>Jets, yachts, hôtels</li>
-          <li>Mise en relation experts</li>
-          <li>Planification sur-mesure</li>
-        </ul>
-      </div>
-    </div>
-    <div class="equipe-banner">
-      <p>Un seul interlocuteur. Toute une équipe derrière.</p>
-      <a href="#contact" class="btn btn-gold">Rencontrer Livingstone</a>
+  <!-- SECTION VIDÉO 4 — CAS PRATIQUES -->
+  <section class="pv">
+    <video class="pv-media" data-vid="paris" muted loop playsinline preload="none" poster="images/hero-paris-poster.jpg" aria-hidden="true"></video>
+    <div class="pv-scrim"></div>
+    <span class="pv-index">03 — Situations & opérations</span>
+    <div class="pv-inner">
+      <p class="eyebrow">Cas pratiques</p>
+      <h2 class="pv-title">Des situations concrètes, décryptées</h2>
+      <p class="pv-lead">Apport-cession, transmission, expatriation, assurance-vie luxembourgeoise : nos cas pratiques pédagogiques.</p>
+      <a href="cas-pratiques.html" class="pv-link">Lire les cas pratiques →</a>
     </div>
   </section>
 
-  <!-- SECTION 6 — COMPARATIF -->
-  <section class="comparatif">
-    <div class="section-head">
-      <p class="eyebrow eyebrow-dark">Comparatif</p>
-      <h2>Pourquoi Livingstone</h2>
-      <span class="rule-gold center"></span>
+  <!-- SECTION VIDÉO 5 — CONTACT -->
+  <section class="pv">
+    <video class="pv-media" data-vid="gulls" muted loop playsinline preload="none" poster="images/cote-poster.jpg" aria-hidden="true"></video>
+    <div class="pv-scrim"></div>
+    <span class="pv-index">04 — Rencontrer Livingstone</span>
+    <div class="pv-inner">
+      <p class="eyebrow">Contact</p>
+      <h2 class="pv-title">Échangeons sur votre situation</h2>
+      <p class="pv-lead">Un premier rendez-vous confidentiel, en direct avec Mikael Guéviguian.</p>
+      <a href="contact.html" class="pv-link">Prendre rendez-vous →</a>
     </div>
-    <div class="table-wrap">
-      <table class="compare">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="th-livingstone">Livingstone</th>
-            <th>Banque privée</th>
-            <th>Fintech</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Solutions 100% sur-mesure</td><td class="ok">✓ Conçues en interne</td><td class="ko">✗ Catalogue</td><td class="ko">✗ Produits tiers</td></tr>
-          <tr><td>SCPI ou fonds grand public</td><td class="ok">✓ Jamais</td><td class="ko">✗ Systématique</td><td class="ko">✗ Systématique</td></tr>
-          <tr><td>Produits structurés de campagne</td><td class="ok">✓ Jamais</td><td class="ko">✗ Fréquent</td><td class="mid">~ Parfois</td></tr>
-          <tr><td>Fonds UC collectifs non dédiés</td><td class="ok">✓ Exclus</td><td class="ko">✗ Majoritaire</td><td class="ko">✗ Majoritaire</td></tr>
-          <tr><td>Contrat luxembourgeois</td><td class="ok">✓ Systématique</td><td class="mid">~ Sur demande</td><td class="ko">✗ Non proposé</td></tr>
-          <tr><td>Accès Private Equity &amp; Club deals</td><td class="ok">✓ Exclusif clients Livingstone</td><td class="mid">~ Limité</td><td class="ko">✗ Non disponible</td></tr>
-          <tr><td>Accès banques privées suisses</td><td class="ok">✓ Sur introduction</td><td class="ko">✗ Non facilité</td><td class="ko">✗ Non disponible</td></tr>
-          <tr><td>Pôle fiscal &amp; expatriation</td><td class="ok">✓ Inclus</td><td class="mid">~ En option</td><td class="ko">✗ Non disponible</td></tr>
-          <tr><td>Conciergerie privée</td><td class="ok">✓ Inclus</td><td class="ko">✗ Non disponible</td><td class="ko">✗ Non disponible</td></tr>
-          <tr><td>Frais transparents</td><td class="ok">✓ Toujours</td><td class="ko">✗ Souvent opaques</td><td class="mid">~ Variable</td></tr>
-          <tr><td>Accès direct au gérant</td><td class="ok">✓ Mikael Gueviguian</td><td class="ko">✗ Chargé clientèle</td><td class="ko">✗ Interface digitale</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- SECTION 7 — FRAIS -->
-  <section class="frais" id="frais">
-    <div class="section-head">
-      <p class="eyebrow eyebrow-dark">Politique de frais</p>
-      <h2>Transparence totale,<br/>communiquée en amont</h2>
-      <span class="rule-gold center"></span>
-    </div>
-    <div class="frais-grid">
-      <div class="frais-card">
-        <span class="frais-num">01</span>
-        <h3>Frais annoncés avant engagement</h3>
-        <p>Chaque structure de frais est présentée et validée avant la moindre signature. Aucune surprise.</p>
-      </div>
-      <div class="frais-card">
-        <span class="frais-num">02</span>
-        <h3>Aucune couche cachée</h3>
-        <p>Pas de rétrocession dissimulée, pas de marge invisible. Vous savez exactement ce que vous payez.</p>
-      </div>
-      <div class="frais-card">
-        <span class="frais-num">03</span>
-        <h3>Alignement d'intérêts</h3>
-        <p>Notre rémunération est structurée pour que votre performance soit notre objectif premier.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 8 — PORTRAIT MIKAEL -->
-  <section class="portrait">
-    <div class="portrait-photo">
-      <img src="images/mikael-portrait-web.jpg" alt="Mikael Gueviguian" />
-    </div>
-    <div class="portrait-content">
-      <blockquote class="portrait-quote">L'artisanat patrimonial ne se délègue pas. Chaque solution que nous concevons porte la signature d'une exigence personnelle, celle d'un gérant qui connaît chacun de ses clients.</blockquote>
-      <p class="portrait-name">Mikael Gueviguian</p>
-      <p class="portrait-role">Fondateur — Livingstone</p>
-      <p class="portrait-text">Avec 30 familles accompagnées et 400M€ d'encours conseillés, Livingstone défend une approche artisanale de la gestion de fortune. Aucun produit de catalogue, aucune intermédiation diluée : chaque client bénéficie d'un accès direct au gérant et de solutions conçues exclusivement pour lui.</p>
-      <p style="margin-top:20px;"><a href="a-propos.html" class="portrait-link" style="font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:1px;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:2px;">En savoir plus sur Mikael Gueviguian →</a></p>
-    </div>
-  </section>
-
-  <!-- SECTION 8 BIS — MÉDIAS -->
-  <section class="medias" id="medias">
-    <div class="section-head">
-      <p class="eyebrow eyebrow-dark">Dans les médias</p>
-      <h2>Mikael Gueviguian dans la presse</h2>
-      <span class="rule-gold center"></span>
-    </div>
-    <div class="medias-grid">
-      <article class="media-item">
-        <div class="media-frame">
-          <iframe src="https://www.youtube-nocookie.com/embed/uMF2Z6gqgCE" title="Interview CFNEWS — Mikael Gueviguian" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <h3 class="media-title">Interview CFNEWS</h3>
-      </article>
-      <article class="media-item">
-        <div class="media-frame">
-          <iframe src="https://www.youtube-nocookie.com/embed/l-4nljQbL0o" title="Passion Patrimoine — Mikael Gueviguian" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <h3 class="media-title">Passion Patrimoine</h3>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 9 — VALORISATION -->
-  <section class="valorisation" id="valorisation">
-    <div class="valo-left">
-      <p class="eyebrow">Valorisation d'entreprise</p>
-      <h2>Quelle est la vraie valeur de votre entreprise ?</h2>
-      <span class="rule-gold"></span>
-      <p class="valo-text">Avant toute opération de cession, transmission ou levée de capitaux, obtenez une estimation rigoureuse de la valeur de votre société. Un outil professionnel, mis à disposition de nos clients et prospects qualifiés.</p>
-    </div>
-    <div class="valo-right">
-      <div class="valo-card">
-        <div class="ornament ornament-dark"><span class="rule"></span><span class="diamond">◆</span><span class="rule"></span></div>
-        <h3>Valorisation confidentielle</h3>
-        <p>Estimation détaillée en quelques minutes, suivie d'un échange privé avec notre équipe pour interprétation et recommandations.</p>
-        <a href="https://mj-assetmanagement.wiz-value.com/valorisez-votre-entreprise" target="_blank" rel="noopener" class="btn btn-gold">Démarrer la valorisation</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 10 — CONTACT -->
-  <section class="contact" id="contact">
-    <div class="contact-left">
-      <p class="eyebrow eyebrow-dark">Contact</p>
-      <h2>Échangeons sur votre situation</h2>
-      <span class="rule-gold"></span>
-      <p style="font-size:14px;color:var(--text-dark-soft);line-height:1.7;max-width:460px;margin-top:18px;">Un premier rendez-vous confidentiel, en direct avec Mikael Gueviguian. Chaque situation est étudiée personnellement.</p>
-      <p style="font-size:15px;line-height:2.1;margin-top:20px;">
-        <strong>Téléphone</strong> · <a href="tel:+33778511307" style="color:var(--gold);border-bottom:1px solid var(--gold);">07 78 51 13 07</a><br />
-        <strong>Email</strong> · <a href="mailto:mikael.gueviguian@livingstone-wealth.com" style="color:var(--gold);border-bottom:1px solid var(--gold);">mikael.gueviguian@livingstone-wealth.com</a>
-      </p>
-      <ul class="contact-points">
-        <li><span class="dash"></span><div><strong>Confidentialité absolue</strong><br/><span>Vos informations restent strictement entre nos mains.</span></div></li>
-        <li><span class="dash"></span><div><strong>Réponse sous 24h</strong><br/><span>par Mikael Gueviguian personnellement.</span></div></li>
-        <li><span class="dash"></span><div><strong>Entretien privé</strong><br/><span>à Paris ou en visioconférence.</span></div></li>
-      </ul>
-    </div>
-    <form class="contact-form" action="https://formspree.io/f/xqegldel" method="POST">
-      <div class="form-row">
-        <input type="text" name="prenom" placeholder="Prénom" required />
-        <input type="text" name="nom" placeholder="Nom" required />
-      </div>
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="tel" name="telephone" placeholder="Téléphone" />
-      <select name="patrimoine" required>
-        <option value="" disabled selected>Patrimoine global estimé</option>
-        <option value="1M-5M">1 à 5 M€</option>
-        <option value="5M-20M">5 à 20 M€</option>
-        <option value="20M-50M">20 à 50 M€</option>
-        <option value="+50M">Plus de 50 M€</option>
-      </select>
-      <select name="profil" required>
-        <option value="" disabled selected>Votre profil</option>
-        <option value="dirigeant">Dirigeant d'entreprise</option>
-        <option value="cession">En cours de cession</option>
-        <option value="famille">Famille fortunée</option>
-        <option value="profession-liberale">Profession libérale</option>
-        <option value="expatrie">Expatrié / candidat à l'expatriation</option>
-        <option value="autre">Autre</option>
-      </select>
-      <textarea name="message" rows="4" placeholder="Votre message (facultatif)"></textarea>
-      <button type="submit" class="btn btn-gold btn-full">Envoyer ma demande</button>
-      <p class="form-note">Vos informations sont traitées confidentiellement et ne sont jamais partagées avec des tiers.</p>
-    </form>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-logo">
-      <img src="images/livingstone_nav.png" alt="Livingstone" />
-    </div>
+  <footer class="portal-footer">
+    <p class="footer-cities">Paris · Genève · Marseille · Cannes</p>
     <div class="footer-links">
       <a href="a-propos.html">À propos</a>
+      <span class="diamond">◆</span>
+      <a href="nos-solutions.html">Solutions</a>
       <span class="diamond">◆</span>
       <a href="cas-pratiques.html">Cas pratiques</a>
       <span class="diamond">◆</span>
       <a href="faq.html">FAQ</a>
+      <span class="diamond">◆</span>
+      <a href="contact.html">Contact</a>
       <span class="diamond">◆</span>
       <a href="mentions-legales.html">Mentions légales</a>
       <span class="diamond">◆</span>
       <a href="reclamations.html">Réclamations</a>
       <span class="diamond">◆</span>
-      <a href="confidentialite.html">Politique de confidentialité</a>
+      <a href="confidentialite.html">Confidentialité</a>
     </div>
     <p class="footer-copy">© 2026 Livingstone — Family Office.</p>
     <div class="footer-compliance">
@@ -643,6 +232,23 @@
     </div>
   </footer>
 
+  <!-- Vidéos de fond : chargées uniquement sur desktop (aucun téléchargement sur mobile) -->
+  <script>
+  (function(){
+    var VIDS = { gulls: "videos/cote-atlantique.mp4", paris: "videos/hero-paris.mp4" };
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var big = window.innerWidth > 768;
+    document.querySelectorAll('.pv-media').forEach(function(v){
+      if(big && !reduce){
+        var s = document.createElement('source');
+        s.src = VIDS[v.getAttribute('data-vid')];
+        s.type = 'video/mp4';
+        v.appendChild(s); v.load();
+        var p = v.play(); if(p && p.catch){ p.catch(function(){}); }
+      }
+    });
+  })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

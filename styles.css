@@ -1,24 +1,27 @@
 /* ===================================================================
    LIVINGSTONE — Stylesheet
-   Palette : charbon #111111 · alt #1a1a1a · or #8B7355 · crème #F5F0E8
+   Palette : noir #0B0B0B–#151515 · ivoire #E8E0D0–#F2EBDF · or #C9A87C
+   Typo : Cinzel (titres/logo) · Cormorant Garamond (italiques) · Montserrat (sans)
    =================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root {
-  --navy: #111111;
-  --navy-2: #1a1a1a;
-  --gold: #8B7355;
-  --gold-light: #a89070;
-  --cream: #F5F0E8;
+  --navy: #0B0B0B;
+  --navy-2: #151515;
+  --gold: #C9A87C;
+  --gold-light: #DBC29B;
+  --cream: #F2EBDF;
+  --ivory-2: #E8E0D0;
   --text-dark: #1a1a1a;
   --white: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --text-soft: rgba(255, 255, 255, 0.7);
-  --text-faint: rgba(255, 255, 255, 0.4);
-  --text-dark-muted: rgba(26, 26, 26, 0.65);
-  --text-dark-soft: rgba(26, 26, 26, 0.75);
-  --text-dark-faint: rgba(26, 26, 26, 0.45);
-  --border-gold: rgba(139, 115, 85, 0.2);
-  --border-gold-strong: rgba(139, 115, 85, 0.3);
+  --text-muted: rgba(255, 255, 255, 0.62);
+  --text-soft: rgba(255, 255, 255, 0.72);
+  --text-faint: rgba(255, 255, 255, 0.42);
+  --text-dark-muted: rgba(26, 26, 26, 0.66);
+  --text-dark-soft: rgba(26, 26, 26, 0.76);
+  --text-dark-faint: rgba(26, 26, 26, 0.46);
+  --border-gold: rgba(201, 168, 124, 0.24);
+  --border-gold-strong: rgba(201, 168, 124, 0.36);
   --border-dark: rgba(26, 26, 26, 0.12);
   --pad-x: 56px;
 }
@@ -1349,3 +1352,94 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
   .article-cta h2 { font-size: 22px; }
   .article-cta-lead { font-size: 15px; }
 }
+
+/* ============================================================
+   REFONTE 2026 — Typographie tri-police
+   ============================================================ */
+body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; line-height: 1.7; color: #ECE6DA; }
+.nav-links a, .nav-mobile a, .nav-cta, .btn, .footer-links a, .legal-footer-links a, .legal-back, .article-back, .cas-card-cta, .article-meta, .form-note, .eyebrow { font-family: "Montserrat", sans-serif; }
+.eyebrow { font-weight: 600; }
+.section-head h2, .values-head h2, .hero-v-title, .values-item h3, .footer-cities { font-family: "Cinzel", Georgia, serif; }
+.btn-gold, .btn-gold:hover, .nav-cta:hover, .btn-outline:hover { color: #1c1408; }
+
+/* ============================================================
+   REFONTE 2026 — HERO VIDÉO
+   ============================================================ */
+.hero-v { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; background: #0B0B0B; }
+.hero-v-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.hero-v-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(11,11,11,.5) 0%, rgba(11,11,11,.25) 42%, rgba(11,11,11,.82) 100%); }
+.hero-v-inner { position: relative; z-index: 2; width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 var(--pad-x) clamp(56px,8vw,104px); }
+.eyebrow-light { color: var(--gold-light) !important; }
+.hero-v-title { font-size: clamp(38px,7vw,84px); line-height: 1.05; color: #FAF6EC; margin: 20px 0; letter-spacing: .05em; font-weight: 500; text-transform: uppercase; }
+.hero-v-lead { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: clamp(18px,2.1vw,26px); color: rgba(245,241,232,.9); max-width: 34ch; line-height: 1.5; }
+.hero-v-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+.hero-v-cta .btn-outline { color: #F5F1E8; border-color: rgba(245,241,232,.55); background: transparent; }
+.hero-v-cta .btn-outline:hover { background: rgba(245,241,232,.1); color: #fff; }
+.hero-v-stats { display: flex; gap: 26px; flex-wrap: wrap; align-items: center; margin-top: 44px; padding-top: 22px; border-top: 1px solid rgba(245,241,232,.22); font-family: "Montserrat", sans-serif; font-size: 11.5px; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(245,241,232,.82); }
+.hero-v-stats b { font-family: "Cinzel", serif; font-weight: 500; color: #FAF6EC; font-size: 15px; letter-spacing: 1.5px; }
+.hero-v-stats .sep { width: 1px; height: 20px; background: rgba(245,241,232,.3); }
+@media (max-width: 768px) { .hero-v-stats { gap: 12px 18px; font-size: 10px; } .hero-v-stats .sep { display: none; } .hero-v-title { margin: 16px 0; } }
+
+/* ============================================================
+   REFONTE 2026 — VALEURS (manifeste visuel)
+   ============================================================ */
+.values { background: #0B0B0B; color: #ECE6DA; padding: clamp(76px,10vw,132px) var(--pad-x); }
+.values-head { max-width: 860px; margin: 0 auto 60px; text-align: center; }
+.values-head h2 { font-weight: 500; font-size: clamp(26px,3.4vw,42px); color: #FAF6EC; letter-spacing: .05em; text-transform: uppercase; line-height: 1.2; margin-top: 12px; }
+.values-lead { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: clamp(18px,2.2vw,26px); line-height: 1.5; color: #F5F1E8; max-width: 820px; margin: 22px auto 0; }
+.values-grid { display: grid; grid-template-columns: repeat(4,1fr); max-width: 1320px; margin: 0 auto; border-top: 1px solid var(--border-gold); }
+.values-item { padding: 42px 30px; border-left: 1px solid var(--border-gold); }
+.values-item:first-child { border-left: 0; }
+.values-num { font-family: "Cinzel", serif; font-size: 13px; letter-spacing: 3px; color: var(--gold); display: block; margin-bottom: 22px; }
+.values-item h3 { font-weight: 500; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; color: #FAF6EC; line-height: 1.35; margin-bottom: 14px; }
+.values-item p { font-size: 13.5px; color: rgba(236,230,218,.74); line-height: 1.7; }
+@media (max-width: 900px) { .values-grid { grid-template-columns: repeat(2,1fr); } .values-item { border-top: 1px solid var(--border-gold); } .values-item:nth-child(odd) { border-left: 0; } .values-item:first-child, .values-item:nth-child(2) { border-top: 0; } }
+@media (max-width: 560px) { .values-grid { grid-template-columns: 1fr; } .values-item { border-left: 0 !important; } .values-item:nth-child(2) { border-top: 1px solid var(--border-gold); } }
+
+/* ============================================================
+   REFONTE 2026 — TRACK RECORD
+   ============================================================ */
+.track { background: var(--ivory-2); color: var(--text-dark); padding: clamp(72px,10vw,116px) var(--pad-x); }
+.track .section-head h2 { color: var(--text-dark); }
+.track-note { max-width: 1080px; margin: 0 auto 30px; font-family: "Montserrat", sans-serif; font-size: 12px; letter-spacing: .3px; line-height: 1.6; color: #7a5f28; background: rgba(201,168,124,.16); border: 1px dashed var(--gold); padding: 14px 18px; border-radius: 2px; }
+.track-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 1240px; margin: 0 auto; }
+.track-card { background: var(--cream); border: 0.5px solid var(--border-gold); padding: 34px 30px; }
+.track-tag { font-family: "Montserrat", sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.track-card h3 { font-family: "Cormorant Garamond", serif; font-size: 20px; font-weight: 600; color: var(--text-dark); margin: 12px 0 10px; text-transform: none; letter-spacing: 0; }
+.track-card p { font-size: 13px; color: var(--text-dark-soft); line-height: 1.7; }
+.track-meta { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-gold); font-family: "Cinzel", serif; font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+@media (max-width: 900px) { .track-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   REFONTE 2026 — Footer villes · portrait plus grand
+   ============================================================ */
+.footer-cities { font-size: 12px; letter-spacing: .35em; color: var(--gold); text-transform: uppercase; margin-bottom: 22px; }
+.portrait-photo img { min-height: 600px; }
+@media (max-width: 768px) { .portrait-photo img { min-height: 340px; } .values { padding: 60px 24px; } .track { padding: 60px 24px; } }
+
+/* ============================================================
+   REFONTE 2026 — PORTAIL VIDÉO (page d'accueil, architecture Corient)
+   ============================================================ */
+.nav.portal-nav { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 1px solid rgba(245,241,232,.14); }
+.nav.portal-nav .nav-links a { color: rgba(245,241,232,.82); }
+.nav.portal-nav .nav-links a:hover { color: #fff; }
+.nav.portal-nav.scrolled { background: rgba(11,11,11,.9); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.pv { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; overflow: hidden; background: #0B0B0B; }
+.pv-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.pv-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(11,11,11,.6) 0%, rgba(11,11,11,.32) 46%, rgba(11,11,11,.78) 100%); }
+.pv-inner { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 96px var(--pad-x); }
+.pv .eyebrow { color: var(--gold-light); }
+.pv-title { font-family: "Cinzel", Georgia, serif; font-weight: 500; color: #FAF6EC; font-size: clamp(34px,6vw,74px); line-height: 1.08; letter-spacing: .04em; text-transform: uppercase; margin: 18px 0 20px; max-width: 16ch; }
+.pv-lead { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: clamp(18px,2.2vw,27px); color: rgba(245,241,232,.9); max-width: 32ch; line-height: 1.5; }
+.pv-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; font-family: "Montserrat", sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #F5F1E8; border-bottom: 1px solid var(--gold); padding-bottom: 8px; transition: gap .3s ease, color .3s ease; }
+.pv-link:hover { color: var(--gold-light); gap: 20px; }
+.pv-index { position: absolute; top: 120px; right: var(--pad-x); z-index: 2; font-family: "Cinzel", serif; font-size: 12px; letter-spacing: 3px; color: rgba(245,241,232,.55); }
+.pv-scroll { position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); z-index: 2; font-family: "Montserrat", sans-serif; font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase; color: rgba(245,241,232,.72); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.pv-scroll::after { content: ""; width: 1px; height: 32px; background: linear-gradient(rgba(245,241,232,.7), transparent); }
+.pv-stats { display: flex; gap: 28px; margin-top: 36px; flex-wrap: wrap; font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(245,241,232,.82); align-items: center; }
+.pv-stats b { font-family: "Cinzel", serif; color: #FAF6EC; font-size: 15px; letter-spacing: 1.5px; }
+.pv-stats .sep { width: 1px; height: 20px; background: rgba(245,241,232,.3); }
+.portal-footer { background: #0B0B0B; color: var(--text-faint); padding: 44px var(--pad-x); text-align: center; border-top: 1px solid var(--border-gold); }
+.portal-footer .footer-cities { margin-bottom: 18px; }
+.portal-footer .footer-links { margin-bottom: 18px; }
+@media (max-width: 768px) { .pv-index { top: 96px; } .pv-inner { padding: 80px 24px; } .pv-stats { gap: 12px 18px; font-size: 10px; } .pv-stats .sep { display: none; } }
