@@ -168,7 +168,7 @@
 
   <!-- SECTION VIDÉO 3 — SOLUTIONS -->
   <section class="pv">
-    <video class="pv-media" data-vid="gulls" muted loop playsinline preload="none" poster="images/cote-poster.jpg" aria-hidden="true"></video>
+    <video class="pv-media" data-vid="vignes" muted loop playsinline preload="none" poster="images/solutions-vignes-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
     <span class="pv-index">02 — Ce que nous concevons</span>
     <div class="pv-inner">
@@ -181,7 +181,7 @@
 
   <!-- SECTION VIDÉO 4 — CAS PRATIQUES -->
   <section class="pv">
-    <video class="pv-media" data-vid="paris" muted loop playsinline preload="none" poster="images/hero-paris-poster.jpg" aria-hidden="true"></video>
+    <video class="pv-media" data-vid="arches" muted loop playsinline preload="none" poster="images/cas-arches-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
     <span class="pv-index">03 — Situations & opérations</span>
     <div class="pv-inner">
@@ -194,7 +194,7 @@
 
   <!-- SECTION VIDÉO 5 — CONTACT -->
   <section class="pv">
-    <video class="pv-media" data-vid="gulls" muted loop playsinline preload="none" poster="images/cote-poster.jpg" aria-hidden="true"></video>
+    <video class="pv-media" data-vid="voilier" muted loop playsinline preload="none" poster="images/contact-voilier-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
     <span class="pv-index">04 — Rencontrer Livingstone</span>
     <div class="pv-inner">
@@ -235,7 +235,13 @@
   <!-- Vidéos de fond : chargées uniquement sur desktop (aucun téléchargement sur mobile) -->
   <script>
   (function(){
-    var VIDS = { gulls: "videos/cote-atlantique.mp4", paris: "videos/hero-paris.mp4" };
+    var VIDS = {
+      gulls: "videos/cote-atlantique.mp4",
+      paris: "videos/hero-paris.mp4",
+      vignes: "videos/solutions-vignes.mp4",
+      arches: "videos/cas-arches.mp4",
+      voilier: "videos/contact-voilier.mp4"
+    };
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var big = window.innerWidth > 768;
     document.querySelectorAll('.pv-media').forEach(function(v){
