@@ -244,15 +244,30 @@
     };
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var big = window.innerWidth > 768;
-    document.querySelectorAll('.pv-media').forEach(function(v){
-      if(big && !reduce){
+    var vids = document.querySelectorAll('.pv-media');
+    if(!big || reduce){ return; } // mobile / mouvement réduit : on garde les posters, aucune vidéo chargée
+    function play(v){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+    function load(v){
+      if(!v.dataset.loaded){
+        v.dataset.loaded = "1";
         var s = document.createElement('source');
         s.src = VIDS[v.getAttribute('data-vid')];
         s.type = 'video/mp4';
         v.appendChild(s); v.load();
-        var p = v.play(); if(p && p.catch){ p.catch(function(){}); }
       }
-    });
+      play(v);
+    }
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ load(e.target); }
+          else if(e.target.dataset.loaded){ e.target.pause && e.target.pause(); }
+        });
+      }, { rootMargin: "200px 0px", threshold: 0.25 });
+      vids.forEach(function(v){ io.observe(v); });
+    } else {
+      vids.forEach(load);
+    }
   })();
   </script>
   <script src="script.js"></script>
