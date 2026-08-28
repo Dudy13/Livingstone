@@ -136,7 +136,7 @@
 
   <!-- SECTION VIDÉO 1 — MARQUE -->
   <section class="pv" id="accueil">
-    <video class="pv-media" data-vid="gulls" muted loop playsinline preload="none" poster="images/cote-poster.jpg" aria-hidden="true"></video>
+    <video class="pv-media" data-vid="gulls" autoplay muted loop playsinline preload="none" poster="images/cote-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
     <div class="pv-inner">
       <p class="eyebrow">Family Office indépendant · Paris</p>
@@ -155,7 +155,7 @@
 
   <!-- SECTION VIDÉO 2 — NOTRE APPROCHE -->
   <section class="pv">
-    <video class="pv-media" data-vid="paris" muted loop playsinline preload="none" poster="images/hero-paris-poster.jpg" aria-hidden="true"></video>
+    <video class="pv-media" data-vid="paris" autoplay muted loop playsinline preload="none" poster="images/hero-paris-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
     <span class="pv-index">01 — La maison</span>
     <div class="pv-inner">
@@ -168,7 +168,7 @@
 
   <!-- SECTION VIDÉO 3 — SOLUTIONS -->
   <section class="pv">
-    <video class="pv-media" data-vid="vignes" muted loop playsinline preload="none" poster="images/solutions-vignes-poster.jpg" aria-hidden="true"></video>
+    <video class="pv-media" data-vid="vignes" autoplay muted loop playsinline preload="none" poster="images/solutions-vignes-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
     <span class="pv-index">02 — Ce que nous concevons</span>
     <div class="pv-inner">
@@ -181,7 +181,7 @@
 
   <!-- SECTION VIDÉO 4 — CAS PRATIQUES -->
   <section class="pv">
-    <video class="pv-media kb" data-vid="arches" muted loop playsinline preload="none" poster="images/cas-arches-poster.jpg" aria-hidden="true"></video>
+    <video class="pv-media kb" data-vid="arches" autoplay muted loop playsinline preload="none" poster="images/cas-arches-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
     <span class="pv-index">03 — Situations & opérations</span>
     <div class="pv-inner">
@@ -194,7 +194,7 @@
 
   <!-- SECTION VIDÉO 5 — CONTACT -->
   <section class="pv">
-    <video class="pv-media" data-vid="voilier" muted loop playsinline preload="none" poster="images/contact-voilier-poster.jpg" aria-hidden="true"></video>
+    <video class="pv-media" data-vid="voilier" autoplay muted loop playsinline preload="none" poster="images/contact-voilier-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
     <span class="pv-index">04 — Rencontrer Livingstone</span>
     <div class="pv-inner">
@@ -232,7 +232,7 @@
     </div>
   </footer>
 
-  <!-- Vidéos de fond : chargées uniquement sur desktop (aucun téléchargement sur mobile) -->
+  <!-- Vidéos de fond : lazy-load par section (desktop + mobile), muettes + autoplay + playsinline -->
   <script>
   (function(){
     var VIDS = {
@@ -243,13 +243,13 @@
       voilier: "videos/contact-voilier.mp4"
     };
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var big = window.innerWidth > 768;
     var vids = document.querySelectorAll('.pv-media');
-    if(!big || reduce){ return; } // mobile / mouvement réduit : on garde les posters, aucune vidéo chargée
-    function play(v){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+    if(reduce){ return; } // mouvement réduit : on garde les posters, aucune vidéo
+    function play(v){ v.muted = true; var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
     function load(v){
       if(!v.dataset.loaded){
         v.dataset.loaded = "1";
+        v.muted = true;
         var s = document.createElement('source');
         s.src = VIDS[v.getAttribute('data-vid')];
         s.type = 'video/mp4';
