@@ -7,6 +7,8 @@ Disallow: /qualification
 Disallow: /qualification.html
 Disallow: /acces-prive
 Disallow: /acces-prive.html
+Disallow: /swisslife-altitude
+Disallow: /swisslife-altitude.html
 
 # Robots d'IA générative — explicitement autorisés (indexation & citation)
 User-agent: GPTBot
@@ -21,5 +23,7 @@ Disallow: /qualification
 Disallow: /qualification.html
 Disallow: /acces-prive
 Disallow: /acces-prive.html
+Disallow: /swisslife-altitude
+Disallow: /swisslife-altitude.html
 
 Sitemap: https://www.livingstone-wealth.com/sitemap.xml
