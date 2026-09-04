@@ -418,8 +418,9 @@
      une vraie demande et non sur un clic. Chaque appel est protege : tant que
      le pixel correspondant n'est pas installe, la ligne ne fait rien. */
   function signalerConversion(tranche){
-    var horsCriteres = (tranche === HORS_CRITERES);
-    try { if(window.fbq) window.fbq('track', 'Lead', { content_name:'SwissLife Altitude', content_category: horsCriteres ? 'Hors criteres' : 'Qualifie' }); } catch(e){}
+    /* Meta : evenement nu, sans aucune donnee sur le prospect (voir la note du
+       chargement du pixel). Microsoft recoit la tranche, qui sert au pilotage. */
+    try { if(window.fbq) window.fbq('track', 'Lead'); } catch(e){}
     try { if(window.uetq) window.uetq.push('event', 'demande_altitude', { event_category:'SwissLife Altitude', event_label: tranche }); } catch(e){}
     try { if(window.gtag && window.LV_ADS_CONVERSION) window.gtag('event', 'conversion', { send_to: window.LV_ADS_CONVERSION }); } catch(e){}
   }
@@ -509,7 +510,7 @@
      Meta accepte en revanche des proprietes libres. */
   function signal(nom, params){
     params = params || {};
-    try { if(window.fbq) window.fbq('trackCustom', nom, params); } catch(e){}
+    try { if(window.fbq) window.fbq('trackCustom', nom); } catch(e){}
     try {
       if(window.uetq) window.uetq.push('event', nom, {
         event_category: 'SwissLife Altitude',
@@ -710,7 +711,21 @@
     window.uetq = window.uetq || [];
     window.uetq.push('consent', 'update', { ad_storage: 'granted' });
 
-    /* Meta — le pixel viendra ici, meme conditionnement, des reception de l'identifiant. */
+    /* Meta — pixel, meme conditionnement au consentement.
+       Aucun parametre n'est joint aux evenements Meta : les Conditions des Outils
+       Meta Business interdisent de transmettre des informations financieres sur
+       une personne, et la tranche de patrimoine ou la mention « qualifie » en
+       serait une. Meta recoit le fait qu'il y a conversion, rien de plus — c'est
+       tout ce dont son algorithme a besoin pour optimiser. Le detail reste dans
+       la demande envoyee par e-mail et, pour la tranche, cote Microsoft. */
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return; n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[];
+      t=b.createElement(e); t.async=!0; t.src=v;
+      s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', '1008236828925161');
+    window.fbq('track', 'PageView');
   }
 
   function fermer(){ banniere.style.display = 'none'; }
