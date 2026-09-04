@@ -1,14 +1,18 @@
 # Robots — Livingstone Family Office
 # Accès ouvert à tous, y compris les robots d'IA générative (GEO).
 
+# /swisslife-altitude : landing publicitaire (Meta / Microsoft Ads / Google Ads).
+# Volontairement PAS en Disallow — les robots des regies (facebookexternalhit
+# pour l'apercu de lien, adidxbot pour la validation Bing) doivent pouvoir la lire.
+# Elle reste hors resultats organiques via <meta name="robots" content="noindex">,
+# et hors sitemap.xml.
+
 User-agent: *
 Allow: /
 Disallow: /qualification
 Disallow: /qualification.html
 Disallow: /acces-prive
 Disallow: /acces-prive.html
-Disallow: /swisslife-altitude
-Disallow: /swisslife-altitude.html
 
 # Robots d'IA générative — explicitement autorisés (indexation & citation)
 User-agent: GPTBot
@@ -23,7 +27,5 @@ Disallow: /qualification
 Disallow: /qualification.html
 Disallow: /acces-prive
 Disallow: /acces-prive.html
-Disallow: /swisslife-altitude
-Disallow: /swisslife-altitude.html
 
 Sitemap: https://www.livingstone-wealth.com/sitemap.xml

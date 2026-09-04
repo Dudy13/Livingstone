@@ -12,6 +12,10 @@
   <meta property="og:description" content="Contrat d'assurance-vie luxembourgeois SwissLife Altitude : bonification garantie de 2,70 % sur le fonds euro pour 2026 et 2027. Vérifiez votre éligibilité.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
+  <!-- og:url = identite canonique de la page. Les clics publicitaires ajoutent
+       ?fbclid= / ?msclkid= / ?gclid= : sans cette balise, les regies voient
+       autant d'URL differentes que de visiteurs. -->
+  <meta property="og:url" content="https://www.livingstone-wealth.com/swisslife-altitude">
   <meta property="og:image" content="https://www.livingstone-wealth.com/images/livingstone_carre.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,7 +95,10 @@
         </div>
         <div id="lv-form-wrap">
           <form id="lv-elig-form" action="https://formspree.io/f/mvkoajvj" method="POST" novalidate>
-            <input type="hidden" name="_subject" value="Nouvelle demande — SwissLife Altitude">
+            <input type="hidden" id="lv-subject" name="_subject" value="Nouvelle demande — SwissLife Altitude">
+            <input type="hidden" name="source" value="/swisslife-altitude">
+            <input type="hidden" id="lv-campagne" name="campagne" value="">
+            <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label for="lv-gotcha">Ne pas remplir</label><input id="lv-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
             <div style="font-size:14px;font-style:italic;color:#626058">Ou laissez vos coordonnées, réponse sous 24 h.</div>
             <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px">
               <div><label for="lv-nom" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">Nom</label><input id="lv-nom" name="nom" type="text" required autocomplete="family-name" style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none"></div>
@@ -108,7 +115,15 @@
               </select>
             </div>
             <div style="margin-top:12px"><label for="lv-email" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">E-mail</label><input id="lv-email" name="email" type="email" required autocomplete="email" style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none"></div>
-            <div style="margin-top:12px"><label for="lv-montant" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">Montant à placer (en €)</label><input id="lv-montant" name="montant" type="number" min="0" step="1000" required inputmode="numeric" style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none">
+            <div style="margin-top:12px"><label for="lv-telephone" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">Téléphone</label><input id="lv-telephone" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none"></div>
+            <div style="margin-top:12px"><label for="lv-montant" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">Montant à placer</label>
+              <select id="lv-montant" name="montant" required style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#626058 50%),linear-gradient(135deg,#626058 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat">
+                <option value="" disabled selected>Sélectionner</option>
+                <option value="Moins de 250 000 €">Moins de 250 000 €</option>
+                <option value="250 000 € à 500 000 €">250 000 € à 500 000 €</option>
+                <option value="500 000 € à 1 M€">500 000 € à 1 M€</option>
+                <option value="Plus d'1 M€">Plus d'1 M€</option>
+              </select>
               <div id="lv-error" style="margin-top:8px;font-size:14px;line-height:1.45;color:#8A4B2A;border-left:2px solid #B38E56;padding-left:10px;display:none"></div>
             </div>
             <button id="lv-submit" type="submit" class="lv-submit" style="display:flex;align-items:center;justify-content:center;width:100%;margin-top:20px;background:#0B1D3A;color:#F4EFE4;font-family:Cinzel,serif;font-size:17px;letter-spacing:0.04em;height:60px;border:1px solid #0B1D3A;cursor:pointer">Envoyer ma demande</button>
@@ -317,17 +332,76 @@
   if(!form) return;
   var errEl = document.getElementById('lv-error');
   var btn = document.getElementById('lv-submit');
+  var subjectEl = document.getElementById('lv-subject');
+  var HORS_CRITERES = 'Moins de 250 000 €';
+
   function showErr(msg){ errEl.textContent = msg || ''; errEl.style.display = msg ? 'block' : 'none'; }
   function val(n){ var el = form.elements[n]; return (el && el.value ? el.value : '').trim(); }
+
+  /* --- Attribution : d'ou vient ce prospect ? -------------------------------
+     Capte les identifiants de clic des regies (Meta, Microsoft, Google) et les
+     parametres utm_*, puis les joint au formulaire. Permet de savoir quelle
+     annonce a produit chaque demande. Conserve pendant la session en cas de
+     navigation interne avant l'envoi. */
+  (function(){
+    var champ = document.getElementById('lv-campagne');
+    if(!champ) return;
+    var CLES = ['fbclid','msclkid','gclid','wbraid','gbraid','utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    var params, stocke = '';
+    try { params = new URLSearchParams(window.location.search); } catch(e){ return; }
+    var trouves = [];
+    CLES.forEach(function(k){ var v = params.get(k); if(v) trouves.push(k + '=' + v); });
+    if(!trouves.length && document.referrer && document.referrer.indexOf(location.host) === -1){
+      trouves.push('referrer=' + document.referrer);
+    }
+    try { stocke = window.sessionStorage.getItem('lv_campagne') || ''; } catch(e){}
+    if(trouves.length){
+      champ.value = trouves.join(' | ');
+      try { window.sessionStorage.setItem('lv_campagne', champ.value); } catch(e){}
+    } else if(stocke){
+      champ.value = stocke;
+    }
+  })();
+
+  /* --- Message d'orientation si le montant est sous le plancher de l'offre --- */
+  var montantEl = form.elements['montant'];
+  if(montantEl){
+    montantEl.addEventListener('change', function(){
+      if(montantEl.value === HORS_CRITERES){
+        showErr('La bonification SwissLife Altitude suppose un versement d’au moins 250 000 €. Vous pouvez néanmoins nous écrire : nous étudierons les solutions adaptées à votre situation.');
+      } else {
+        showErr('');
+      }
+    });
+  }
+
+  /* --- Signal de conversion vers les regies ---------------------------------
+     Se declenche uniquement apres confirmation d'envoi par Formspree, donc sur
+     une vraie demande et non sur un clic. Chaque appel est protege : tant que
+     le pixel correspondant n'est pas installe, la ligne ne fait rien. */
+  function signalerConversion(tranche){
+    var horsCriteres = (tranche === HORS_CRITERES);
+    try { if(window.fbq) window.fbq('track', 'Lead', { content_name:'SwissLife Altitude', content_category: horsCriteres ? 'Hors criteres' : 'Qualifie' }); } catch(e){}
+    try { if(window.uetq) window.uetq.push('event', 'demande_altitude', { event_category:'SwissLife Altitude', event_label: tranche }); } catch(e){}
+    try { if(window.gtag && window.LV_ADS_CONVERSION) window.gtag('event', 'conversion', { send_to: window.LV_ADS_CONVERSION }); } catch(e){}
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    if(!val('nom') || !val('prenom') || !val('situation') || !val('email') || !val('montant')){ showErr('Merci de renseigner tous les champs.'); return; }
+    if(!val('nom') || !val('prenom') || !val('situation') || !val('email') || !val('telephone') || !val('montant')){ showErr('Merci de renseigner tous les champs.'); return; }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email'))){ showErr('Merci de saisir une adresse e-mail valide.'); return; }
-    if(Number(val('montant')) < 250000){ showErr('Cette offre est réservée aux versements à partir de 250 000 €.'); return; }
+    if(val('telephone').replace(/[^0-9]/g, '').length < 9){ showErr('Merci de saisir un numéro de téléphone valide.'); return; }
+
+    var tranche = val('montant');
+    /* Le sujet du mail porte la tranche : la boite de reception se trie seule. */
+    if(subjectEl){
+      subjectEl.value = (tranche === HORS_CRITERES ? 'Hors critères' : tranche) + ' — SwissLife Altitude';
+    }
+
     showErr('');
     btn.textContent = 'Envoi en cours…'; btn.disabled = true;
     fetch(form.action, { method:'POST', body:new FormData(form), headers:{ Accept:'application/json' } })
-      .then(function(r){ if(!r.ok) throw new Error(); document.getElementById('lv-form-wrap').style.display='none'; document.getElementById('lv-success').style.display='block'; })
+      .then(function(r){ if(!r.ok) throw new Error(); signalerConversion(tranche); document.getElementById('lv-form-wrap').style.display='none'; document.getElementById('lv-success').style.display='block'; })
       .catch(function(){ btn.textContent = 'Envoyer ma demande'; btn.disabled = false; showErr('L’envoi a échoué. Merci de réessayer ou de nous appeler.'); });
   });
 })();
