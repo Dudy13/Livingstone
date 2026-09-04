@@ -356,7 +356,10 @@
       <p style="margin:0">Les unités de compte présentent un risque de perte en capital ; l'assureur ne s'engage que sur le nombre d'unités de compte, et non sur leur valeur. Seul le bonus de 2,70 % est garanti par SwissLife pour 2026 et 2027 ; le taux de base du fonds euro n'est pas garanti et peut évoluer à la hausse comme à la baisse. Les exemples de produits structurés sont illustratifs et devront être retarifés aux conditions de marché au jour de la souscription.</p>
       <p style="margin:0">Livingstone est immatriculée à l'ORIAS sous le n° 23007478 en qualité de Conseiller en Investissements Financiers (CIF), membre de La Compagnie des CGP, association agréée par l'Autorité des Marchés Financiers. Un questionnaire de connaissance client et une déclaration d'adéquation sont requis avant toute souscription.</p>
     </div>
-    <div style="margin-top:32px;padding-top:18px;border-top:1px solid #D6CCB8;font-size:14px;color:#626058">© 2026 Livingstone, family office indépendant</div>
+    <div style="margin-top:32px;padding-top:18px;border-top:1px solid #D6CCB8;font-size:14px;color:#626058;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline">
+      <span>© 2026 Livingstone, family office indépendant</span>
+      <button type="button" id="lv-consent-rouvrir" style="background:none;border:0;padding:0;font-family:Newsreader,Georgia,serif;font-size:14px;color:#626058;text-decoration:underline;text-underline-offset:3px;cursor:pointer">Gérer mon consentement</button>
+    </div>
   </div>
 </footer>
 </div>
@@ -501,9 +504,18 @@
 
   var reponses = {}, etape = 0, demarre = false;
 
+  /* Microsoft n'exploite que event_category, event_label et event_value : des cles
+     libres seraient ignorees et l'objectif de conversion ne pourrait pas s'y adosser.
+     Meta accepte en revanche des proprietes libres. */
   function signal(nom, params){
-    try { if(window.fbq) window.fbq('trackCustom', nom, params || {}); } catch(e){}
-    try { if(window.uetq) window.uetq.push('event', nom, params || {}); } catch(e){}
+    params = params || {};
+    try { if(window.fbq) window.fbq('trackCustom', nom, params); } catch(e){}
+    try {
+      if(window.uetq) window.uetq.push('event', nom, {
+        event_category: 'SwissLife Altitude',
+        event_label: params.formule || params.eligible || ''
+      });
+    } catch(e){}
   }
 
   function vider(el){ while(el.firstChild) el.removeChild(el.firstChild); }
@@ -551,7 +563,7 @@
       }
       if(reponses[q.cle] === opt.v){ b.style.borderColor = '#0B1D3A'; b.style.background = '#F4EFE4'; }
       b.addEventListener('click', function(){
-        if(!demarre){ demarre = true; signal('TestEligibiliteDemarre'); }
+        if(!demarre){ demarre = true; signal('test_demarre'); }
         reponses[q.cle] = opt.v;
         etape++;
         if(etape < QUESTIONS.length) afficherQuestion(); else afficherResultat();
@@ -568,7 +580,7 @@
 
   function afficherResultat(){
     var eligible = reponses.montant !== SOUS_SEUIL;
-    signal('TestEligibiliteTermine', { eligible: eligible ? 'oui' : 'non', formule: reponses.formule });
+    signal('test_termine', { eligible: eligible ? 'oui' : 'non', formule: reponses.formule });
 
     vider(corps);
     /* Le resultat et les coordonnees forment une seule et meme etape :
@@ -644,6 +656,72 @@
   });
 
   afficherQuestion();
+})();
+</script>
+
+<!-- Bandeau de consentement. Aucun traceur n'est charge avant un accord explicite :
+     les scripts de mesure ne sont insere dans la page qu'apres clic sur Accepter.
+     Refuser et Accepter ont la meme presentation, comme l'exige la CNIL. -->
+<div id="lv-consent" role="dialog" aria-modal="false" aria-label="Consentement aux cookies de mesure" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0B1D3A;color:#F4EFE4;box-shadow:0 -12px 32px -20px rgba(0,0,0,0.6)">
+  <div style="max-width:1160px;margin:0 auto;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px">
+    <p style="margin:0;flex:1 1 400px;font-size:14.5px;line-height:1.55">
+      Nous souhaitons déposer des cookies de mesure publicitaire, afin de savoir quelles annonces amènent des visiteurs sur cette page. Ils ne servent qu’à cela. Votre navigation reste identique si vous refusez.
+    </p>
+    <div style="display:flex;gap:12px;flex:0 0 auto">
+      <button type="button" id="lv-consent-refuser" style="font-family:Cinzel,serif;font-size:14px;letter-spacing:0.04em;padding:12px 26px;background:transparent;color:#F4EFE4;border:1px solid #F4EFE4;cursor:pointer">Refuser</button>
+      <button type="button" id="lv-consent-accepter" style="font-family:Cinzel,serif;font-size:14px;letter-spacing:0.04em;padding:12px 26px;background:#F4EFE4;color:#0B1D3A;border:1px solid #F4EFE4;cursor:pointer">Accepter</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* --- Consentement et mesure publicitaire ----------------------------------
+   Le choix est conserve dans le navigateur du visiteur. Tant qu'il n'a pas
+   accepte, aucune requete n'est emise vers Microsoft : le script n'existe pas
+   dans la page. Les signaux du test d'eligibilite sont deja proteges par des
+   gardes « if(window.uetq) », ils restent donc sans effet en cas de refus. */
+(function(){
+  var CLE = 'lv_consentement';
+  var UET_ID = '187272453';
+
+  var banniere = document.getElementById('lv-consent');
+  var accepter = document.getElementById('lv-consent-accepter');
+  var refuser  = document.getElementById('lv-consent-refuser');
+  var rouvrir  = document.getElementById('lv-consent-rouvrir');
+  if(!banniere) return;
+
+  function lire(){ try { return window.localStorage.getItem(CLE); } catch(e){ return null; } }
+  function ecrire(v){ try { window.localStorage.setItem(CLE, v); } catch(e){} }
+
+  var mesureChargee = false;
+  function chargerMesure(){
+    if(mesureChargee) return;
+    mesureChargee = true;
+
+    /* Microsoft Advertising — balise de suivi universel des evenements (UET) */
+    (function(w,d,t,r,u){
+      var f,n,i;
+      w[u]=w[u]||[],f=function(){ var o={ti:UET_ID}; o.q=w[u],w[u]=new UET(o),w[u].push('pageLoad'); },
+      n=d.createElement(t),n.src=r,n.async=1,
+      n.onload=n.onreadystatechange=function(){ var s=this.readyState; s&&s!=='loaded'&&s!=='complete'||(f(),n.onload=n.onreadystatechange=null); },
+      i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i);
+    })(window,document,'script','https://bat.bing.com/bat.js','uetq');
+
+    window.uetq = window.uetq || [];
+    window.uetq.push('consent', 'update', { ad_storage: 'granted' });
+
+    /* Meta — le pixel viendra ici, meme conditionnement, des reception de l'identifiant. */
+  }
+
+  function fermer(){ banniere.style.display = 'none'; }
+
+  accepter.addEventListener('click', function(){ ecrire('accepte'); fermer(); chargerMesure(); });
+  refuser.addEventListener('click', function(){ ecrire('refuse'); fermer(); });
+  if(rouvrir) rouvrir.addEventListener('click', function(){ banniere.style.display = 'block'; });
+
+  var choix = lire();
+  if(choix === 'accepte') chargerMesure();
+  else if(choix !== 'refuse') banniere.style.display = 'block';
 })();
 </script>
 </body>
