@@ -30,10 +30,30 @@
     @keyframes lv-drop{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
     .lv-call:hover{background:#B38E56 !important;border-color:#B38E56 !important;color:#0B1D3A !important}
     .lv-submit:hover{background:#B38E56 !important;border-color:#B38E56 !important;color:#0B1D3A !important}
+    .lv-opt{display:block;width:100%;text-align:left;background:#FFFFFF;border:1px solid #D6CCB8;padding:13px 14px;margin-top:8px;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;cursor:pointer;transition:border-color .15s,background .15s}
+    .lv-opt:hover{border-color:#0B1D3A;background:#F4EFE4}
+    .lv-opt:focus-visible,.lv-link:focus-visible,.lv-submit:focus-visible{outline:2px solid #B38E56;outline-offset:2px}
+    .lv-opt-detail{display:block;margin-top:3px;font-size:13.5px;font-style:italic;color:#626058}
+    .lv-opt-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+    .lv-opt-obj{font-size:13px;font-style:italic;color:#B38E56;white-space:nowrap}
+    .lv-opt-lines{margin-top:7px;padding-top:7px;border-top:1px solid #EDE6D8}
+    .lv-opt-line{display:block;font-size:13px;line-height:1.5;color:#626058}
+    .lv-opt-line b{font-weight:400;color:#3B3A36;font-variant-numeric:tabular-nums}
+    #lv-corps{scrollbar-width:thin;scrollbar-color:#D6CCB8 transparent}
+    #lv-corps::-webkit-scrollbar{width:6px}
+    #lv-corps::-webkit-scrollbar-track{background:transparent}
+    #lv-corps::-webkit-scrollbar-thumb{background:#D6CCB8}
+    #lv-corps::-webkit-scrollbar-thumb:hover{background:#B38E56}
+    .lv-link{background:none;border:0;padding:0;font-family:Newsreader,Georgia,serif;font-size:13.5px;font-style:italic;color:#626058;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+    .lv-link:hover{color:#0B1D3A}
     @media (max-width:1080px){
       #lv-layout{grid-template-columns:minmax(0,1fr) !important;padding:0 24px !important;gap:0 !important}
       #lv-hero,#lv-aside,#lv-main{grid-column:1 !important;grid-row:auto !important}
       #lv-aside{position:static !important;margin:0 0 72px !important}
+      /* Hors bureau la carte n'est plus collante : elle suit la page, donc pas de
+         defilement interne (deux barres imbriquees sur mobile, a proscrire). */
+      #lv-carte{max-height:none !important}
+      #lv-corps{overflow-y:visible !important}
       #lv-hero{padding-top:56px !important}
       .lv-2col{grid-template-columns:minmax(0,1fr) !important}
       .lv-band{flex-direction:column !important;align-items:flex-start !important;gap:6px !important}
@@ -77,8 +97,11 @@
 
   <!-- ASIDE CTA -->
   <aside id="lv-aside" style="grid-column:2;grid-row:1 / span 2;position:sticky;top:24px;align-self:start;margin:56px 0 72px">
-    <div style="background:#FFFFFF;border:1px solid #0B1D3A;box-shadow:0 24px 48px -28px rgba(11,29,58,0.45)">
-      <div style="padding:24px 24px 20px;border-bottom:1px solid #D6CCB8">
+    <!-- Carte en colonne flex : l'en-tete (offre + telephone) reste fixe, seul le
+         corps defile. Sans cela, une carte plus haute que la fenetre est figee par
+         position:sticky et ses derniers champs deviennent inatteignables. -->
+    <div id="lv-carte" style="background:#FFFFFF;border:1px solid #0B1D3A;box-shadow:0 24px 48px -28px rgba(11,29,58,0.45);display:flex;flex-direction:column;max-height:calc(100vh - 48px)">
+      <div style="flex:0 0 auto;padding:24px 24px 20px;border-bottom:1px solid #D6CCB8">
         <span style="font-size:14px;font-style:italic;color:#B38E56">Offre disponible jusqu'à la fin de l'année 2026</span>
         <h2 style="font-family:Cinzel,serif;font-weight:400;font-size:26px;line-height:1.2;color:#14161A;margin:8px 0 0">Vérifier mon éligibilité</h2>
         <p style="margin:10px 0 0;font-size:15px;line-height:1.5;color:#3B3A36">Versement minimum de 250 000 €, 40 % d'unités de compte. Échange confidentiel, sans engagement.</p>
@@ -87,19 +110,35 @@
           <span style="font-family:Cinzel,serif;font-size:20px;letter-spacing:0.04em;white-space:nowrap">07 78 51 13 07</span>
         </a>
       </div>
-      <div style="padding:20px 24px 24px">
+      <div id="lv-corps" style="flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;padding:20px 24px 24px">
         <div id="lv-success" style="display:none;padding:12px 0">
           <svg width="56" height="24" viewBox="0 0 120 52" fill="none" stroke="#B38E56" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M4 38 C 20 14, 36 14, 60 32 C 84 14, 100 14, 116 38"/></svg>
           <div style="font-family:Cinzel,serif;font-size:22px;line-height:1.25;color:#0B1D3A;margin-top:18px">Merci, nous revenons vers vous sous 24 h.</div>
           <p style="margin:10px 0 0;font-size:15px;color:#3B3A36">Votre demande a bien été transmise à Livingstone.</p>
         </div>
-        <div id="lv-form-wrap">
+        <!-- Test d'eligibilite : porte d'entree sans coordonnees.
+             Verifie les conditions d'acces fixees par l'assureur (montant, formule).
+             Ne constitue pas un conseil : l'adequation reste soumise au questionnaire
+             de connaissance client, rappele sous le formulaire. -->
+        <div id="lv-quiz">
+          <div id="lv-quiz-intro" style="font-size:14px;font-style:italic;color:#626058">Trois questions, réponse immédiate. Vos coordonnées ne sont demandées qu’à la fin.</div>
+          <div id="lv-quiz-body" style="margin-top:16px"></div>
+          <div id="lv-quiz-foot" style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <button type="button" id="lv-quiz-back" class="lv-link" style="display:none">Retour</button>
+            <span id="lv-quiz-step" style="font-size:12px;letter-spacing:0.04em;color:#626058;margin-left:auto"></span>
+          </div>
+        </div>
+
+        <div id="lv-form-wrap" style="display:none">
           <form id="lv-elig-form" action="https://formspree.io/f/mvkoajvj" method="POST" novalidate>
+            <input type="hidden" id="lv-horizon" name="horizon" value="">
+            <input type="hidden" id="lv-formule" name="formule" value="">
             <input type="hidden" id="lv-subject" name="_subject" value="Nouvelle demande — SwissLife Altitude">
             <input type="hidden" name="source" value="/swisslife-altitude">
             <input type="hidden" id="lv-campagne" name="campagne" value="">
             <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label for="lv-gotcha">Ne pas remplir</label><input id="lv-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
-            <div style="font-size:14px;font-style:italic;color:#626058">Ou laissez vos coordonnées, réponse sous 24 h.</div>
+            <div id="lv-form-intro" style="font-size:14px;font-style:italic;color:#626058">Laissez vos coordonnées, réponse sous 24 h.</div>
+            <div id="lv-form-recap" style="display:none;margin-top:12px;padding:12px 14px;background:#F4EFE4;border-left:2px solid #B38E56;font-size:14px;line-height:1.55;color:#3B3A36"></div>
             <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px">
               <div><label for="lv-nom" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">Nom</label><input id="lv-nom" name="nom" type="text" required autocomplete="family-name" style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none"></div>
               <div><label for="lv-prenom" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">Prénom</label><input id="lv-prenom" name="prenom" type="text" required autocomplete="given-name" style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none"></div>
@@ -116,16 +155,10 @@
             </div>
             <div style="margin-top:12px"><label for="lv-email" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">E-mail</label><input id="lv-email" name="email" type="email" required autocomplete="email" style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none"></div>
             <div style="margin-top:12px"><label for="lv-telephone" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">Téléphone</label><input id="lv-telephone" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none"></div>
-            <div style="margin-top:12px"><label for="lv-montant" style="font-size:13px;color:#626058;display:block;margin-bottom:6px">Montant à placer</label>
-              <select id="lv-montant" name="montant" required style="width:100%;font-family:Newsreader,Georgia,serif;font-size:16px;color:#14161A;background:#FFFFFF;border:1px solid #D6CCB8;padding:11px 12px;outline:none;border-radius:0;-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#626058 50%),linear-gradient(135deg,#626058 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat">
-                <option value="" disabled selected>Sélectionner</option>
-                <option value="Moins de 250 000 €">Moins de 250 000 €</option>
-                <option value="250 000 € à 500 000 €">250 000 € à 500 000 €</option>
-                <option value="500 000 € à 1 M€">500 000 € à 1 M€</option>
-                <option value="Plus d'1 M€">Plus d'1 M€</option>
-              </select>
-              <div id="lv-error" style="margin-top:8px;font-size:14px;line-height:1.45;color:#8A4B2A;border-left:2px solid #B38E56;padding-left:10px;display:none"></div>
-            </div>
+            <!-- Montant deja recueilli par la question 1 du test : champ cache
+                 pour ne pas le redemander. Modifiable via « Modifier mes reponses ». -->
+            <input type="hidden" id="lv-montant" name="montant" value="">
+            <div id="lv-error" style="margin-top:12px;font-size:14px;line-height:1.45;color:#8A4B2A;border-left:2px solid #B38E56;padding-left:10px;display:none"></div>
             <button id="lv-submit" type="submit" class="lv-submit" style="display:flex;align-items:center;justify-content:center;width:100%;margin-top:20px;background:#0B1D3A;color:#F4EFE4;font-family:Cinzel,serif;font-size:17px;letter-spacing:0.04em;height:60px;border:1px solid #0B1D3A;cursor:pointer">Envoyer ma demande</button>
             <div style="margin-top:12px;font-size:12px;color:#626058;line-height:1.5">Vos informations sont utilisées uniquement pour traiter votre demande. Aucune souscription n'est possible sans questionnaire de connaissance client et déclaration d'adéquation.</div>
           </form>
@@ -404,6 +437,211 @@
       .then(function(r){ if(!r.ok) throw new Error(); signalerConversion(tranche); document.getElementById('lv-form-wrap').style.display='none'; document.getElementById('lv-success').style.display='block'; })
       .catch(function(){ btn.textContent = 'Envoyer ma demande'; btn.disabled = false; showErr('L’envoi a échoué. Merci de réessayer ou de nous appeler.'); });
   });
+})();
+
+/* --- Test d'eligibilite ----------------------------------------------------
+   Porte d'entree sans coordonnees. Verifie les conditions d'acces posees par
+   l'assureur (montant minimum, choix de formule) et non l'adequation du contrat
+   a la situation du prospect, qui reste soumise au questionnaire de connaissance
+   client. Les reponses alimentent ensuite le formulaire : le conseiller prepare
+   le dossier avant l'appel. */
+(function(){
+  var quiz = document.getElementById('lv-quiz');
+  var form = document.getElementById('lv-elig-form');
+  if(!quiz || !form) return;
+
+  var corps      = document.getElementById('lv-quiz-body');
+  var retour     = document.getElementById('lv-quiz-back');
+  var compteur   = document.getElementById('lv-quiz-step');
+  var pied       = document.getElementById('lv-quiz-foot');
+  var chapo      = document.getElementById('lv-quiz-intro');
+  var wrap       = document.getElementById('lv-form-wrap');
+  var intro      = document.getElementById('lv-form-intro');
+  var recap      = document.getElementById('lv-form-recap');
+  var TOTAL_ETAPES = 4; /* 3 questions + les coordonnees */
+
+  var SOUS_SEUIL = 'Moins de 250 000 €';
+
+  var QUESTIONS = [
+    { cle:'montant', titre:'Quel montant envisagez-vous de placer ?', options:[
+      { v:'Moins de 250 000 €' },
+      { v:'250 000 € à 500 000 €' },
+      { v:'500 000 € à 1 M€' },
+      { v:'Plus d’1 M€' }
+    ]},
+    { cle:'horizon', titre:'Sur quel horizon souhaitez-vous investir ?', options:[
+      { v:'Moins de 4 ans' },
+      { v:'4 à 8 ans' },
+      { v:'Plus de 8 ans' },
+      { v:'Je ne sais pas encore' }
+    ]},
+    { cle:'formule', titre:'Vers quelle formule penchez-vous ?', options:[
+      { v:'Sécurisée', obj:'Objectif ~ 4 %', lignes:[
+        '<b>60 %</b> fonds euro · capital garanti',
+        '<b>40 %</b> produits structurés · capital garanti à l’échéance',
+        'Garantie portant sur l’intégralité de l’allocation'
+      ]},
+      { v:'Équilibrée', obj:'Objectif ~ 5 %', lignes:[
+        '<b>60 %</b> fonds euro · capital garanti à 100 %',
+        '<b>20 %</b> produits structurés · protection partielle, barrière −40 %',
+        '<b>20 %</b> unités de compte · sans garantie en capital'
+      ]},
+      { v:'Dynamique', obj:'Objectif ~ 6 %', lignes:[
+        '<b>50 %</b> fonds euro · capital garanti à 100 %',
+        '<b>25 %</b> produits structurés · protection partielle, barrière −40 %',
+        '<b>25 %</b> unités de compte diversifiées · sans garantie en capital'
+      ]},
+      { v:'À définir avec un expert', lignes:[
+        'Nous construisons l’allocation avec vous, au regard de votre situation.'
+      ]}
+    ]}
+  ];
+
+  var reponses = {}, etape = 0, demarre = false;
+
+  function signal(nom, params){
+    try { if(window.fbq) window.fbq('trackCustom', nom, params || {}); } catch(e){}
+    try { if(window.uetq) window.uetq.push('event', nom, params || {}); } catch(e){}
+  }
+
+  function vider(el){ while(el.firstChild) el.removeChild(el.firstChild); }
+
+  function afficherQuestion(){
+    var q = QUESTIONS[etape];
+    vider(corps);
+
+    var titre = document.createElement('h3');
+    titre.textContent = q.titre;
+    titre.style.cssText = 'font-family:Cinzel,serif;font-weight:400;font-size:19px;line-height:1.3;color:#14161A;margin:0';
+    corps.appendChild(titre);
+
+    q.options.forEach(function(opt){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'lv-opt';
+
+      /* Ligne de tete : intitule, et objectif de rendement quand il y en a un. */
+      var tete = document.createElement('span');
+      tete.className = 'lv-opt-head';
+      var label = document.createElement('span');
+      label.textContent = opt.v;
+      tete.appendChild(label);
+      if(opt.obj){
+        var obj = document.createElement('span');
+        obj.className = 'lv-opt-obj';
+        obj.textContent = opt.obj;
+        tete.appendChild(obj);
+      }
+      b.appendChild(tete);
+
+      /* Structure de garantie, poche par poche. Chaines redigees ici meme,
+         jamais issues d'une saisie : le balisage est sur. */
+      if(opt.lignes){
+        var bloc = document.createElement('span');
+        bloc.className = 'lv-opt-lines';
+        opt.lignes.forEach(function(txt){
+          var l = document.createElement('span');
+          l.className = 'lv-opt-line';
+          l.innerHTML = txt;
+          bloc.appendChild(l);
+        });
+        b.appendChild(bloc);
+      }
+      if(reponses[q.cle] === opt.v){ b.style.borderColor = '#0B1D3A'; b.style.background = '#F4EFE4'; }
+      b.addEventListener('click', function(){
+        if(!demarre){ demarre = true; signal('TestEligibiliteDemarre'); }
+        reponses[q.cle] = opt.v;
+        etape++;
+        if(etape < QUESTIONS.length) afficherQuestion(); else afficherResultat();
+      });
+      corps.appendChild(b);
+    });
+
+    chapo.style.display = 'block';
+    pied.style.display = 'flex';
+    wrap.style.display = 'none';
+    retour.style.display = etape > 0 ? 'inline' : 'none';
+    compteur.textContent = 'Étape ' + (etape + 1) + ' sur ' + TOTAL_ETAPES;
+  }
+
+  function afficherResultat(){
+    var eligible = reponses.montant !== SOUS_SEUIL;
+    signal('TestEligibiliteTermine', { eligible: eligible ? 'oui' : 'non', formule: reponses.formule });
+
+    vider(corps);
+    /* Le resultat et les coordonnees forment une seule et meme etape :
+       pas de bouton intermediaire, pas de second questionnaire. */
+    chapo.style.display = 'none';
+    pied.style.display = 'none';
+
+    var trait = document.createElement('div');
+    trait.style.cssText = 'width:48px;height:1px;background:#B38E56';
+    corps.appendChild(trait);
+
+    var titre = document.createElement('div');
+    titre.style.cssText = 'font-family:Cinzel,serif;font-size:21px;line-height:1.3;color:#0B1D3A;margin-top:14px';
+    titre.textContent = eligible
+      ? 'Vous réunissez les conditions d’accès.'
+      : 'Un point à ajuster.';
+    corps.appendChild(titre);
+
+    var texte = document.createElement('p');
+    texte.style.cssText = 'margin:10px 0 0;font-size:15px;line-height:1.55;color:#3B3A36';
+    texte.textContent = eligible
+      ? 'Le montant envisagé atteint le seuil de 250 000 € requis pour la bonification, et la formule ' + reponses.formule.toLowerCase() + ' fait partie des allocations proposées. Reste à en valider les modalités avec vous.'
+      : 'La bonification de 2,70 % suppose un versement d’au moins 250 000 €. En dessous de ce seuil, elle n’est pas accessible — mais d’autres solutions patrimoniales peuvent correspondre à votre situation.';
+    corps.appendChild(texte);
+
+    /* Le detail des reponses n'est pas repete ici : il figure juste en dessous,
+       adosse aux champs, la ou on l'a sous les yeux au moment de saisir. */
+    var modifier = document.createElement('button');
+    modifier.type = 'button';
+    modifier.className = 'lv-link';
+    modifier.style.cssText = 'margin-top:10px';
+    modifier.textContent = 'Modifier mes réponses';
+    modifier.addEventListener('click', function(){ etape = QUESTIONS.length - 1; afficherQuestion(); });
+    corps.appendChild(modifier);
+
+    var note = document.createElement('p');
+    note.style.cssText = 'margin:14px 0 0;font-size:12px;line-height:1.5;color:#626058';
+    note.textContent = 'Réponse indicative, établie à partir des conditions d’accès du contrat. Elle ne constitue pas un conseil personnalisé.';
+    corps.appendChild(note);
+
+    /* Les coordonnees s'affichent dans la foulee, sous le resultat. */
+    ouvrirFormulaire();
+  }
+
+  function ouvrirFormulaire(){
+    document.getElementById('lv-montant').value = reponses.montant || '';
+    document.getElementById('lv-horizon').value = reponses.horizon || '';
+    document.getElementById('lv-formule').value = reponses.formule || '';
+
+    intro.textContent = 'Étape ' + TOTAL_ETAPES + ' sur ' + TOTAL_ETAPES + ' · vos coordonnées. Vos réponses sont jointes : nous les étudions avant de vous appeler.';
+    recap.textContent = 'Formule ' + reponses.formule.toLowerCase() + ' · ' + reponses.montant + ' · horizon ' + reponses.horizon.toLowerCase() + '.';
+    recap.style.display = 'block';
+
+    wrap.style.display = 'block';
+
+    /* Sur bureau, la carte est collante et plafonnee a la hauteur de la fenetre.
+       Tant que la page est en haut, elle n'est pas encore calee et deborde par le
+       bas. On aligne donc la page sur son sommet avant la saisie, pour que les
+       champs et le bouton d'envoi soient tous joignables par la barre interne. */
+    if(window.matchMedia && window.matchMedia('(min-width:1081px)').matches){
+      var carte = document.getElementById('lv-carte');
+      if(carte && carte.getBoundingClientRect().bottom > window.innerHeight){
+        /* Defilement direct et non fluide : « smooth » est ignore par les
+           navigateurs regles sur animations reduites, et le calage doit etre sur. */
+        window.scrollTo(0, window.scrollY + carte.getBoundingClientRect().top - 24);
+      }
+    }
+  }
+
+  retour.addEventListener('click', function(){
+    etape = Math.max(0, etape - 1);
+    afficherQuestion();
+  });
+
+  afficherQuestion();
 })();
 </script>
 </body>
