@@ -1,0 +1,15 @@
+{
+  "name": "livingstone-website",
+  "version": "1.0.0",
+  "description": "Livingstone Family Office website",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
