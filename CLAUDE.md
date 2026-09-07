@@ -17,6 +17,8 @@ Marketing website for **Livingstone — Family Office**, a French private wealth
 - `mentions-legales.html`, `confidentialite.html`, `reclamations.html` — legal pages linked from the footer.
 - `cas-pratiques.html` — hub page listing case-study articles. Linked from `index.html` nav (between Médias and Valorisation) and footer.
 - `cas-pratiques/*.html` — one HTML file per case study. Production URL: `/cas-pratiques/<slug>` (cleanUrls). All paths to root assets must be prefixed `../` (`../styles.css`, `../script.js`, `../images/...`, `../cas-pratiques.html`, `../index.html#contact`).
+- `merci-guide.html` — thank-you page reached only after the guide form redirect (Formspree `_next`). Carries `noindex`, is **not** in `sitemap.xml`, and hosts step 2 of the funnel (booking). Do not link it from navigation.
+- `documents/livingstone-guide-cession-dirigeant.pdf` — the lead magnet, regenerated from the guide page (see "Regenerating the PDF").
 - `qualification.html`, `acces-prive.html` — **intentionally unlinked from navigation**. Both carry `<meta name="robots" content="noindex, nofollow">` and are reached only by direct URL (private placement / qualified-investor flows under art. L. 411-2 I CMF). Do not add them to the nav or sitemap; do not remove the noindex tags.
 
 ## Case-study article gabarit
@@ -30,9 +32,75 @@ Each article in `cas-pratiques/` follows the same skeleton (use the existing fil
 - The CTA submit button label must stay action-oriented ("Échanger sur ma situation"), never "Envoyer"
 - Add the new URL to `sitemap.xml` (cleanUrl form, no `.html`) and add a card to `cas-pratiques.html` (both the visible grid and the `ItemList` JSON-LD)
 
+## Acquisition funnel
+
+The site is the capture layer only — no backend, no build step. Everything downstream
+(delivery, nurturing, booking) lives in external SaaS.
+
+```
+article / guide  →  #recevoir (email required, phone OPTIONAL)
+                 →  Formspree, then _next redirect
+                 →  merci-guide.html : PDF download + booking (phone REQUIRED here)
+```
+
+Two rules that are deliberate, not oversights:
+
+- **The phone is optional at step 1 and required at step 2.** A required phone on a
+  first form costs conversions and yields fake numbers. At step 2 the person is
+  asking for the call, so the number is natural and the contact rate is far higher.
+- **A phone number is never collected without its own consent checkbox**
+  (`consentement_appel`). Since French cold-calling moved to opt-in, a number
+  gathered without explicit consent cannot legally be called.
+
+`merci-guide.html` holds a `LV_AGENDA` constant at the top of its inline script.
+Paste a Cal.com/Calendly link there and the iframe replaces the fallback form
+automatically; leave it empty and the fallback form stays. Nothing else to change.
+
+Formspree remains the transport. It delivers, it does not sequence — the nurturing
+sequence in `docs/sequence-emails-cession.md` has to be created in an emailing tool
+(Brevo et al.) for the funnel to actually pay off.
+
+## Analytics & consent
+
+`analytics.js` is the single shared measurement file, loaded on every public page.
+It injects the consent banner in JS (no markup to duplicate), loads **nothing**
+before an explicit accept, and exposes `window.lvTrack(name, params)` and
+`window.lvLead(params)` for conversions. IDs live at the top of the file; `GA4_ID`
+is empty until the property exists, in which case the Google script is simply not
+inserted.
+
+The choice is stored under `lv_consentement` — the **same key** as the inline
+system in `swisslife-altitude.html`, so a visitor answers once for the whole site.
+
+Deliberately **not** carrying `analytics.js`:
+
+- `index.html` — untouched by request (video portal). Adding it is a one-line change.
+- `swisslife-altitude.html` — has its own inline banner and pixels; adding the shared
+  file would show two banners.
+- `qualification.html`, `acces-prive.html` — private placement flows; no tracker is
+  sent from them on purpose.
+
+Any element with `id="lv-consent-rouvrir"` reopens the choice; the footer of every
+page carries one.
+
+## Regenerating the guide PDF
+
+The PDF is built from the live page content with headless Chromium, so the page
+stays the single source of truth:
+
+1. extract `<article class="article-body">` from `ceder-son-entreprise-guide-du-dirigeant.html`
+2. wrap it in a print template (A4, cover page, embedded Cormorant Garamond as
+   base64 `@font-face` — Google Fonts is not reachable at print time, and without
+   the embed the PDF silently falls back to a generic serif)
+3. `chrome --headless --no-pdf-header-footer --print-to-pdf=...`
+
+Re-run it whenever the guide text changes, otherwise the PDF and the page drift apart.
+
 ## Compliance footer (CIF / ORIAS)
 
-`cas-pratiques.html` and articles ship a **richer footer** than `index.html` today: under the standard footer links sits a `.footer-compliance` block with Livingstone's SARL identifiers and the ORIAS 23007478 / CIF (Compagnie des CGP) / CNCEF Assurance mentions required for AMF/ACPR-regulated activity. Keep this block on every public case-study page. The wording is the authoritative version from `mentions-legales.html`. `index.html` does **not** carry this block yet — it should be added separately, not removed here.
+Under the standard footer links sits a `.footer-compliance` block with Livingstone's SARL identifiers and the ORIAS 23007478 / CIF (Compagnie des CGP) / CNCEF Assurance mentions required for AMF/ACPR-regulated activity. The wording is the authoritative version from `mentions-legales.html`.
+
+Every public page now carries it, `index.html` included. The three legal pages used to ship their own `.legal-header` / `.legal-footer` chrome with no nav and no compliance block; they now use the same `.nav` and `.footer` as the rest of the site, keeping only their dark `body.legal-page` background.
 
 ## SEO files
 
@@ -43,11 +111,15 @@ Each article in `cas-pratiques/` follows the same skeleton (use the existing fil
 
 There are **three independent style systems** — don't try to unify them:
 
-1. **`styles.css`** (~1070 lines) — shared stylesheet for `index.html` and the legal pages. Palette in `:root`: charbon `#111111`, gold `#8B7355`, cream `#F5F0E8`. Typography: Cormorant Garamond (serif headings) + system sans for body. Mobile breakpoint at 768px.
-2. **Inline `<style>` block inside the `index.html` hero** (lines ~50–128) — scoped class names with `-a` suffix (`.wordmark-a`, `.stat-num-a`, etc.) for a multi-scene intro animation driven by an IIFE later in the same file. Changing the hero usually means editing all three: the `<style>`, the scene markup, and the JS timeline.
-3. **`acces-prive.html` and `qualification.html` ship their own full `<style>` blocks** with a different palette (ivory `#F2EBDF`, warmer gold `#C9A87C`) and different fonts (Cinzel + EB Garamond / Montserrat). They do **not** consume `styles.css`. Treat them as standalone documents.
+1. **`styles.css`** (~1900 lines) — shared stylesheet for every page except the standalone documents below. Palette in `:root`: charbon `#0B0B0B`, gold `#C9A87C`, cream `#F2EBDF`. Typography: Cormorant Garamond (serif headings) + system sans for body. Breakpoints at 1024 / 768 / 480px.
+2. **`index.html` is a five-scene video portal** (`.pv` sections, `videos/*.mp4` lazy-loaded by IntersectionObserver, scroll-snap in a small inline `<style>`). It consumes `styles.css` for its nav and footer. **Do not restyle or restructure it** — it is the one page deliberately kept as is.
+3. **`acces-prive.html`, `qualification.html` and `swisslife-altitude.html` ship their own full `<style>` blocks** with different palettes and fonts (Cinzel + EB Garamond / Montserrat / Newsreader). They do **not** consume `styles.css`. Treat them as standalone documents.
 
-`script.js` is loaded only by `index.html` and the legal pages; it handles the mobile burger (`#burger` / `#navMobile`) and a scroll-triggered nav shadow. The hero animation has its own inline script.
+**Spacing under the fixed nav.** The nav is `position: fixed`, so every internal page must reserve its height. That height is `--nav-h`, declared once per breakpoint in `styles.css`; `.article`, `.cas-hub` and `.merci` compute their top padding from it, and `.page-top` applies it to any other first block. Never re-introduce a hardcoded `padding-top` (the site used to carry 140px, 150px and 160px on different pages, all wrong at some breakpoint).
+
+**Repeated inline styles have been promoted to classes** — `.author-link`, `.link-gold`, `.figure` / `.figure-caption` (SVG schemas), `.guide-toc`, `.hub-guide`. Use these rather than re-inlining, otherwise a change means editing a dozen files.
+
+`script.js` is loaded by every page that consumes `styles.css` — including the legal pages, which now have the burger menu too (the standalone `acces-prive.html`, `qualification.html` and `swisslife-altitude.html` do not); it handles the mobile burger (`#burger` / `#navMobile`) and a scroll-triggered nav shadow. The video portal on `index.html` has its own inline script.
 
 ## Conventions worth knowing
 
