@@ -1,0 +1,397 @@
+/* ------------------------------------------------------------------
+   REFONTE 2026 — charte des nouvelles pages
+   Sortie du creme/ivoire + dore. Fond perle froid, encre profonde,
+   accent petrole ; le dore est reserve au logo.
+   N'est PAS chargee par index.html ni les pages legales, qui gardent
+   styles.css : l'accueil et ses videos restent inchanges.
+   ------------------------------------------------------------------ */
+:root{
+  --perle:#F1F3F4;
+  --blanc:#FFFFFF;
+  --encre:#12181C;
+  --encre-2:#1B242A;
+  --texte:#2C363C;
+  --gris:#66727A;
+  --trait:#D2D9DC;
+  --petrole:#1C4A55;
+  --petrole-clair:#2E6C78;
+  --laiton:#A9853F;
+  --alerte:#8A4B2A;
+  --serif:"Newsreader",Georgia,serif;
+  --sans:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--perle);color:var(--texte);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--petrole);text-decoration:none}
+a:hover{color:var(--petrole-clair)}
+img{max-width:100%}
+.contenu{max-width:760px;margin:0 auto;padding:0 24px}
+.contenu-large{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{background:var(--encre);position:sticky;top:0;z-index:50}
+.nav-inner{max-width:1160px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-inner img{height:30px;width:auto;display:block}
+.nav-liens{display:flex;gap:26px;flex-wrap:wrap}
+.nav-liens a{color:#C9D2D7;font-size:14px;letter-spacing:.02em}
+.nav-liens a:hover{color:#FFF}
+
+/* HERO */
+.hero{background:var(--encre);color:#EDF1F3;padding:74px 0 84px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--laiton);margin-bottom:22px}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(38px,6vw,60px);line-height:1.06;letter-spacing:-.015em;margin:0 0 22px;color:#FFF;text-wrap:balance}
+.chapo{font-size:20px;line-height:1.55;color:#B9C4CA;max-width:60ch;margin:0}
+
+/* SECTIONS */
+section{padding:60px 0}
+.section-blanche{background:var(--blanc);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait)}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.6vw,34px);line-height:1.2;letter-spacing:-.01em;color:var(--encre);margin:0 0 18px;text-wrap:balance}
+h3{font-family:var(--sans);font-weight:600;font-size:17px;color:var(--encre);margin:0 0 6px}
+p{margin:0 0 18px;max-width:66ch}
+.intro{font-size:19px;line-height:1.6;color:var(--encre-2)}
+
+/* ETAPES */
+.etapes{display:flex;flex-direction:column;border-top:1px solid var(--trait)}
+.etape{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--trait)}
+.etape-n{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--petrole);padding-top:3px}
+.etape p{margin:6px 0 0;color:var(--gris);font-size:16px}
+
+/* CHIFFRE MIS EN AVANT */
+.chiffre{background:var(--blanc);border:1px solid var(--trait);padding:30px 32px;margin:28px 0}
+.chiffre-val{font-family:var(--serif);font-weight:300;font-size:clamp(40px,7vw,58px);line-height:1;color:var(--petrole);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.chiffre-leg{font-size:15.5px;color:var(--gris);margin:12px 0 0;max-width:52ch}
+
+/* DEUX COLONNES DE FRAIS */
+.colonnes{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+.colonne{background:var(--blanc);border:1px solid var(--trait);padding:28px 26px;display:flex;flex-direction:column}
+.colonne-titre{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--encre);margin:0 0 4px}
+.colonne-sous{font-size:14.5px;color:var(--gris);margin:0 0 20px}
+.ligne{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid #EDF1F2;font-size:15.5px}
+.ligne:last-of-type{border-bottom:0}
+.ligne-lib{color:var(--texte)}
+.ligne-val{font-family:var(--mono);font-size:14.5px;color:var(--encre);font-variant-numeric:tabular-nums;white-space:nowrap}
+.total{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-top:16px;padding-top:16px;border-top:2px solid var(--encre)}
+.total-lib{font-weight:600;color:var(--encre);font-size:16px}
+.total-val{font-family:var(--serif);font-size:30px;font-weight:400;color:var(--petrole);font-variant-numeric:tabular-nums;line-height:1}
+.colonne-note{font-size:14px;line-height:1.55;color:var(--gris);margin:18px 0 0}
+
+/* ENCADRE SOMBRE */
+.encadre{background:var(--encre-2);color:#D7DEE2;padding:28px 30px;margin:30px 0}
+.encadre h3{color:#FFF;font-family:var(--serif);font-weight:400;font-size:21px;margin-bottom:10px}
+.encadre p{color:#AEBAC1;margin:0 0 12px;font-size:16px}
+.encadre p:last-child{margin-bottom:0}
+.encadre .ligne{border-bottom-color:#2B363D}
+.encadre .ligne-lib{color:#AEBAC1}
+.encadre .ligne-val{color:#FFF}
+
+/* LISTE NEGATIVE */
+.negatif{list-style:none;padding:0;margin:0;border-top:1px solid var(--trait)}
+.negatif li{padding:15px 0 15px 30px;border-bottom:1px solid var(--trait);position:relative;font-size:16.5px;color:var(--encre)}
+.negatif li::before{content:"—";position:absolute;left:0;color:var(--petrole);font-family:var(--mono)}
+
+/* NOTE LEGALE */
+.legal{border-left:2px solid var(--trait);padding-left:20px;font-size:14.5px;line-height:1.6;color:var(--gris)}
+.legal p{margin:0 0 8px}
+
+/* CTA */
+.cta{background:var(--blanc);border-top:1px solid var(--trait);border-bottom:1px solid var(--trait);padding:56px 0}
+.bouton{display:inline-block;background:var(--encre);color:#FFF;font-family:var(--sans);font-weight:500;font-size:15.5px;letter-spacing:.02em;padding:16px 34px;border:1px solid var(--encre)}
+.bouton:hover{background:var(--petrole);border-color:var(--petrole);color:#FFF}
+.bouton:focus-visible,a:focus-visible{outline:2px solid var(--laiton);outline-offset:3px}
+
+/* FOOTER */
+footer{background:var(--encre);color:#8E9BA3;padding:48px 0 40px;font-size:14px}
+footer .contenu{max-width:1160px}
+footer img{height:26px;margin-bottom:22px}
+.f-liens{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:26px}
+.f-liens a{color:#B7C1C7;font-size:14px}
+.f-conf{border-top:1px solid #263138;padding-top:20px;font-size:12.5px;line-height:1.6;color:#77848C;max-width:88ch}
+.f-conf p{margin:0 0 8px;max-width:none}
+
+@media(max-width:760px){
+  .colonnes{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  body{font-size:16px}
+  .hero{padding:52px 0 60px}
+  section{padding:44px 0}
+  .etape{grid-template-columns:38px 1fr;gap:14px}
+  .chiffre,.colonne{padding:24px 22px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ==================================================================
+   COUCHE DE RE-HABILLAGE DES PAGES EXISTANTES
+   ------------------------------------------------------------------
+   Les pages internes chargent styles.css PUIS ce fichier. styles.css
+   n'est pas modifie : il reste la feuille de l'accueil, qui ne charge
+   pas refonte.css et garde donc integralement sa charte creme/dore.
+
+   Comme styles.css est ecrit a 80 % sur des variables CSS, il suffit
+   de redefinir les jetons pour re-habiller l'ensemble du site. Le
+   reste — les quelques couleurs ecrites en dur — est repris nommement
+   plus bas.
+   ================================================================== */
+
+:root {
+  /* Fonds et encres */
+  --navy:        #12181C;   /* etait #0B0B0B */
+  --navy-2:      #1B242A;
+  --cream:       #F1F3F4;   /* perle froide, etait un creme chaud */
+  --ivory-2:     #E4E8EA;
+  --white:       #FFFFFF;
+
+  /* Accent. Le dore quitte l'interface : il est desormais reserve au
+     logo. Sur fond clair l'accent est le petrole ; les zones sombres
+     le remplacent par le laiton, plus lisible (voir plus bas). */
+  --gold:        #1C4A55;
+  --gold-light:  #2E6C78;
+
+  /* Textes */
+  --text-dark:        #12181C;
+  --text-dark-soft:   #2C363C;
+  --text-dark-muted:  #66727A;
+  --text-dark-faint:  #8A959B;
+  --text-muted: rgba(255, 255, 255, 0.62);
+  --text-soft:  rgba(255, 255, 255, 0.74);
+  --text-faint: rgba(255, 255, 255, 0.44);
+
+  /* Traits */
+  --border-gold:        rgba(28, 74, 85, 0.20);
+  --border-gold-strong: rgba(28, 74, 85, 0.34);
+  --border-dark:        #D2D9DC;
+}
+
+/* --- Zones sombres : l'accent passe au laiton ---------------------- */
+.nav,
+.footer,
+.article-cta,
+.rdv,
+.legal-page,
+#lv-consent {
+  --gold:               #A9853F;
+  --gold-light:         #C4A15C;
+  --border-gold:        rgba(169, 133, 63, 0.22);
+  --border-gold-strong: rgba(169, 133, 63, 0.34);
+}
+
+/* --- Typographie --------------------------------------------------
+   Cormorant Garamond laisse la place a Newsreader (titres) et
+   Public Sans (courant). Les selecteurs reprennent ceux de
+   styles.css ; ce fichier etant charge apres, a specificite egale
+   c'est lui qui l'emporte. */
+body,
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.contact-form textarea { font-family: var(--sans); }
+
+h1, h2, h3,
+.article-body h2,
+.article-body h3,
+.article-chapo,
+.article-cta h2,
+.article-cta-lead,
+.faq-item h3,
+.article-faq > h2,
+.legal-content h1,
+.legal-body h2,
+.legal-body h3,
+.legal-intro,
+.card h3,
+.card-num,
+.frais-num,
+.hub-guide-title,
+.guide-toc-title,
+.cas-card h2,
+.values-head h2,
+.section-head h2,
+.media-title,
+.merci-lead,
+.total-val,
+.portrait-quote,
+.equipe-banner p { font-family: var(--serif); font-weight: 400; }
+
+h1, .legal-content h1 { font-weight: 300; letter-spacing: -0.015em; }
+
+/* Surtitres, boutons, libelles : passage au monospace, signature de
+   la charte. */
+.eyebrow,
+.eyebrow-dark,
+.eyebrow-light,
+.article-meta,
+.cas-card-cta,
+.btn,
+.nav-cta,
+.nav-links,
+.nav-links a,
+.nav-mobile a,
+.footer-links,
+.footer-links a,
+.lv-consent-actions button,
+.field-optional,
+.hub-guide-eyebrow,
+.merci-badge { font-family: var(--mono); }
+
+.btn, .nav-cta, .lv-consent-actions button { letter-spacing: 0.08em; }
+
+/* --- Couleurs ecrites en dur dans styles.css ----------------------- */
+.nav { background: rgba(18, 24, 28, 0.96); border-bottom: 1px solid rgba(169, 133, 63, 0.14); }
+.nav.scrolled { border-bottom-color: rgba(169, 133, 63, 0.30); }
+
+.solutions,
+.frais,
+.contact,
+.values,
+.cas-hub,
+.article,
+.capture,
+.merci,
+.luxembourg,
+.comparatif,
+.equipe,
+.valorisation,
+.medias { background: var(--cream); }
+
+.section-blanche,
+.card,
+.frais-card,
+.cas-card,
+.valo-card,
+.contact-form,
+.media-frame { background: var(--blanc); }
+
+.card, .frais-card, .cas-card, .valo-card, .contact-form { border-color: var(--trait); }
+
+.guide-toc,
+.hub-guide,
+.guide-offer { background: #FFFFFF; border-color: var(--trait); border-left-color: var(--petrole); }
+
+.compare th, .compare td { border-color: var(--trait); }
+.compare thead th { background: var(--blanc); }
+.th-livingstone { background: rgba(28, 74, 85, 0.06); color: var(--petrole); }
+
+.article-body blockquote,
+.article-pullquote { border-left-color: var(--petrole); color: var(--gris); }
+
+.legal-page { background: var(--encre); color: #C5CDD2; }
+.legal-body p, .legal-body li { color: #AEBAC1; }
+.legal-body h2, .legal-body h3 { color: #FFFFFF; }
+.legal-content h1 { color: #FFFFFF; }
+
+.footer { background: var(--encre); border-top: 1px solid #263138; }
+.footer-links a { color: #B7C1C7; }
+.footer-links a:hover { color: #FFFFFF; }
+.footer-compliance { color: #77848C; border-top-color: #263138; }
+.footer-compliance a { color: #9FADB5; }
+
+.article-cta, .rdv { background: var(--encre); }
+.article-cta h2, .rdv h2 { color: #FFFFFF; }
+
+/* Boutons : le plein devient encre, le survol petrole. */
+.btn-gold, .nav-cta:hover {
+  background: var(--encre);
+  border-color: var(--encre);
+  color: #FFFFFF;
+}
+.btn-gold:hover {
+  background: var(--petrole);
+  border-color: var(--petrole);
+  color: #FFFFFF;
+}
+.article-cta .btn-gold, .rdv .btn-gold, .capture .btn-gold {
+  background: var(--petrole);
+  border-color: var(--petrole);
+}
+.article-cta .btn-gold:hover, .rdv .btn-gold:hover, .capture .btn-gold:hover {
+  background: var(--petrole-clair);
+  border-color: var(--petrole-clair);
+}
+
+/* Filets et losanges ornementaux : discrets, plus dores. */
+.rule-gold { background: var(--petrole); }
+.footer .rule-gold, .article-cta .rule-gold, .rdv .rule-gold { background: var(--laiton); }
+.diamond { color: var(--laiton); }
+.article-body .diamond, .cas-hub .diamond { color: var(--petrole); }
+
+/* Bandeau de consentement */
+#lv-consent { background: var(--encre-2); border-top-color: #2B363D; }
+#lv-consent-accepter { background: #FFFFFF; color: var(--encre); border-color: #FFFFFF; }
+#lv-consent-refuser  { background: transparent; color: #FFFFFF; border-color: #FFFFFF; }
+
+/* Champs de formulaire */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  border-color: var(--trait);
+  background: var(--blanc);
+  color: var(--texte);
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus { border-color: var(--petrole); outline: none; }
+.consent-line input[type="checkbox"] { accent-color: var(--petrole); }
+
+/* Accessibilite : un focus visible partout, ce que la charte creme
+   n'assurait pas. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible { outline: 2px solid var(--laiton); outline-offset: 3px; }
+
+/* --- Hauteur de nav ------------------------------------------------
+   Dans cette charte la nav est en position: sticky (et non fixed comme
+   dans styles.css) : elle occupe donc sa place dans le flux et il n'y
+   a plus rien a compenser. --nav-h passe a 0 pour que .article,
+   .cas-hub, .merci et .page-top retombent sur un simple espacement de
+   section, au lieu de reserver 120px de vide sous la barre. */
+:root { --nav-h: 0px; }
+@media (max-width: 1024px) { :root { --nav-h: 0px; } }
+@media (max-width: 768px)  { :root { --nav-h: 0px; } }
+@media (max-width: 480px)  { :root { --nav-h: 0px; } }
+
+/* --- Surtitres : contraste --------------------------------------
+   Le laiton (#A9853F) sur la perle claire tombe a environ 3,3:1, sous
+   le seuil AA pour un texte de 10-11px. Sur fond clair les surtitres
+   passent donc au petrole (environ 8,5:1) ; le laiton reste sur les
+   fonds sombres, ou il est parfaitement lisible. */
+.eyebrow,
+.eyebrow-dark,
+.hub-guide-eyebrow,
+.article-header .eyebrow,
+.cas-card .eyebrow,
+.section-head .eyebrow,
+.capture .eyebrow,
+.values .eyebrow { color: var(--petrole); }
+
+.nav .eyebrow,
+.footer .eyebrow,
+.hero .eyebrow,
+.article-cta .eyebrow,
+.rdv .eyebrow,
+.encadre .eyebrow,
+.legal-page .eyebrow,
+.legal-content .eyebrow,
+.merci-badge { color: var(--laiton); }
+
+/* --- Largeur de ligne ----------------------------------------------
+   refonte.css plafonne les paragraphes a 66ch, ce qui convient aux
+   pages construites sur .contenu (760px). Dans les gabarits herites,
+   le conteneur impose deja sa mesure : le plafond y produit un texte
+   sensiblement plus etroit que les titres et les filets qui l'entourent. */
+.legal-body p,
+.legal-body li,
+.article-body > p,
+.article-body > ul,
+.article-body > ol,
+.faq-item p,
+.article-chapo,
+.section-sub,
+.cas-card-hook,
+.capture-lead,
+.merci-lead,
+.rdv-lead,
+.article-cta-lead,
+.footer-compliance p { max-width: none; }

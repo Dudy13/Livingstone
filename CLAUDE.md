@@ -17,6 +17,9 @@ Marketing website for **Livingstone — Family Office**, a French private wealth
 - `mentions-legales.html`, `confidentialite.html`, `reclamations.html` — legal pages linked from the footer.
 - `cas-pratiques.html` — hub page listing case-study articles. Linked from `index.html` nav (between Médias and Valorisation) and footer.
 - `cas-pratiques/*.html` — one HTML file per case study. Production URL: `/cas-pratiques/<slug>` (cleanUrls). All paths to root assets must be prefixed `../` (`../styles.css`, `../script.js`, `../images/...`, `../cas-pratiques.html`, `../index.html#contact`).
+- `fiducie-surete.html` — **institutional** page on the fiducie-sûreté: why Livingstone secures its private-debt operations this way, 120–400 % collateral. Commercial angle, in the nav-adjacent trust cluster with `nos-frais.html`.
+- `nos-frais.html` — fee transparency page (0 % entry, 0.66 % running of which 0.15 % Livingstone).
+- `cas-pratiques/fiducie-surete-garantir-un-financement-sans-vendre.html` — **pedagogical** page on the same instrument, seen from the borrower's side. The two fiducie pages are deliberate and complementary; they cross-link, and their titles and canonicals are distinct so they do not compete in search. Do not merge them.
 - `merci-guide.html` — thank-you page reached only after the guide form redirect (Formspree `_next`). Carries `noindex`, is **not** in `sitemap.xml`, and hosts step 2 of the funnel (booking). Do not link it from navigation.
 - `documents/livingstone-guide-cession-dirigeant.pdf` — the lead magnet, regenerated from the guide page (see "Regenerating the PDF").
 - `qualification.html`, `acces-prive.html` — **intentionally unlinked from navigation**. Both carry `<meta name="robots" content="noindex, nofollow">` and are reached only by direct URL (private placement / qualified-investor flows under art. L. 411-2 I CMF). Do not add them to the nav or sitemap; do not remove the noindex tags.
@@ -109,13 +112,17 @@ Every public page now carries it, `index.html` included. The three legal pages u
 
 ## Styling architecture
 
-There are **three independent style systems** — don't try to unify them:
+The site runs **two charters at once**, on purpose.
 
-1. **`styles.css`** (~1900 lines) — shared stylesheet for every page except the standalone documents below. Palette in `:root`: charbon `#0B0B0B`, gold `#C9A87C`, cream `#F2EBDF`. Typography: Cormorant Garamond (serif headings) + system sans for body. Breakpoints at 1024 / 768 / 480px.
-2. **`index.html` is a five-scene video portal** (`.pv` sections, `videos/*.mp4` lazy-loaded by IntersectionObserver, scroll-snap in a small inline `<style>`). It consumes `styles.css` for its nav and footer. **Do not restyle or restructure it** — it is the one page deliberately kept as is.
-3. **`acces-prive.html`, `qualification.html` and `swisslife-altitude.html` ship their own full `<style>` blocks** with different palettes and fonts (Cinzel + EB Garamond / Montserrat / Newsreader). They do **not** consume `styles.css`. Treat them as standalone documents.
+1. **Perle/pétrole — `styles.css` + `refonte.css`, in that order.** Every internal page loads both. `refonte.css` is the authoritative charter: pearl ground `#F1F3F4`, ink `#12181C`, petrol accent `#1C4A55`, brass `#A9853F` reserved for dark surfaces and the logo. Fonts: Newsreader (headings), Public Sans (body), IBM Plex Mono (eyebrows, buttons, nav).
+2. **Crème/doré — `styles.css` alone.** Only `index.html`, the five-scene video portal (`.pv` sections, `videos/*.mp4` lazy-loaded by IntersectionObserver, scroll-snap in a small inline `<style>`). **It must not be restyled or restructured**, and it must never load `refonte.css`.
+3. **`acces-prive.html`, `qualification.html` and `swisslife-altitude.html`** ship their own full `<style>` blocks and consume neither. Standalone documents.
 
-**Spacing under the fixed nav.** The nav is `position: fixed`, so every internal page must reserve its height. That height is `--nav-h`, declared once per breakpoint in `styles.css`; `.article`, `.cas-hub` and `.merci` compute their top padding from it, and `.page-top` applies it to any other first block. Never re-introduce a hardcoded `padding-top` (the site used to carry 140px, 150px and 160px on different pages, all wrong at some breakpoint).
+**How the re-skin works — read this before touching colours.** `styles.css` is ~80 % written against CSS custom properties, so `refonte.css` re-skins the whole site by redefining the tokens (`--gold`, `--cream`, `--navy`, `--text-*`, `--border-*`) rather than by rewriting markup. Dark regions (`.nav`, `.footer`, `.article-cta`, `.rdv`, `.legal-page`, `#lv-consent`) re-scope `--gold` to brass, because petrol is unreadable on ink. The handful of colours hardcoded in `styles.css` are overridden by name at the end of `refonte.css`.
+
+Consequence: **never edit `styles.css` to change a colour or a font.** It is the homepage's stylesheet; editing it changes `index.html`. All charter work happens in `refonte.css`.
+
+**The nav is `sticky` in this charter** (`refonte.css`), not `fixed` as `styles.css` declares. `--nav-h` is therefore forced to `0` — the bar occupies flow space and there is nothing to compensate. `.article`, `.cas-hub`, `.merci` and `.page-top` fall back to a plain section padding. If the nav ever returns to `fixed`, restore `--nav-h` to the measured height (72px desktop, 63px under 480px).
 
 **Repeated inline styles have been promoted to classes** — `.author-link`, `.link-gold`, `.figure` / `.figure-caption` (SVG schemas), `.guide-toc`, `.hub-guide`. Use these rather than re-inlining, otherwise a change means editing a dozen files.
 
