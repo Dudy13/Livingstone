@@ -81,6 +81,13 @@ The attribute names are a **contract**: they must exist in Brevo exactly as
 `docs/brevo-mise-en-route.md` lists them, or contacts land with empty fields and
 nothing reports it. That document is the click-by-click setup path.
 
+Three documents, three jobs, do not merge them: `docs/sequence-emails-cession.md`
+is the editorial source (why the sequence exists, what each email argues),
+`docs/brevo-sequence-a-coller.md` is its operational form (the same six emails with
+Brevo merge tags and real URLs, plus the automation table, ready to paste), and
+`docs/brevo-mise-en-route.md` covers the account setup that precedes both. When an
+email's wording changes, change it in the first two or in neither.
+
 Three traps the integration already handles — do not undo them:
 
 1. **The URL must be the `/serve/` one, not `/v2/serve/`.** Brevo's iframe share
