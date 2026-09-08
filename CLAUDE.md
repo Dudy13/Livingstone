@@ -66,9 +66,24 @@ Two rules that are deliberate, not oversights:
 Paste a Cal.com/Calendly link there and the iframe replaces the fallback form
 automatically; leave it empty and the fallback form stays. Nothing else to change.
 
-Formspree remains the transport. It delivers, it does not sequence — the nurturing
-sequence in `docs/sequence-emails-cession.md` has to be created in an emailing tool
-(Brevo et al.) for the funnel to actually pay off.
+Formspree remains the transport **until Brevo is connected**. It delivers, it does not
+sequence — the nurturing sequence in `docs/sequence-emails-cession.md` only pays off
+once it runs in an emailing tool.
+
+**Switching to Brevo is one line.** `analytics.js` holds `LV_BREVO_FORM`, empty by
+default. Paste the hosted form's `action=` URL (`https://sibforms.com/serve/…`) and, at
+load, every `form[data-lv-brevo]` is retargeted and its fields renamed to the Brevo
+convention (`prenom`→`PRENOM`, `telephone`→`SMS`, `source`→`SOURCE`, …), with the
+`email_address_check` honeypot and `locale` added. `_subject` and `_next` are dropped —
+Brevo owns the redirect, set to `/merci-guide` in the form's own settings.
+
+The attribute names are a **contract**: they must exist in Brevo exactly as
+`docs/brevo-mise-en-route.md` lists them, or contacts land with empty fields and
+nothing reports it. That document is the click-by-click setup path.
+
+One trap worth repeating: switching to Brevo **loses the Formspree notification email**.
+The Brevo automation that notifies Mikael on every new contact has to exist first, or
+leads arrive unnoticed.
 
 ## Analytics & consent
 

@@ -28,6 +28,18 @@
   var META_PIXEL_ID   = '1008236828925161';
   var UET_ID          = '187272453';
 
+  /* --- Bascule vers Brevo ---------------------------------------------
+     Tant que cette valeur est vide, les formulaires marques
+     data-lv-brevo continuent de partir vers Formspree : le site capte,
+     mais personne n'est relance.
+
+     Pour basculer, coller ici l'URL du formulaire Brevo — celle qui
+     figure dans l'attribut action= du code d'integration, de la forme
+     https://sibforms.com/serve/MUIFA... — et ne rien toucher d'autre.
+     Les champs sont renommes automatiquement selon la convention Brevo
+     (voir docs/brevo-mise-en-route.md, qui fixe les noms a creer). */
+  var LV_BREVO_FORM = '';
+
   var CLE = 'lv_consentement';
 
   function lire()   { try { return window.localStorage.getItem(CLE); } catch (e) { return null; } }
@@ -136,6 +148,37 @@
     });
   }
 
+
+  /* Retarge les formulaires de capture vers Brevo, en renommant les
+     champs. Fait au chargement, avant toute saisie : le visiteur ne voit
+     aucune difference, seul le destinataire change. */
+  function brevo() {
+    if (!LV_BREVO_FORM) return;
+    var noms = { prenom: 'PRENOM', email: 'EMAIL', telephone: 'SMS',
+                 consentement_appel: 'CONSENTEMENT_APPEL', source: 'SOURCE',
+                 nom: 'NOM', message: 'MESSAGE', disponibilites: 'DISPONIBILITES' };
+
+    Array.prototype.forEach.call(document.querySelectorAll('form[data-lv-brevo]'), function (f) {
+      f.setAttribute('action', LV_BREVO_FORM);
+      f.setAttribute('method', 'POST');
+
+      Array.prototype.forEach.call(f.querySelectorAll('[name]'), function (ch) {
+        var n = ch.getAttribute('name');
+        if (n === '_subject' || n === '_next') { ch.remove(); return; }
+        if (noms[n]) ch.setAttribute('name', noms[n]);
+      });
+
+      /* Champs attendus par un formulaire Brevo heberge : le piege a
+         robots doit rester vide, la locale fixe la langue des messages. */
+      ['email_address_check', 'locale'].forEach(function (n) {
+        if (f.querySelector('[name="' + n + '"]')) return;
+        var i = document.createElement('input');
+        i.type = 'hidden'; i.name = n; i.value = (n === 'locale' ? 'fr' : '');
+        f.appendChild(i);
+      });
+    });
+  }
+
   /* --- Bandeau ------------------------------------------------------- */
   function construireBanniere() {
     var el = document.createElement('div');
@@ -177,6 +220,7 @@
       });
     }
 
+    brevo();
     cabler();
 
     var choix = lire();
