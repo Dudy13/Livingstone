@@ -24,12 +24,29 @@ pense à ce moment-là.
 | Expéditeur | Mikael Guéviguian — adresse nominative, jamais `contact@` |
 | Format | texte simple, sans bandeau graphique : un email de conseiller, pas une newsletter |
 | Sortie de séquence | dès qu'un rendez-vous est pris |
+| Pied de page | la signature légale ci-dessous, sur **tous** les envois |
 | Après la séquence | passage sur la liste « veille cession », un envoi par trimestre |
 
 **Conformité.** Lien de désinscription sur chaque envoi. Les personnes n'ayant
 pas coché le consentement téléphonique ne doivent pas être appelées — depuis le
 passage du démarchage téléphonique à l'opt-in, cette case est la seule base
 valable pour un appel.
+
+## Signature légale — à faire figurer sur chaque email
+
+Bloc à reprendre **verbatim**, en bas de chaque envoi de la séquence. Dans Brevo,
+le placer une fois pour toutes dans le pied de page du modèle plutôt que de le
+recopier email par email : c'est le seul moyen de garantir qu'aucun envoi ne
+parte sans lui.
+
+> LIVINGSTONE – SARL au capital social de 500 € - n° 951 716 349 au RCS de Paris – code APE 6619B – 49 rue de Courcelles 75008 Paris – 01 86 27 00 93 – mikael.gueviguian@livingstone-wealth.com – www.livingstone-wealth.com. Enregistré à l'ORIAS sous le n° 23007478 (www.orias.fr) en qualité de : Conseiller en investissement financier adhérent de LA COMPAGNIE CIF, association agréée auprès de l'Autorité des Marchés Financiers ; Intermédiaire en assurance en qualité de courtier adhérent de LA CNCEF, association agréée auprès de l'ACPR ; Assurance auprès d'Assurup Contrat RCP23051083028
+>
+> Médiateur : MEDIATION CONSOMMATION DÉVELOPPEMENT/MED CONSO DEV — Centre d'Affaires Stéphanois SAS, immeuble l'horizon – Esplanade de France, 3 rue J. CONSTANT MILLERET – 42000 Saint Étienne
+>
+> Ne peut recevoir aucun fonds, effet, ou valeur.
+
+Le lien de désinscription reste obligatoire **en plus** de ce bloc : il relève du
+RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 
 ---
 
