@@ -36,9 +36,14 @@
      Pour basculer, coller ici l'URL du formulaire Brevo — celle qui
      figure dans l'attribut action= du code d'integration, de la forme
      https://sibforms.com/serve/MUIFA... — et ne rien toucher d'autre.
+
+     Adresse du compte Brevo de Livingstone, mise de cote le 08/09/2026,
+     ce compte ayant ete suspendu par Brevo. La remettre ici des qu'il est
+     retabli, ou la remplacer par celle d'un autre prestataire :
+     https://c03448f6.sibforms.com/serve/MUIFAHc4rmrxOapI-JFwZ9emVHOm7SZY6hfX30_ZVtyYCOKNSAqzrJC1aPKgbVWgkVqjHKcwwZQSvMoLfNdBDBhOuAVW9nOwXl-fjYd6fDLqMrvIh5s0mdSr_QQkIPDyfoo-8Y969PwgKPoLXl-yxMPFnbNLrHKpiHmJOftePlspS7yv5Wrz71Ax4ljpn2fOMJ7YswMXaBjuUoyshw==
      Les champs sont renommes automatiquement selon la convention Brevo
      (voir docs/brevo-mise-en-route.md, qui fixe les noms a creer). */
-  var LV_BREVO_FORM = 'https://c03448f6.sibforms.com/serve/MUIFAHc4rmrxOapI-JFwZ9emVHOm7SZY6hfX30_ZVtyYCOKNSAqzrJC1aPKgbVWgkVqjHKcwwZQSvMoLfNdBDBhOuAVW9nOwXl-fjYd6fDLqMrvIh5s0mdSr_QQkIPDyfoo-8Y969PwgKPoLXl-yxMPFnbNLrHKpiHmJOftePlspS7yv5Wrz71Ax4ljpn2fOMJ7YswMXaBjuUoyshw==';
+  var LV_BREVO_FORM = '';
 
   var CLE = 'lv_consentement';
 

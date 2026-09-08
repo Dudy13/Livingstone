@@ -66,6 +66,13 @@ Two rules that are deliberate, not oversights:
 Paste a Cal.com/Calendly link there and the iframe replaces the fallback form
 automatically; leave it empty and the fallback form stays. Nothing else to change.
 
+**Brevo is disconnected as of 08/09/2026** — Brevo permanently suspended the account
+for alleged terms-of-use breach, hours after it was created and while it held only
+test contacts. A capture pointed at a suspended account can stop delivering without
+warning, so `LV_BREVO_FORM` was emptied and the funnel reverted to Formspree, which
+at least mails every request through. The form URL is kept in a comment beside the
+constant: restoring Brevo, or moving to Mailjet / Mailerlite / Kit, is one line.
+
 Formspree remains the transport **until Brevo is connected**. It delivers, it does not
 sequence — the nurturing sequence in `docs/sequence-emails-cession.md` only pays off
 once it runs in an emailing tool.
