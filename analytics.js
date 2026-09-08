@@ -38,7 +38,7 @@
      https://sibforms.com/serve/MUIFA... — et ne rien toucher d'autre.
      Les champs sont renommes automatiquement selon la convention Brevo
      (voir docs/brevo-mise-en-route.md, qui fixe les noms a creer). */
-  var LV_BREVO_FORM = '';
+  var LV_BREVO_FORM = 'https://c03448f6.sibforms.com/v2/serve/MUIFAHc4rmrxOapI-JFwZ9emVHOm7SZY6hfX30_ZVtyYCOKNSAqzrJC1aPKgbVWgkVqjHKcwwZQSvMoLfNdBDBhOuAVW9nOwXl-fjYd6fDLqMrvIh5s0mdSr_QQkIPDyfoo-8Y969PwgKPoLXl-yxMPFnbNLrHKpiHmJOftePlspS7yv5Wrz71Ax4ljpn2fOMJ7YswMXaBjuUoyshw==';
 
   var CLE = 'lv_consentement';
 
