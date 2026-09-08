@@ -88,8 +88,13 @@ Three traps the integration already handles — do not undo them:
    the HTML embed's `action=`.
 2. **Brevo rejects a French phone written normally.** It wants digits with the
    country code and no leading zero (`33778511307`). The submit handler normalises
-   `07 78 51 13 07`, `+33 7 78…`, `07.78.…` and `00337…` alike, leaves an empty
-   field empty, and sends `SMS__COUNTRY_CODE=+33` alongside.
+   `07 78 51 13 07`, `+33 7 78…`, `07.78.…` and `00337…` alike.
+   **Do not re-add `SMS__COUNTRY_CODE`** — sending it alongside a number that already
+   carries its country code makes Brevo concatenate the two and reject the whole
+   submission (`{"success":false,"errors":{"SMS":…}}`), losing the lead.
+   The handler also **clears a number it cannot normalise** rather than send it:
+   the phone is optional, and letting it fail the submission would trade a whole
+   lead for a field that was never required.
 3. **The consent checkbox must carry the value `1`**, not `oui` — Brevo's optin
    block expects it.
 
