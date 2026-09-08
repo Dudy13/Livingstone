@@ -86,15 +86,15 @@ Three traps the integration already handles — do not undo them:
 1. **The URL must be the `/serve/` one, not `/v2/serve/`.** Brevo's iframe share
    gives the `v2` variant, which only *renders* the form. The POST endpoint is in
    the HTML embed's `action=`.
-2. **Brevo rejects a French phone written normally.** It wants digits with the
-   country code and no leading zero (`33778511307`). The submit handler normalises
-   `07 78 51 13 07`, `+33 7 78…`, `07.78.…` and `00337…` alike.
-   **Do not re-add `SMS__COUNTRY_CODE`** — sending it alongside a number that already
-   carries its country code makes Brevo concatenate the two and reject the whole
-   submission (`{"success":false,"errors":{"SMS":…}}`), losing the lead.
-   The handler also **clears a number it cannot normalise** rather than send it:
-   the phone is optional, and letting it fail the submission would trade a whole
-   lead for a field that was never required.
+2. **The phone never goes into Brevo's `SMS` attribute.** That attribute enforces a
+   strict format *and* uniqueness across the whole base, and Brevo rejects the entire
+   submission when either fails — losing a lead over a field that was never required.
+   Two prospects sharing a switchboard is enough to trigger it
+   (`{"success":false,"errors":{"SMS":"Le numéro de téléphone est déjà lié à un compte
+   existant."}}`). It is mapped to **`TELEPHONE`, a plain text attribute**: no format,
+   no uniqueness, no rejection. Sent exactly as the visitor typed it, which is also what
+   Mikael reads when he dials. **Do not map it back to `SMS`** — the cost is losing SMS
+   campaigns from Brevo, which is not part of the plan.
 3. **The consent checkbox must carry the value `1`**, not `oui` — Brevo's optin
    block expects it.
 

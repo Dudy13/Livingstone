@@ -154,7 +154,7 @@
      aucune difference, seul le destinataire change. */
   function brevo() {
     if (!LV_BREVO_FORM) return;
-    var noms = { prenom: 'PRENOM', email: 'EMAIL', telephone: 'SMS',
+    var noms = { prenom: 'PRENOM', email: 'EMAIL', telephone: 'TELEPHONE',
                  consentement_appel: 'CONSENTEMENT_APPEL', source: 'SOURCE',
                  nom: 'NOM', message: 'MESSAGE', disponibilites: 'DISPONIBILITES' };
 
@@ -183,26 +183,9 @@
       var c = f.querySelector('[name="CONSENTEMENT_APPEL"]');
       if (c) c.value = '1';
 
-      /* Le telephone. Brevo refuse « 07 78 51 13 07 » : il veut les
-         chiffres avec l'indicatif et sans le zero initial, soit
-         33778511307. On normalise a l'envoi plutot qu'a la saisie, pour
-         que le visiteur continue d'ecrire son numero comme il en a
-         l'habitude. Un champ vide reste vide : il est facultatif. */
-      f.addEventListener('submit', function () {
-        var tel = f.querySelector('[name="SMS"]');
-        if (!tel || !tel.value.trim()) return;
-        var n = tel.value.replace(/[^0-9+]/g, '').replace(/^\+/, '');
-        if (n.indexOf('00') === 0) n = n.slice(2);
-        if (n.indexOf('0') === 0) n = '33' + n.slice(1);
-        else if (n.indexOf('33') !== 0 && n.length <= 10) n = '33' + n;
-
-        /* Garde-fou. Brevo rejette la demande ENTIERE si le numero ne lui
-           convient pas — on perdrait le lead pour un champ facultatif, ce
-           qui est le pire resultat possible. Si le numero ne ressemble pas
-           a un numero international plausible, on l'abandonne : mieux vaut
-           un contact sans telephone qu'aucun contact. */
-        tel.value = /^[1-9][0-9]{7,14}$/.test(n) ? n : '';
-      });
+      /* Le telephone est envoye tel que le visiteur l'a saisi. L'attribut
+         TELEPHONE est un simple champ texte : ni format impose, ni unicite.
+         Aucune normalisation, donc aucune raison de rejeter une demande. */
     });
   }
 
