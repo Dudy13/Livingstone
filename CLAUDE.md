@@ -120,7 +120,20 @@ Re-run it whenever the guide text changes, otherwise the PDF and the page drift 
 
 ## Compliance footer (CIF / ORIAS)
 
-Under the standard footer links sits a `.footer-compliance` block with Livingstone's SARL identifiers and the ORIAS 23007478 / CIF (Compagnie des CGP) / CNCEF Assurance mentions required for AMF/ACPR-regulated activity. The wording is the authoritative version from `mentions-legales.html`.
+Under the standard footer links sits a `.footer-compliance` block, generated from one
+definition and identical on all 21 pages. It carries, in this order:
+
+1. SARL identifiers — capital, RCS Paris 951 716 349, **code APE 6619B**, address, and
+   the **mobile 07 78 51 13 07** (the number Mikael answers; the landline is not exposed);
+2. ORIAS 23007478, **LA COMPAGNIE CIF** (CIF association, AMF), **LA CNCEF** (broking
+   association, ACPR), and the professional indemnity policy — **Assurup, contract
+   RCP23051083028**;
+3. **« Ne peut recevoir aucun fonds, effet, ou valeur. »** — required of a broker with no
+   collection mandate. Do not drop it.
+
+The authoritative wording is the legal signature block supplied by Mikael Guéviguian,
+also reproduced in `docs/sequence-emails-cession.md` for email footers. Site and emails
+must not diverge: change both or neither.
 
 Every public page now carries it, `index.html` included. The three legal pages used to ship their own `.legal-header` / `.legal-footer` chrome with no nav and no compliance block; they now use the same `.nav` and `.footer` as the rest of the site, keeping only their dark `body.legal-page` background.
 
