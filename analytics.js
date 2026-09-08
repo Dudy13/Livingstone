@@ -38,7 +38,7 @@
      https://sibforms.com/serve/MUIFA... — et ne rien toucher d'autre.
      Les champs sont renommes automatiquement selon la convention Brevo
      (voir docs/brevo-mise-en-route.md, qui fixe les noms a creer). */
-  var LV_BREVO_FORM = 'https://c03448f6.sibforms.com/v2/serve/MUIFAHc4rmrxOapI-JFwZ9emVHOm7SZY6hfX30_ZVtyYCOKNSAqzrJC1aPKgbVWgkVqjHKcwwZQSvMoLfNdBDBhOuAVW9nOwXl-fjYd6fDLqMrvIh5s0mdSr_QQkIPDyfoo-8Y969PwgKPoLXl-yxMPFnbNLrHKpiHmJOftePlspS7yv5Wrz71Ax4ljpn2fOMJ7YswMXaBjuUoyshw==';
+  var LV_BREVO_FORM = 'https://c03448f6.sibforms.com/serve/MUIFAHc4rmrxOapI-JFwZ9emVHOm7SZY6hfX30_ZVtyYCOKNSAqzrJC1aPKgbVWgkVqjHKcwwZQSvMoLfNdBDBhOuAVW9nOwXl-fjYd6fDLqMrvIh5s0mdSr_QQkIPDyfoo-8Y969PwgKPoLXl-yxMPFnbNLrHKpiHmJOftePlspS7yv5Wrz71Ax4ljpn2fOMJ7YswMXaBjuUoyshw==';
 
   var CLE = 'lv_consentement';
 
@@ -169,12 +169,33 @@
       });
 
       /* Champs attendus par un formulaire Brevo heberge : le piege a
-         robots doit rester vide, la locale fixe la langue des messages. */
-      ['email_address_check', 'locale'].forEach(function (n) {
+         robots doit rester vide, la locale fixe la langue des messages,
+         et le champ telephone exige son indicatif a part. */
+      var fixes = { email_address_check: '', locale: 'fr', SMS__COUNTRY_CODE: '+33' };
+      Object.keys(fixes).forEach(function (n) {
         if (f.querySelector('[name="' + n + '"]')) return;
         var i = document.createElement('input');
-        i.type = 'hidden'; i.name = n; i.value = (n === 'locale' ? 'fr' : '');
+        i.type = 'hidden'; i.name = n; i.value = fixes[n];
         f.appendChild(i);
+      });
+
+      /* La case de consentement : Brevo attend la valeur 1, pas « oui ». */
+      var c = f.querySelector('[name="CONSENTEMENT_APPEL"]');
+      if (c) c.value = '1';
+
+      /* Le telephone. Brevo refuse « 07 78 51 13 07 » : il veut les
+         chiffres avec l'indicatif et sans le zero initial, soit
+         33778511307. On normalise a l'envoi plutot qu'a la saisie, pour
+         que le visiteur continue d'ecrire son numero comme il en a
+         l'habitude. Un champ vide reste vide : il est facultatif. */
+      f.addEventListener('submit', function () {
+        var tel = f.querySelector('[name="SMS"]');
+        if (!tel || !tel.value.trim()) return;
+        var n = tel.value.replace(/[^0-9+]/g, '').replace(/^\+/, '');
+        if (n.indexOf('00') === 0) n = n.slice(2);
+        if (n.indexOf('0') === 0) n = '33' + n.slice(1);
+        else if (n.indexOf('33') !== 0 && n.length <= 10) n = '33' + n;
+        tel.value = n;
       });
     });
   }

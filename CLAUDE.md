@@ -81,6 +81,18 @@ The attribute names are a **contract**: they must exist in Brevo exactly as
 `docs/brevo-mise-en-route.md` lists them, or contacts land with empty fields and
 nothing reports it. That document is the click-by-click setup path.
 
+Three traps the integration already handles — do not undo them:
+
+1. **The URL must be the `/serve/` one, not `/v2/serve/`.** Brevo's iframe share
+   gives the `v2` variant, which only *renders* the form. The POST endpoint is in
+   the HTML embed's `action=`.
+2. **Brevo rejects a French phone written normally.** It wants digits with the
+   country code and no leading zero (`33778511307`). The submit handler normalises
+   `07 78 51 13 07`, `+33 7 78…`, `07.78.…` and `00337…` alike, leaves an empty
+   field empty, and sends `SMS__COUNTRY_CODE=+33` alongside.
+3. **The consent checkbox must carry the value `1`**, not `oui` — Brevo's optin
+   block expects it.
+
 One trap worth repeating: switching to Brevo **loses the Formspree notification email**.
 The Brevo automation that notifies Mikael on every new contact has to exist first, or
 leads arrive unnoticed.
