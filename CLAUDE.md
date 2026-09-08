@@ -41,10 +41,17 @@ The site is the capture layer only — no backend, no build step. Everything dow
 (delivery, nurturing, booking) lives in external SaaS.
 
 ```
-article / guide  →  #recevoir (email required, phone OPTIONAL)
-                 →  Formspree, then _next redirect
-                 →  merci-guide.html : PDF download + booking (phone REQUIRED here)
+8 case studies + hub  →  .guide-offer band, data-lv="guide"
+                      →  /ceder-son-entreprise-guide-du-dirigeant#recevoir
+                      →  email required, phone OPTIONAL
+                      →  Formspree, then _next redirect
+                      →  merci-guide.html : PDF + booking (phone REQUIRED here)
 ```
+
+**Every case study carries a `.guide-offer` band** under its header, worded for its
+own topic and linking to the guide. Without it a case study is a dead end: the
+reader who is not ready to talk leaves nothing behind. Add one to every new case
+study — it is part of the gabarit, not an option.
 
 Two rules that are deliberate, not oversights:
 
@@ -85,6 +92,18 @@ Deliberately **not** carrying `analytics.js`:
 
 Any element with `id="lv-consent-rouvrir"` reopens the choice; the footer of every
 page carries one.
+
+**Conversions are wired from the markup, not per page.** `analytics.js` attaches on
+load and needs no page-level script:
+
+- every `form[action*="formspree"]` fires `lvLead({source})`, taken from the form's
+  hidden `source` field — so a lead is attributable to the exact page;
+- a form carrying `data-lv-event="x"` fires `x` instead of a lead (the booking form
+  on `merci-guide.html` fires `prise_rdv`: it is the next step, not another lead);
+- any element carrying `data-lv="guide"` fires `depart_guide({source})` — this is
+  what tells you which case studies actually feed the funnel.
+
+Never re-add a per-page tracking script; it will double-count.
 
 ## Regenerating the guide PDF
 

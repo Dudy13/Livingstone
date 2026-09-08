@@ -79,7 +79,7 @@
 
       <div class="rdv-fallback" id="rdv-fallback">
         <p>Indiquez vos coordonnées et le moment qui vous convient : nous vous rappelons.</p>
-        <form class="contact-form" id="form-rdv" action="https://formspree.io/f/xqegldel" method="POST">
+        <form class="contact-form" id="form-rdv" data-lv-event="prise_rdv" action="https://formspree.io/f/xqegldel" method="POST">
           <input type="hidden" name="_subject" value="Demande de rendez-vous — suite guide cession" />
           <input type="hidden" name="source" value="/merci-guide" />
           <input type="text"  name="nom"       placeholder="Nom et prénom" autocomplete="name"  required />
@@ -160,18 +160,6 @@
     fallback.hidden = true;
   })();
 
-  /* Conversion : le vrai signal à optimiser côté publicité n'est pas le
-     téléchargement du guide, c'est la prise de rendez-vous. */
-  (function () {
-    var f = document.getElementById('form-rdv');
-    if (f) f.addEventListener('submit', function () {
-      if (window.lvTrack) window.lvTrack('prise_rdv', { origine: 'guide-cession' });
-    });
-    var pdf = document.getElementById('lien-pdf');
-    if (pdf) pdf.addEventListener('click', function () {
-      if (window.lvTrack) window.lvTrack('telechargement_guide', { contenu: 'guide-cession' });
-    });
-  })();
   </script>
   <script src="script.js"></script>
   <script src="analytics.js"></script>

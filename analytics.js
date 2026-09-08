@@ -102,6 +102,40 @@
     window.lvTrack('lead', params || {});
   };
 
+
+  /* --- Cablage automatique des conversions ---------------------------
+     Plutot qu'un script de suivi recopie page par page — qu'on oublie
+     invariablement sur la page suivante —, on branche ici tout ce qui
+     compte, partout, a partir du balisage :
+
+       - tout formulaire Formspree compte comme un lead, etiquete par son
+         champ cache « source », donc attribuable a la page exacte ;
+       - un formulaire portant data-lv-event="x" emet x au lieu du lead
+         (la prise de rendez-vous n'est pas un lead de plus, c'est l'etape
+         suivante) ;
+       - tout lien portant data-lv="guide" compte comme un depart vers le
+         guide, avec la page d'origine : c'est ce qui dira quels cas
+         pratiques alimentent reellement le tunnel. */
+  function cabler() {
+    var formulaires = document.querySelectorAll('form[action*="formspree"]');
+    Array.prototype.forEach.call(formulaires, function (f) {
+      f.addEventListener('submit', function () {
+        var champ = f.querySelector('input[name="source"]');
+        var source = champ ? champ.value : location.pathname;
+        var evt = f.getAttribute('data-lv-event');
+        if (evt) window.lvTrack(evt, { source: source });
+        else window.lvLead({ source: source });
+      });
+    });
+
+    var liens = document.querySelectorAll('[data-lv="guide"]');
+    Array.prototype.forEach.call(liens, function (a) {
+      a.addEventListener('click', function () {
+        window.lvTrack('depart_guide', { source: location.pathname });
+      });
+    });
+  }
+
   /* --- Bandeau ------------------------------------------------------- */
   function construireBanniere() {
     var el = document.createElement('div');
@@ -142,6 +176,8 @@
         banniere.classList.add('is-open');
       });
     }
+
+    cabler();
 
     var choix = lire();
     if (choix === 'accepte') chargerMesure();

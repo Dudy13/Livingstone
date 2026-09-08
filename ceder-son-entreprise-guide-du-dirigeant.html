@@ -376,16 +376,5 @@
 
   <script src="script.js"></script>
   <script src="analytics.js"></script>
-  <script>
-    /* Conversion « lead » : sans effet tant que le visiteur n'a pas
-       accepte la mesure d'audience (gardes dans analytics.js). */
-    (function () {
-      var f = document.getElementById('form-guide');
-      if (!f) return;
-      f.addEventListener('submit', function () {
-        if (window.lvLead) window.lvLead({ contenu: 'guide-cession' });
-      });
-    })();
-  </script>
 </body>
 </html>
