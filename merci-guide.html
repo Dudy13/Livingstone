@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Votre guide est prêt — Livingstone Family Office</title>
+  <meta name="description" content="Téléchargez le guide patrimonial de la cession d'entreprise et réservez un échange confidentiel avec Mikael Guéviguian." />
+  <!-- Page de confirmation : jamais indexée, elle n'a de sens qu'après l'envoi du formulaire. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="images/livingstone_carre.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="refonte.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#accueil" class="nav-logo">
+        <img src="images/livingstone_nav.png" alt="Livingstone" />
+      </a>
+      <nav class="nav-links">
+        <a href="a-propos.html">Notre approche</a>
+        <a href="nos-solutions.html">Solutions</a>
+        <a href="nos-frais.html">Nos frais</a>
+        <a href="fiducie-surete.html">Fiducie-sûreté</a>
+        <a href="cas-pratiques.html">Cas pratiques</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="nav-cta">Demander un accès</a>
+      <button class="nav-burger" aria-label="Menu" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" id="navMobile">
+      <a href="a-propos.html">Notre approche</a>
+      <a href="nos-solutions.html">Solutions</a>
+      <a href="nos-frais.html">Nos frais</a>
+      <a href="fiducie-surete.html">Fiducie-sûreté</a>
+      <a href="cas-pratiques.html">Cas pratiques</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta nav-cta-mobile">Demander un accès</a>
+    </nav>
+  </header>
+
+  <!-- LIVRAISON DU GUIDE -->
+  <section class="merci">
+    <div class="merci-inner">
+      <span class="merci-badge">Demande enregistrée</span>
+      <h1>Votre guide est prêt</h1>
+      <p class="merci-lead">Merci. Le guide patrimonial de la cession vous est également envoyé par email — vérifiez vos indésirables si vous ne le voyez pas d'ici quelques minutes.</p>
+
+      <a class="btn btn-gold merci-download" id="lien-pdf" href="documents/livingstone-guide-cession-dirigeant.pdf" download>Télécharger le guide (PDF)</a>
+      <p class="merci-hint">9 chapitres · PDF · à transmettre librement à votre expert-comptable ou à votre avocat.</p>
+    </div>
+  </section>
+
+  <!-- ETAPE 2 — LE RENDEZ-VOUS
+       C'est ici, et seulement ici, que le téléphone est obligatoire :
+       la personne demande elle-même l'appel, le numéro devient naturel
+       et le taux de contact est sans commune mesure avec un appel à froid. -->
+  <section class="rdv" id="rendez-vous">
+    <div class="rdv-inner">
+      <p class="eyebrow">Aller plus loin</p>
+      <h2>Votre cession est prévue dans les 24 mois ?</h2>
+      <span class="rule-gold center"></span>
+      <p class="rdv-lead">Mikael Guéviguian regarde votre situation en 20 minutes, sans engagement : ce qui doit être structuré avant la signature, et ce qui ne pourra plus l'être après.</p>
+
+      <!-- Agenda en ligne. Tant qu'aucun lien n'est configuré, on affiche
+           le formulaire de repli ci-dessous : la page n'est jamais sans
+           moyen de conversion. -->
+      <div class="rdv-embed" id="rdv-embed" hidden></div>
+
+      <div class="rdv-fallback" id="rdv-fallback">
+        <p>Indiquez vos coordonnées et le moment qui vous convient : nous vous rappelons.</p>
+        <form class="contact-form" id="form-rdv" data-lv-event="prise_rdv" action="https://formspree.io/f/xqegldel" method="POST">
+          <input type="hidden" name="_subject" value="Demande de rendez-vous — suite guide cession" />
+          <input type="hidden" name="source" value="/merci-guide" />
+          <input type="text"  name="nom"       placeholder="Nom et prénom" autocomplete="name"  required />
+          <input type="email" name="email"     placeholder="Email"         autocomplete="email" required />
+          <input type="tel"   name="telephone" placeholder="Téléphone"     autocomplete="tel"   required />
+          <input type="text"  name="disponibilites" placeholder="Vos disponibilités (ex. mardi matin)" />
+          <textarea name="message" rows="3" placeholder="Où en êtes-vous de votre projet de cession ? (facultatif)"></textarea>
+          <div class="consent-line">
+            <input type="checkbox" id="consent-rdv" name="consentement_appel" value="oui" required />
+            <label for="consent-rdv">J'accepte d'être recontacté par téléphone par Livingstone.</label>
+          </div>
+          <button type="submit" class="btn btn-gold btn-full">Réserver mon échange</button>
+        </form>
+      </div>
+
+      <p class="rdv-direct">Ou directement : <a href="tel:+33778511307">07 78 51 13 07</a> <span class="diamond">◆</span> <a href="mailto:mikael.gueviguian@livingstone-wealth.com">mikael.gueviguian@livingstone-wealth.com</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="images/livingstone_nav.png" alt="Livingstone" />
+    </div>
+    <div class="footer-links">
+      <a href="a-propos.html">À propos</a>
+      <span class="diamond">◆</span>
+      <a href="nos-solutions.html">Solutions</a>
+      <span class="diamond">◆</span>
+      <a href="nos-frais.html">Nos frais</a>
+      <span class="diamond">◆</span>
+      <a href="fiducie-surete.html">Fiducie-sûreté</a>
+      <span class="diamond">◆</span>
+      <a href="cas-pratiques.html">Cas pratiques</a>
+      <span class="diamond">◆</span>
+      <a href="faq.html">FAQ</a>
+      <span class="diamond">◆</span>
+      <a href="contact.html">Contact</a>
+      <span class="diamond">◆</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <span class="diamond">◆</span>
+      <a href="reclamations.html">Réclamations</a>
+      <span class="diamond">◆</span>
+      <a href="confidentialite.html">Confidentialité</a>
+      <span class="diamond">◆</span>
+      <button type="button" id="lv-consent-rouvrir">Gérer mon consentement</button>
+    </div>
+    <p class="footer-copy">© 2026 Livingstone — Family Office.</p>
+    <div class="footer-compliance">
+      <p><strong>Livingstone Family Office</strong> — SARL au capital de 500 €, RCS Paris 951 716 349, code APE 6619B, 49 rue de Courcelles, 75008 Paris — 07 78 51 13 07.</p>
+      <p>Conseiller en Investissements Financiers (CIF) immatriculé à l'ORIAS sous le n° 23007478 (<a href="https://www.orias.fr" target="_blank" rel="noopener">www.orias.fr</a>), adhérent de LA COMPAGNIE CIF, association agréée par l'Autorité des Marchés Financiers (AMF). Courtier en assurance adhérent de LA CNCEF, association agréée par l'Autorité de Contrôle Prudentiel et de Résolution (ACPR). Responsabilité civile professionnelle souscrite auprès d'Assurup, contrat n° RCP23051083028.</p>
+      <p><strong>Ne peut recevoir aucun fonds, effet, ou valeur.</strong></p>
+    </div>
+  </footer>
+
+  <script>
+  /* --- Agenda en ligne -------------------------------------------------
+     Coller ici le lien public de l'agenda (Cal.com ou Calendly) :
+
+        var LV_AGENDA = 'https://cal.com/mikael-gueviguian/20min';
+        var LV_AGENDA = 'https://calendly.com/livingstone/20min';
+
+     Tant que la valeur est vide, le formulaire de repli reste affiché.
+     Rien d'autre n'est à modifier dans la page. */
+  var LV_AGENDA = '';
+
+  (function () {
+    var embed    = document.getElementById('rdv-embed');
+    var fallback = document.getElementById('rdv-fallback');
+    if (!LV_AGENDA) return;
+
+    var sep = LV_AGENDA.indexOf('?') === -1 ? '?' : '&';
+    var iframe = document.createElement('iframe');
+    iframe.src = LV_AGENDA + sep + 'embed=true';
+    iframe.title = 'Réserver un échange avec Mikael Guéviguian';
+    iframe.loading = 'lazy';
+    embed.appendChild(iframe);
+    embed.hidden = false;
+    fallback.hidden = true;
+  })();
+
+  </script>
+  <script src="script.js"></script>
+  <script src="analytics.js"></script>
+</body>
+</html>

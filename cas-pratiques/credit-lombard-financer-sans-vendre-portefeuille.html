@@ -30,8 +30,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../refonte.css" />
 
   <script type="application/ld+json">
   {
@@ -134,6 +135,8 @@
       <nav class="nav-links">
         <a href="../a-propos.html">Notre approche</a>
         <a href="../nos-solutions.html">Solutions</a>
+        <a href="../nos-frais.html">Nos frais</a>
+        <a href="../fiducie-surete.html">Fiducie-sûreté</a>
         <a href="../cas-pratiques.html">Cas pratiques</a>
         <a href="../faq.html">FAQ</a>
         <a href="../contact.html">Contact</a>
@@ -146,6 +149,8 @@
     <nav class="nav-mobile" id="navMobile">
       <a href="../a-propos.html">Notre approche</a>
       <a href="../nos-solutions.html">Solutions</a>
+      <a href="../nos-frais.html">Nos frais</a>
+      <a href="../fiducie-surete.html">Fiducie-sûreté</a>
       <a href="../cas-pratiques.html">Cas pratiques</a>
       <a href="../faq.html">FAQ</a>
       <a href="../contact.html">Contact</a>
@@ -162,9 +167,14 @@
     <header class="article-header">
       <p class="eyebrow eyebrow-dark">Financement patrimonial</p>
       <h1>Dirigeante, 52 ans : comment financer un achat de 900 000 € sans vendre un euro de son portefeuille</h1>
-      <p class="article-meta">Par <a href="../a-propos.html" style="color:inherit;border-bottom:1px solid var(--gold);">Mikael Guéviguian</a> <span class="dot">◆</span> Septembre 2026</p>
+      <p class="article-meta">Par <a href="../a-propos.html" class="author-link">Mikael Guéviguian</a> <span class="dot">◆</span> Septembre 2026</p>
       <p class="article-chapo">Cas pratique anonymisé, à visée pédagogique. Chaque situation patrimoniale est différente et nécessite une étude personnalisée.</p>
     </header>
+
+    <div class="guide-offer">
+      <p class="guide-offer-text"><strong>Un projet à financer sans casser votre patrimoine ?</strong> Le guide patrimonial du dirigeant traite le financement, la cession et le réemploi — les trois moments où l'on décide le plus, avec le moins de temps.</p>
+      <a href="../ceder-son-entreprise-guide-du-dirigeant.html#recevoir" class="btn btn-gold" data-lv="guide">Recevoir le guide (PDF)</a>
+    </div>
 
     <article class="article-body">
 
@@ -239,7 +249,7 @@
       </div>
     </section>
 
-    <p class="article-disclaimer">Livingstone est un Conseiller en Investissements Financiers (CIF), enregistré à l'ORIAS sous le numéro 23007478, membre de La Compagnie des CGP, association agréée par l'Autorité des Marchés Financiers (AMF). Ce cas pratique est anonymisé et présenté à des fins pédagogiques uniquement. Il ne constitue ni un conseil personnalisé ni une sollicitation. Chaque situation patrimoniale nécessite une étude individuelle avant toute décision.</p>
+    <p class="article-disclaimer">Livingstone est un Conseiller en Investissements Financiers (CIF), enregistré à l'ORIAS sous le numéro 23007478, membre de LA COMPAGNIE CIF, association agréée par l'Autorité des Marchés Financiers (AMF). Ce cas pratique est anonymisé et présenté à des fins pédagogiques uniquement. Il ne constitue ni un conseil personnalisé ni une sollicitation. Chaque situation patrimoniale nécessite une étude individuelle avant toute décision.</p>
   </main>
 
   <!-- CTA DE FIN D'ARTICLE -->
@@ -270,23 +280,35 @@
     <div class="footer-links">
       <a href="../a-propos.html">À propos</a>
       <span class="diamond">◆</span>
+      <a href="../nos-solutions.html">Solutions</a>
+      <span class="diamond">◆</span>
+      <a href="../nos-frais.html">Nos frais</a>
+      <span class="diamond">◆</span>
+      <a href="../fiducie-surete.html">Fiducie-sûreté</a>
+      <span class="diamond">◆</span>
       <a href="../cas-pratiques.html">Cas pratiques</a>
       <span class="diamond">◆</span>
       <a href="../faq.html">FAQ</a>
+      <span class="diamond">◆</span>
+      <a href="../contact.html">Contact</a>
       <span class="diamond">◆</span>
       <a href="../mentions-legales.html">Mentions légales</a>
       <span class="diamond">◆</span>
       <a href="../reclamations.html">Réclamations</a>
       <span class="diamond">◆</span>
-      <a href="../confidentialite.html">Politique de confidentialité</a>
+      <a href="../confidentialite.html">Confidentialité</a>
+      <span class="diamond">◆</span>
+      <button type="button" id="lv-consent-rouvrir">Gérer mon consentement</button>
     </div>
     <p class="footer-copy">© 2026 Livingstone — Family Office.</p>
     <div class="footer-compliance">
-      <p><strong>Livingstone Family Office</strong> — SARL au capital de 500 €, RCS Paris 951 716 349, 49 rue de Courcelles, 75008 Paris.</p>
-      <p>Conseiller en Investissements Financiers (CIF) immatriculé à l'ORIAS sous le n° 23007478 (<a href="https://www.orias.fr" target="_blank" rel="noopener">www.orias.fr</a>), adhérent de La Compagnie des CGP, association agréée par l'Autorité des Marchés Financiers (AMF). Courtier en assurance adhérent de la CNCEF Assurance, association agréée par l'Autorité de Contrôle Prudentiel et de Résolution (ACPR).</p>
+      <p><strong>Livingstone Family Office</strong> — SARL au capital de 500 €, RCS Paris 951 716 349, code APE 6619B, 49 rue de Courcelles, 75008 Paris — 07 78 51 13 07.</p>
+      <p>Conseiller en Investissements Financiers (CIF) immatriculé à l'ORIAS sous le n° 23007478 (<a href="https://www.orias.fr" target="_blank" rel="noopener">www.orias.fr</a>), adhérent de LA COMPAGNIE CIF, association agréée par l'Autorité des Marchés Financiers (AMF). Courtier en assurance adhérent de LA CNCEF, association agréée par l'Autorité de Contrôle Prudentiel et de Résolution (ACPR). Responsabilité civile professionnelle souscrite auprès d'Assurup, contrat n° RCP23051083028.</p>
+      <p><strong>Ne peut recevoir aucun fonds, effet, ou valeur.</strong></p>
     </div>
   </footer>
 
   <script src="../script.js"></script>
+  <script src="../analytics.js"></script>
 </body>
 </html>

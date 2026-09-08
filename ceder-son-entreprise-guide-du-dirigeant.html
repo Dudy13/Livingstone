@@ -30,8 +30,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="refonte.css" />
 
   <script type="application/ld+json">
   {
@@ -144,6 +145,8 @@
       <nav class="nav-links">
         <a href="a-propos.html">Notre approche</a>
         <a href="nos-solutions.html">Solutions</a>
+        <a href="nos-frais.html">Nos frais</a>
+        <a href="fiducie-surete.html">Fiducie-sûreté</a>
         <a href="cas-pratiques.html">Cas pratiques</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
@@ -156,6 +159,8 @@
     <nav class="nav-mobile" id="navMobile">
       <a href="a-propos.html">Notre approche</a>
       <a href="nos-solutions.html">Solutions</a>
+      <a href="nos-frais.html">Nos frais</a>
+      <a href="fiducie-surete.html">Fiducie-sûreté</a>
       <a href="cas-pratiques.html">Cas pratiques</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
@@ -172,15 +177,20 @@
     <header class="article-header">
       <p class="eyebrow eyebrow-dark">Guide du dirigeant</p>
       <h1>Céder son entreprise : le guide patrimonial du dirigeant</h1>
-      <p class="article-meta">Par <a href="a-propos.html" style="color:inherit;border-bottom:1px solid var(--gold);">Mikael Guéviguian</a> <span class="dot">◆</span> Juillet 2026</p>
+      <p class="article-meta">Par <a href="a-propos.html" class="author-link">Mikael Guéviguian</a> <span class="dot">◆</span> Juillet 2026</p>
       <p class="article-chapo">Vendre sa société est l'opération patrimoniale d'une vie. Bien préparée, elle sécurise votre avenir et celui de votre famille ; mal anticipée, elle peut coûter une part démesurée de sa valeur. Ce guide balaie l'ensemble du parcours — de la préparation à la transmission — et renvoie, à chaque étape, vers nos cas pratiques détaillés.</p>
     </header>
 
+    <div class="guide-offer">
+      <p class="guide-offer-text"><strong>Ce guide existe en version PDF</strong> — 9 chapitres, à lire hors ligne ou à transmettre à votre expert-comptable.</p>
+      <a href="#recevoir" class="btn btn-gold">Recevoir le guide en PDF</a>
+    </div>
+
     <article class="article-body">
 
-      <nav class="guide-toc" aria-label="Sommaire" style="background:#F5F0E8;border-left:3px solid var(--gold);padding:24px 28px;margin:0 0 40px;border-radius:4px;">
-        <p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 0 12px;">Sommaire</p>
-        <ol style="margin:0;padding-left:20px;line-height:2;font-size:15px;">
+      <nav class="guide-toc" aria-label="Sommaire">
+        <p class="guide-toc-title">Sommaire</p>
+        <ol>
           <li><a href="#anticiper">Anticiper : pourquoi tout se joue en amont</a></li>
           <li><a href="#valoriser">Valoriser son entreprise avant la vente</a></li>
           <li><a href="#fiscalite">La fiscalité de la plus-value de cession</a></li>
@@ -282,22 +292,53 @@
   </main>
 
   <!-- CTA DE FIN -->
+  <section class="capture" id="recevoir">
+    <div class="capture-inner">
+      <p class="eyebrow eyebrow-dark">Version PDF</p>
+      <h2>Recevoir le guide de la cession</h2>
+      <span class="rule-gold center"></span>
+      <p class="capture-lead">Les 9 chapitres de ce guide, en PDF, immédiatement accessibles.</p>
+
+      <ul class="capture-bullets">
+        <li>Le calendrier de la cession : ce qui doit être fait <strong>avant</strong> la signature du protocole, et ce qui ne peut plus l'être après.</li>
+        <li>Apport-cession, donation-cession, pacte Dutreil : les mécanismes expliqués sans jargon.</li>
+        <li>Les erreurs qui coûtent le plus cher, vues sur des dossiers réels.</li>
+      </ul>
+
+      <form class="contact-form" id="form-guide" data-lv-brevo action="https://formspree.io/f/xqegldel" method="POST">
+        <input type="hidden" name="_subject" value="Guide cession — demande de PDF" />
+        <input type="hidden" name="source" value="/ceder-son-entreprise-guide-du-dirigeant" />
+        <input type="hidden" name="_next" value="https://www.livingstone-wealth.com/merci-guide.html" />
+
+        <div class="form-row">
+          <input type="text" name="prenom" placeholder="Prénom" autocomplete="given-name" required />
+          <input type="text" name="nom" placeholder="Nom" autocomplete="family-name" required />
+        </div>
+        <input type="email" name="email" placeholder="Email" autocomplete="email" required />
+
+        <span class="field-optional">Téléphone — facultatif</span>
+        <input type="tel" name="telephone" placeholder="Téléphone" autocomplete="tel" />
+
+        <div class="consent-line">
+          <input type="checkbox" id="consent-appel" name="consentement_appel" value="oui" />
+          <label for="consent-appel">J'accepte d'être recontacté par téléphone par Livingstone au sujet de ma situation.</label>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-full">Recevoir le guide</button>
+        <p class="form-note">Vos informations sont traitées confidentiellement et ne sont jamais cédées à des tiers. Vous pouvez vous désinscrire à tout moment.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- L'ancien bloc « échanger sur ma situation » reste disponible plus bas
+       pour les visiteurs qui veulent parler tout de suite plutot que lire. -->
   <section class="article-cta" id="echanger">
     <div class="article-cta-inner">
       <p class="eyebrow">Votre situation</p>
       <h2>Vous préparez la cession de votre société ?</h2>
       <span class="rule-gold center"></span>
       <p class="article-cta-lead">Chaque cession se construit en amont et sur mesure. Échangeons sur votre situation, en toute confidentialité, pour étudier les options qui s'offrent à vous.</p>
-
-      <form class="contact-form" action="https://formspree.io/f/xqegldel" method="POST">
-        <input type="hidden" name="_subject" value="Guide — Céder son entreprise : le guide du dirigeant" />
-        <input type="hidden" name="source" value="/ceder-son-entreprise-guide-du-dirigeant" />
-        <input type="text" name="nom" placeholder="Nom" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <textarea name="message" rows="4" placeholder="Votre message (facultatif)"></textarea>
-        <button type="submit" class="btn btn-gold btn-full">Échanger sur ma situation</button>
-        <p class="form-note">Vos informations sont traitées confidentiellement et ne sont jamais partagées avec des tiers.</p>
-      </form>
+      <a href="contact.html" class="btn btn-gold">Échanger sur ma situation</a>
     </div>
   </section>
 
@@ -309,23 +350,35 @@
     <div class="footer-links">
       <a href="a-propos.html">À propos</a>
       <span class="diamond">◆</span>
+      <a href="nos-solutions.html">Solutions</a>
+      <span class="diamond">◆</span>
+      <a href="nos-frais.html">Nos frais</a>
+      <span class="diamond">◆</span>
+      <a href="fiducie-surete.html">Fiducie-sûreté</a>
+      <span class="diamond">◆</span>
       <a href="cas-pratiques.html">Cas pratiques</a>
       <span class="diamond">◆</span>
       <a href="faq.html">FAQ</a>
+      <span class="diamond">◆</span>
+      <a href="contact.html">Contact</a>
       <span class="diamond">◆</span>
       <a href="mentions-legales.html">Mentions légales</a>
       <span class="diamond">◆</span>
       <a href="reclamations.html">Réclamations</a>
       <span class="diamond">◆</span>
-      <a href="confidentialite.html">Politique de confidentialité</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <span class="diamond">◆</span>
+      <button type="button" id="lv-consent-rouvrir">Gérer mon consentement</button>
     </div>
     <p class="footer-copy">© 2026 Livingstone — Family Office.</p>
     <div class="footer-compliance">
-      <p><strong>Livingstone Family Office</strong> — SARL au capital de 500 €, RCS Paris 951 716 349, 49 rue de Courcelles, 75008 Paris.</p>
-      <p>Conseiller en Investissements Financiers (CIF) immatriculé à l'ORIAS sous le n° 23007478 (<a href="https://www.orias.fr" target="_blank" rel="noopener">www.orias.fr</a>), adhérent de La Compagnie des CGP, association agréée par l'Autorité des Marchés Financiers (AMF). Courtier en assurance adhérent de la CNCEF Assurance, association agréée par l'Autorité de Contrôle Prudentiel et de Résolution (ACPR).</p>
+      <p><strong>Livingstone Family Office</strong> — SARL au capital de 500 €, RCS Paris 951 716 349, code APE 6619B, 49 rue de Courcelles, 75008 Paris — 07 78 51 13 07.</p>
+      <p>Conseiller en Investissements Financiers (CIF) immatriculé à l'ORIAS sous le n° 23007478 (<a href="https://www.orias.fr" target="_blank" rel="noopener">www.orias.fr</a>), adhérent de LA COMPAGNIE CIF, association agréée par l'Autorité des Marchés Financiers (AMF). Courtier en assurance adhérent de LA CNCEF, association agréée par l'Autorité de Contrôle Prudentiel et de Résolution (ACPR). Responsabilité civile professionnelle souscrite auprès d'Assurup, contrat n° RCP23051083028.</p>
+      <p><strong>Ne peut recevoir aucun fonds, effet, ou valeur.</strong></p>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script src="analytics.js"></script>
 </body>
 </html>

@@ -1084,7 +1084,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
    ============================================================ */
 .cas-hub {
   background: var(--cream);
-  padding: 160px var(--pad-x) 96px;
+  padding: calc(var(--nav-h) + 40px) var(--pad-x) 96px;
   min-height: 100vh;
 }
 .cas-hub-inner {
@@ -1138,7 +1138,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
    ============================================================ */
 .article {
   background: var(--cream);
-  padding: 140px var(--pad-x) 64px;
+  padding: calc(var(--nav-h) + 40px) var(--pad-x) 64px;
 }
 .article-back {
   max-width: 760px;
@@ -1447,3 +1447,409 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 @keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.16); } }
 .pv-media.kb { animation: kenburns 26s ease-in-out infinite alternate; transform-origin: center 46%; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .pv-media.kb { animation: none; } }
+
+/* ============================================================
+   HAUTEUR DE LA NAVIGATION
+   La nav est en position: fixed. Toute page interne doit reserver
+   cette hauteur en haut de son premier bloc, sinon le contenu passe
+   dessous. On la declare une fois ici plutot que par un
+   style="padding-top:..." repete de page en page.
+   ============================================================ */
+:root { --nav-h: 120px; }
+@media (max-width: 1024px) { :root { --nav-h: 108px; } }
+@media (max-width: 768px)  { :root { --nav-h: 88px;  } }
+@media (max-width: 480px)  { :root { --nav-h: 56px;  } }
+
+/* A poser sur le PREMIER bloc de contenu d'une page interne. */
+.page-top { padding-top: calc(var(--nav-h) + 40px) !important; }
+
+/* ============================================================
+   PAGES LEGALES — chrome commun
+   Les pages legales partagent desormais la nav et le pied de page
+   du reste du site. Elles conservent leur fond sombre propre via
+   body.legal-page ; seul l'espacement haut change.
+   ============================================================ */
+.legal-page .legal-main { padding-top: calc(var(--nav-h) + 48px); }
+.legal-page .footer { border-top: 1px solid var(--border-gold); }
+
+/* Sur fond sombre, les liens du corps legal restent lisibles. */
+.legal-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.legal-body a:hover { color: var(--gold-light); }
+
+/* ============================================================
+   BANDEAU DE CONSENTEMENT (injecte par analytics.js)
+   Refuser et Accepter ont exactement la meme surface, le meme
+   contraste et la meme taille : la CNIL interdit de rendre le refus
+   plus difficile que l'acceptation.
+   ============================================================ */
+#lv-consent {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2000;
+  display: none;
+  background: var(--navy-2);
+  color: rgba(255, 255, 255, 0.86);
+  border-top: 1px solid var(--border-gold-strong);
+  box-shadow: 0 -14px 40px -24px rgba(0, 0, 0, 0.8);
+}
+#lv-consent.is-open { display: block; }
+.lv-consent-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px var(--pad-x);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 32px;
+}
+.lv-consent-inner p {
+  margin: 0;
+  flex: 1 1 380px;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.lv-consent-inner a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.lv-consent-actions { display: flex; gap: 12px; flex: 0 0 auto; }
+.lv-consent-actions button {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#lv-consent-refuser  { background: transparent; color: var(--cream); border: 1px solid var(--cream); }
+#lv-consent-accepter { background: var(--cream); color: var(--navy); border: 1px solid var(--cream); }
+#lv-consent-refuser:hover  { background: rgba(242, 235, 223, 0.12); }
+#lv-consent-accepter:hover { background: var(--white); border-color: var(--white); }
+
+/* Bouton « Gerer mon consentement » du pied de page. */
+#lv-consent-rouvrir {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#lv-consent-rouvrir:hover { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .lv-consent-inner { padding: 18px 24px; }
+  .lv-consent-actions { width: 100%; }
+  .lv-consent-actions button { flex: 1 1 0; padding: 12px 16px; }
+}
+
+/* ============================================================
+   FORMULAIRE DE CAPTURE — etape 1
+   Email obligatoire, telephone facultatif. Le telephone n'est
+   demande qu'accompagne de son consentement propre : depuis le
+   passage du demarchage telephonique a l'opt-in, un numero collecte
+   sans accord explicite ne peut pas etre appele.
+   ============================================================ */
+.capture {
+  background: var(--cream);
+  padding: 88px var(--pad-x);
+}
+.capture-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.capture h2 { color: var(--text-dark); margin-bottom: 8px; }
+.capture-lead {
+  max-width: 560px;
+  margin: 0 auto 40px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-dark-muted);
+}
+.capture-bullets {
+  list-style: none;
+  max-width: 520px;
+  margin: 0 auto 40px;
+  text-align: left;
+  display: grid;
+  gap: 12px;
+}
+.capture-bullets li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-dark-soft);
+}
+.capture-bullets li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--gold);
+  font-size: 8px;
+  line-height: 2.2;
+}
+
+/* Champ facultatif : signale comme tel, jamais impose. */
+.field-optional {
+  display: block;
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--text-dark-faint);
+  margin: 4px 0 -6px;
+}
+.consent-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-dark-muted);
+  margin: 4px 0 2px;
+}
+.consent-line input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  margin-top: 2px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.consent-line label { cursor: pointer; }
+
+/* ============================================================
+   PAGE DE REMERCIEMENT — etape 2 (prise de rendez-vous)
+   ============================================================ */
+.merci {
+  background: var(--cream);
+  padding: calc(var(--nav-h) + 64px) var(--pad-x) 88px;
+  text-align: center;
+}
+.merci-inner { max-width: 760px; margin: 0 auto; }
+.merci-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border-gold-strong);
+  padding: 10px 22px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dark-muted);
+  margin-bottom: 28px;
+}
+.merci-badge::before { content: "◆"; color: var(--gold); font-size: 8px; }
+.merci h1 { color: var(--text-dark); }
+.merci-lead {
+  max-width: 600px;
+  margin: 20px auto 40px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-dark-muted);
+}
+.merci-download {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.merci-hint {
+  font-size: 12.5px;
+  color: var(--text-dark-faint);
+  margin-bottom: 64px;
+}
+
+/* Etape 2 : ici le telephone est obligatoire — la personne demande
+   elle-meme l'appel, le numero devient naturel. */
+.rdv {
+  background: var(--navy);
+  padding: 88px var(--pad-x);
+  text-align: center;
+}
+.rdv-inner { max-width: 720px; margin: 0 auto; }
+.rdv h2 { color: var(--white); }
+.rdv-lead {
+  max-width: 580px;
+  margin: 20px auto 40px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+.rdv-embed {
+  min-height: 620px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-gold);
+}
+.rdv-embed iframe { width: 100%; min-height: 620px; border: 0; display: block; }
+
+/* Repli quand aucun agenda n'est configure : on ne laisse jamais la
+   page sans moyen de conversion. */
+.rdv-fallback {
+  border: 1px solid var(--border-gold);
+  padding: 40px 32px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.rdv-fallback p { color: var(--text-soft); font-size: 14.5px; line-height: 1.8; margin-bottom: 24px; }
+.rdv-direct {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+.rdv-direct a { color: var(--gold); }
+.rdv-direct a:hover { color: var(--gold-light); }
+
+@media (max-width: 768px) {
+  .capture { padding: 64px 24px; }
+  .merci { padding: calc(var(--nav-h) + 40px) 24px 64px; }
+  .rdv { padding: 64px 24px; }
+  .rdv-embed, .rdv-embed iframe { min-height: 560px; }
+}
+
+/* ============================================================
+   BANDEAU D'OFFRE — en tete du guide, renvoie vers la capture
+   ============================================================ */
+.guide-offer {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  padding: 24px 28px;
+  background: rgba(201, 168, 124, 0.08);
+  border: 1px solid var(--border-gold-strong);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 28px;
+}
+.guide-offer-text {
+  margin: 0;
+  flex: 1 1 300px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-dark-soft);
+}
+.guide-offer .btn { flex: 0 0 auto; }
+
+@media (max-width: 768px) {
+  .guide-offer { padding: 22px 22px; }
+  .guide-offer .btn { width: 100%; text-align: center; }
+}
+
+/* ============================================================
+   HUB CAS PRATIQUES — bandeau vers le guide du dirigeant
+   (auparavant ecrit en styles inline dans cas-pratiques.html)
+   ============================================================ */
+.hub-guide {
+  display: block;
+  background: rgba(201, 168, 124, 0.08);
+  border: 1px solid var(--border-gold-strong);
+  border-left: 3px solid var(--gold);
+  padding: 26px 30px;
+  margin-bottom: 36px;
+  color: inherit;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.hub-guide:hover {
+  background: rgba(201, 168, 124, 0.14);
+  border-color: var(--gold);
+}
+.hub-guide-eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.hub-guide-title {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin: 10px 0;
+}
+.hub-guide-text {
+  display: block;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-dark-muted);
+}
+.hub-guide-cta { color: var(--gold); white-space: nowrap; }
+
+@media (max-width: 768px) {
+  .hub-guide { padding: 24px 22px; }
+  .hub-guide-title { font-size: 20px; }
+}
+
+/* ============================================================
+   ELEMENTS D'ARTICLE — auparavant repetes en styles inline
+   d'un article a l'autre, donc impossibles a faire evoluer d'un
+   seul geste. Ils vivent desormais ici.
+   ============================================================ */
+
+/* Lien vers la fiche auteur dans la ligne de signature. */
+.author-link {
+  color: inherit;
+  border-bottom: 1px solid var(--gold);
+}
+.author-link:hover { color: var(--gold); }
+
+/* Lien mis en avant dans le corps d'un article. */
+.link-gold {
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+.link-gold:hover { color: var(--gold-light); border-bottom-color: var(--gold-light); }
+
+/* Schemas pedagogiques (SVG) des cas pratiques. */
+.figure {
+  margin: 48px auto;
+  max-width: 600px;
+}
+.figure svg,
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.figure-caption {
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text-dark-muted);
+  margin-top: 12px;
+}
+
+/* Sommaire en tete du guide. */
+.guide-toc {
+  background: rgba(201, 168, 124, 0.08);
+  border: 1px solid var(--border-gold-strong);
+  border-left: 3px solid var(--gold);
+  padding: 26px 30px;
+  margin: 0 0 40px;
+}
+.guide-toc-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+.guide-toc ol {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 2;
+  font-size: 15px;
+}
+.guide-toc a { color: var(--text-dark-soft); }
+.guide-toc a:hover { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .figure { margin: 36px auto; }
+  .guide-toc { padding: 22px 22px 22px 24px; }
+}
