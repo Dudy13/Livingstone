@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SwissLife Altitude 2026 — Bonification garantie 2,70 % | Livingstone</title>
+  <title>SwissLife Altitude 2026 | Bonification garantie 2,70 % | Livingstone</title>
   <meta name="description" content="SwissLife garantit une bonification de 2,70 % sur le fonds euro pour 2026 et 2027, dans le contrat d'assurance-vie luxembourgeois SwissLife Altitude. Conditions : 250 000 € minimum, 40 % d'unités de compte. Vérifiez votre éligibilité avec Livingstone.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" href="images/livingstone_carre.png">
 
-  <meta property="og:title" content="SwissLife Altitude — Bonification garantie 2,70 % (2026-2027)">
+  <meta property="og:title" content="SwissLife Altitude | Bonification garantie 2,70 % (2026-2027)">
   <meta property="og:description" content="Contrat d'assurance-vie luxembourgeois SwissLife Altitude : bonification garantie de 2,70 % sur le fonds euro pour 2026 et 2027. Vérifiez votre éligibilité.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
@@ -133,7 +133,7 @@
           <form id="lv-elig-form" action="https://formspree.io/f/mvkoajvj" method="POST" novalidate>
             <input type="hidden" id="lv-horizon" name="horizon" value="">
             <input type="hidden" id="lv-formule" name="formule" value="">
-            <input type="hidden" id="lv-subject" name="_subject" value="Nouvelle demande — SwissLife Altitude">
+            <input type="hidden" id="lv-subject" name="_subject" value="Nouvelle demande - SwissLife Altitude">
             <input type="hidden" name="source" value="/swisslife-altitude">
             <input type="hidden" id="lv-campagne" name="campagne" value="">
             <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label for="lv-gotcha">Ne pas remplir</label><input id="lv-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
@@ -434,7 +434,7 @@
     var tranche = val('montant');
     /* Le sujet du mail porte la tranche : la boite de reception se trie seule. */
     if(subjectEl){
-      subjectEl.value = (tranche === HORS_CRITERES ? 'Hors critères' : tranche) + ' — SwissLife Altitude';
+      subjectEl.value = (tranche === HORS_CRITERES ? 'Hors critères' : tranche) + ' - SwissLife Altitude';
     }
 
     showErr('');
@@ -604,7 +604,7 @@
     texte.style.cssText = 'margin:10px 0 0;font-size:15px;line-height:1.55;color:#3B3A36';
     texte.textContent = eligible
       ? 'Le montant envisagé atteint le seuil de 250 000 € requis pour la bonification, et la formule ' + reponses.formule.toLowerCase() + ' fait partie des allocations proposées. Reste à en valider les modalités avec vous.'
-      : 'La bonification de 2,70 % suppose un versement d’au moins 250 000 €. En dessous de ce seuil, elle n’est pas accessible — mais d’autres solutions patrimoniales peuvent correspondre à votre situation.';
+      : 'La bonification de 2,70 % suppose un versement d’au moins 250 000 €. En dessous de ce seuil, elle n’est pas accessible, mais d’autres solutions patrimoniales peuvent correspondre à votre situation.';
     corps.appendChild(texte);
 
     /* Le detail des reponses n'est pas repete ici : il figure juste en dessous,
@@ -699,7 +699,7 @@
     if(mesureChargee) return;
     mesureChargee = true;
 
-    /* Microsoft Advertising — balise de suivi universel des evenements (UET) */
+    /* Microsoft Advertising : balise de suivi universel des evenements (UET) */
     (function(w,d,t,r,u){
       var f,n,i;
       w[u]=w[u]||[],f=function(){ var o={ti:UET_ID}; o.q=w[u],w[u]=new UET(o),w[u].push('pageLoad'); },
@@ -711,11 +711,11 @@
     window.uetq = window.uetq || [];
     window.uetq.push('consent', 'update', { ad_storage: 'granted' });
 
-    /* Meta — pixel, meme conditionnement au consentement.
+    /* Meta : pixel, meme conditionnement au consentement.
        Aucun parametre n'est joint aux evenements Meta : les Conditions des Outils
        Meta Business interdisent de transmettre des informations financieres sur
        une personne, et la tranche de patrimoine ou la mention « qualifie » en
-       serait une. Meta recoit le fait qu'il y a conversion, rien de plus — c'est
+       serait une. Meta recoit le fait qu'il y a conversion, rien de plus. C'est
        tout ce dont son algorithme a besoin pour optimiser. Le detail reste dans
        la demande envoyee par e-mail et, pour la tranche, cote Microsoft. */
     !function(f,b,e,v,n,t,s){

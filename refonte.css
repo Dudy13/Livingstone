@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------
-   REFONTE 2026 — charte des nouvelles pages
+   REFONTE 2026 : charte des nouvelles pages
    Sortie du creme/ivoire + dore. Fond perle froid, encre profonde,
    accent petrole ; le dore est reserve au logo.
    N'est PAS chargee par index.html ni les pages legales, qui gardent
@@ -131,7 +131,7 @@ footer img{height:26px;margin-bottom:22px}
 
    Comme styles.css est ecrit a 80 % sur des variables CSS, il suffit
    de redefinir les jetons pour re-habiller l'ensemble du site. Le
-   reste — les quelques couleurs ecrites en dur — est repris nommement
+   reste (les quelques couleurs ecrites en dur) est repris nommement
    plus bas.
    ================================================================== */
 

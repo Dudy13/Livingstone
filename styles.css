@@ -1,5 +1,5 @@
 /* ===================================================================
-   LIVINGSTONE — Stylesheet
+   LIVINGSTONE : feuille de styles
    Palette : noir #0B0B0B–#151515 · ivoire #E8E0D0–#F2EBDF · or #C9A87C
    Typo : Cinzel (titres/logo) · Cormorant Garamond (italiques) · Montserrat (sans)
    =================================================================== */
@@ -209,14 +209,14 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   SECTION 1 — HERO
+   SECTION 1 : HERO
    ============================================================ */
 .hero {
   position: relative;
 }
 
 /* ============================================================
-   SECTION 2 — MANIFESTE
+   SECTION 2 : MANIFESTE
    ============================================================ */
 .manifeste {
   background: var(--navy-2);
@@ -271,7 +271,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   SECTION 3 — SOLUTIONS
+   SECTION 3 : SOLUTIONS
    ============================================================ */
 .solutions {
   background: var(--cream);
@@ -337,7 +337,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .card-wide p { color: var(--text-dark-soft); font-size: 13px; max-width: 720px; }
 
 /* ============================================================
-   SECTION 4 — LUXEMBOURG
+   SECTION 4 : LUXEMBOURG
    ============================================================ */
 .luxembourg {
   display: grid;
@@ -390,7 +390,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   SECTION 5 — ÉQUIPE
+   SECTION 5 : ÉQUIPE
    ============================================================ */
 .equipe {
   background: var(--cream);
@@ -462,7 +462,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   SECTION 6 — COMPARATIF
+   SECTION 6 : COMPARATIF
    ============================================================ */
 .comparatif {
   background: var(--cream);
@@ -513,7 +513,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .compare tbody tr:hover { background: rgba(139, 115, 85, 0.05); }
 
 /* ============================================================
-   SECTION 7 — FRAIS
+   SECTION 7 : FRAIS
    ============================================================ */
 .frais {
   background: var(--cream);
@@ -553,7 +553,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   SECTION 8 — PORTRAIT
+   SECTION 8 : PORTRAIT
    ============================================================ */
 .portrait {
   display: grid;
@@ -608,7 +608,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   SECTION 8 BIS — MÉDIAS
+   SECTION 8 BIS : MÉDIAS
    ============================================================ */
 .medias {
   background: var(--cream);
@@ -654,7 +654,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   SECTION 9 — VALORISATION
+   SECTION 9 : VALORISATION
    ============================================================ */
 .valorisation {
   background: var(--navy);
@@ -692,7 +692,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   SECTION 10 — CONTACT
+   SECTION 10 : CONTACT
    ============================================================ */
 .contact {
   background: var(--cream);
@@ -1080,7 +1080,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   CAS PRATIQUES — HUB
+   CAS PRATIQUES : HUB
    ============================================================ */
 .cas-hub {
   background: var(--cream);
@@ -1134,7 +1134,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .cas-card:hover .cas-card-cta { color: var(--gold-light); }
 
 /* ============================================================
-   ARTICLE — CAS PRATIQUE
+   ARTICLE : CAS PRATIQUE
    ============================================================ */
 .article {
   background: var(--cream);
@@ -1242,7 +1242,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .article-body a:hover { color: var(--gold-light); }
 
 /* ============================================================
-   ARTICLE — FAQ
+   ARTICLE : FAQ
    ============================================================ */
 .article-faq {
   max-width: 760px;
@@ -1276,7 +1276,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   ARTICLE — CTA DE FIN
+   ARTICLE : CTA DE FIN
    ============================================================ */
 .article-cta {
   background: var(--navy);
@@ -1309,7 +1309,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   FOOTER — BLOC CONFORMITÉ (hub + articles)
+   FOOTER : BLOC CONFORMITÉ (hub + articles)
    ============================================================ */
 .footer-compliance {
   max-width: 880px;
@@ -1331,7 +1331,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .footer-compliance a:hover { color: var(--gold); }
 
 /* ============================================================
-   RESPONSIVE — CAS PRATIQUES & ARTICLE
+   RESPONSIVE : CAS PRATIQUES & ARTICLE
    ============================================================ */
 @media (max-width: 768px) {
   .cas-hub { padding: 120px 24px 64px; }
@@ -1354,7 +1354,7 @@ h3 { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 }
 
 /* ============================================================
-   REFONTE 2026 — Typographie tri-police
+   REFONTE 2026 : Typographie tri-police
    ============================================================ */
 body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; line-height: 1.7; color: #ECE6DA; }
 .nav-links a, .nav-mobile a, .nav-cta, .btn, .footer-links a, .legal-footer-links a, .legal-back, .article-back, .cas-card-cta, .article-meta, .form-note, .eyebrow { font-family: "Montserrat", sans-serif; }
@@ -1363,7 +1363,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 .btn-gold, .btn-gold:hover, .nav-cta:hover, .btn-outline:hover { color: #1c1408; }
 
 /* ============================================================
-   REFONTE 2026 — HERO VIDÉO
+   REFONTE 2026 : HERO VIDÉO
    ============================================================ */
 .hero-v { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; background: #0B0B0B; }
 .hero-v-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
@@ -1381,7 +1381,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 @media (max-width: 768px) { .hero-v-stats { gap: 12px 18px; font-size: 10px; } .hero-v-stats .sep { display: none; } .hero-v-title { margin: 16px 0; } }
 
 /* ============================================================
-   REFONTE 2026 — VALEURS (manifeste visuel)
+   REFONTE 2026 : VALEURS (manifeste visuel)
    ============================================================ */
 .values { background: #0B0B0B; color: #ECE6DA; padding: clamp(76px,10vw,132px) var(--pad-x); }
 .values-head { max-width: 860px; margin: 0 auto 60px; text-align: center; }
@@ -1397,7 +1397,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 @media (max-width: 560px) { .values-grid { grid-template-columns: 1fr; } .values-item { border-left: 0 !important; } .values-item:nth-child(2) { border-top: 1px solid var(--border-gold); } }
 
 /* ============================================================
-   REFONTE 2026 — TRACK RECORD
+   REFONTE 2026 : TRACK RECORD
    ============================================================ */
 .track { background: var(--ivory-2); color: var(--text-dark); padding: clamp(72px,10vw,116px) var(--pad-x); }
 .track .section-head h2 { color: var(--text-dark); }
@@ -1411,14 +1411,14 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 @media (max-width: 900px) { .track-grid { grid-template-columns: 1fr; } }
 
 /* ============================================================
-   REFONTE 2026 — Footer villes · portrait plus grand
+   REFONTE 2026 : Footer villes · portrait plus grand
    ============================================================ */
 .footer-cities { font-size: 12px; letter-spacing: .35em; color: var(--gold); text-transform: uppercase; margin-bottom: 22px; }
 .portrait-photo img { min-height: 600px; }
 @media (max-width: 768px) { .portrait-photo img { min-height: 340px; } .values { padding: 60px 24px; } .track { padding: 60px 24px; } }
 
 /* ============================================================
-   REFONTE 2026 — PORTAIL VIDÉO (page d'accueil, architecture Corient)
+   REFONTE 2026 : PORTAIL VIDÉO (page d'accueil, architecture Corient)
    ============================================================ */
 .nav.portal-nav { background: rgba(11,11,11,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(245,241,232,.14); transition: background .4s ease, backdrop-filter .4s ease, border-color .4s ease; }
 .nav.portal-nav .nav-links a { color: rgba(245,241,232,.82); }
@@ -1464,7 +1464,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 .page-top { padding-top: calc(var(--nav-h) + 40px) !important; }
 
 /* ============================================================
-   PAGES LEGALES — chrome commun
+   PAGES LEGALES : chrome commun
    Les pages legales partagent desormais la nav et le pied de page
    du reste du site. Elles conservent leur fond sombre propre via
    body.legal-page ; seul l'espacement haut change.
@@ -1544,7 +1544,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 }
 
 /* ============================================================
-   FORMULAIRE DE CAPTURE — etape 1
+   FORMULAIRE DE CAPTURE : etape 1
    Email obligatoire, telephone facultatif. Le telephone n'est
    demande qu'accompagne de son consentement propre : depuis le
    passage du demarchage telephonique a l'opt-in, un numero collecte
@@ -1623,7 +1623,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 .consent-line label { cursor: pointer; }
 
 /* ============================================================
-   PAGE DE REMERCIEMENT — etape 2 (prise de rendez-vous)
+   PAGE DE REMERCIEMENT : etape 2 (prise de rendez-vous)
    ============================================================ */
 .merci {
   background: var(--cream);
@@ -1662,7 +1662,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
   margin-bottom: 64px;
 }
 
-/* Etape 2 : ici le telephone est obligatoire — la personne demande
+/* Etape 2 : ici le telephone est obligatoire : la personne demande
    elle-meme l'appel, le numero devient naturel. */
 .rdv {
   background: var(--navy);
@@ -1710,7 +1710,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 }
 
 /* ============================================================
-   BANDEAU D'OFFRE — en tete du guide, renvoie vers la capture
+   BANDEAU D'OFFRE : en tete du guide, renvoie vers la capture
    ============================================================ */
 .guide-offer {
   max-width: 760px;
@@ -1739,7 +1739,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 }
 
 /* ============================================================
-   HUB CAS PRATIQUES — bandeau vers le guide du dirigeant
+   HUB CAS PRATIQUES : bandeau vers le guide du dirigeant
    (auparavant ecrit en styles inline dans cas-pratiques.html)
    ============================================================ */
 .hub-guide {
@@ -1787,7 +1787,7 @@ body { font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
 }
 
 /* ============================================================
-   ELEMENTS D'ARTICLE — auparavant repetes en styles inline
+   ELEMENTS D'ARTICLE : auparavant repetes en styles inline
    d'un article a l'autre, donc impossibles a faire evoluer d'un
    seul geste. Ils vivent desormais ici.
    ============================================================ */

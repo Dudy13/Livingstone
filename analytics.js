@@ -1,12 +1,12 @@
 /* =====================================================================
-   Livingstone — mesure d'audience et consentement
+   Livingstone : mesure d'audience et consentement
    ---------------------------------------------------------------------
    Un seul fichier, charge sur toutes les pages du site. Il fait trois
    choses :
 
      1. affiche un bandeau de consentement (injecte en JS, aucun markup a
         dupliquer dans les pages) ;
-     2. ne charge AUCUN traceur tant que le visiteur n'a pas accepte — les
+     2. ne charge AUCUN traceur tant que le visiteur n'a pas accepte. Les
         scripts n'existent pas dans la page avant le clic ;
      3. expose window.lvTrack(nom, params) pour marquer les conversions.
 
@@ -33,9 +33,9 @@
      data-lv-brevo continuent de partir vers Formspree : le site capte,
      mais personne n'est relance.
 
-     Pour basculer, coller ici l'URL du formulaire Brevo — celle qui
+     Pour basculer, coller ici l'URL du formulaire Brevo, celle qui
      figure dans l'attribut action= du code d'integration, de la forme
-     https://sibforms.com/serve/MUIFA... — et ne rien toucher d'autre.
+     https://sibforms.com/serve/MUIFA..., et ne rien toucher d'autre.
      Les champs sont renommes automatiquement selon la convention Brevo
      (voir docs/brevo-mise-en-route.md, qui fixe les noms a creer). */
   var LV_BREVO_FORM = 'https://c03448f6.sibforms.com/serve/MUIFAHc4rmrxOapI-JFwZ9emVHOm7SZY6hfX30_ZVtyYCOKNSAqzrJC1aPKgbVWgkVqjHKcwwZQSvMoLfNdBDBhOuAVW9nOwXl-fjYd6fDLqMrvIh5s0mdSr_QQkIPDyfoo-8Y969PwgKPoLXl-yxMPFnbNLrHKpiHmJOftePlspS7yv5Wrz71Ax4ljpn2fOMJ7YswMXaBjuUoyshw==';
@@ -64,7 +64,7 @@
       window.gtag('config', GA4_ID, { anonymize_ip: true });
     }
 
-    /* Microsoft Advertising — balise de suivi universel des evenements (UET) */
+    /* Microsoft Advertising : balise de suivi universel des evenements (UET) */
     (function (w, d, t, r, u) {
       var f, n, i;
       w[u] = w[u] || [];
@@ -81,7 +81,7 @@
     window.uetq = window.uetq || [];
     window.uetq.push('consent', 'update', { ad_storage: 'granted' });
 
-    /* Meta — pixel.
+    /* Meta : pixel.
        Aucune donnee patrimoniale n'est jamais jointe aux evenements Meta :
        les Conditions des Outils Meta Business interdisent de transmettre des
        informations financieres sur une personne. Meta recoit le fait qu'il y
@@ -116,8 +116,8 @@
 
 
   /* --- Cablage automatique des conversions ---------------------------
-     Plutot qu'un script de suivi recopie page par page — qu'on oublie
-     invariablement sur la page suivante —, on branche ici tout ce qui
+     Plutot qu'un script de suivi recopie page par page (qu'on oublie
+     invariablement sur la page suivante), on branche ici tout ce qui
      compte, partout, a partir du balisage :
 
        - tout formulaire Formspree compte comme un lead, etiquete par son

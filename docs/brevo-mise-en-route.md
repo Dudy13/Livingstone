@@ -1,7 +1,7 @@
-# Brevo — mise en route
+# Brevo : mise en route
 
 Le site est prêt. Il ne manque qu'une URL à coller. Ce document donne la marche
-à suivre exacte, dans l'ordre, avec les noms de champs à respecter — ils sont
+à suivre exacte, dans l'ordre, avec les noms de champs à respecter. Ils sont
 imposés par le site, pas par Brevo, et une faute de frappe casse la remontée
 silencieusement.
 
@@ -52,7 +52,7 @@ L'apparence du formulaire Brevo n'a aucune importance : il ne sera jamais
 affiché. Le site garde le sien et ne fait qu'envoyer vers celui-ci.
 
 **Récupérez l'URL.** Dans le code d'intégration proposé par Brevo, prenez la
-valeur de `action=` — de la forme `https://sibforms.com/serve/MUIFA...`.
+valeur de `action=`, de la forme `https://sibforms.com/serve/MUIFA...`.
 
 ### Simple ou double opt-in ?
 
@@ -64,7 +64,7 @@ reçoit donc pas le guide.
 Recommandation : **simple opt-in**, la personne demandant explicitement un
 document, avec un lien de désinscription visible sur chaque envoi. Si votre
 association CIF vous demande une traçabilité plus stricte du consentement,
-basculez en double opt-in — c'est un réglage, pas une refonte.
+basculez en double opt-in : c'est un réglage, pas une refonte.
 
 ---
 
@@ -110,7 +110,7 @@ délais : immédiat, J+2, J+6, J+12, J+20, J+30.
 
 Trois réglages qui comptent :
 
-- **Expéditeur** : `Mikael Guéviguian`, adresse nominative — jamais `contact@`.
+- **Expéditeur** : `Mikael Guéviguian`, adresse nominative, jamais `contact@`.
 - **Pied de page du modèle** : la signature légale ORIAS, une fois pour toutes,
   plutôt que recopiée dans chaque email. C'est le seul moyen qu'aucun envoi ne
   parte sans elle.
@@ -138,7 +138,7 @@ personne ne lit ne sert à rien.
 **N'appelez jamais quelqu'un qui n'a pas coché `CONSENTEMENT_APPEL`.** Depuis
 le passage du démarchage téléphonique à l'opt-in, cette case est la seule base
 valable pour un appel. Un numéro présent dans la base sans la case cochée est
-une ligne morte — et un risque.
+une ligne morte, et un risque.
 
 **Ne mettez pas de clé API Brevo dans le code du site.** Elle serait lisible par
 n'importe quel visiteur. Le formulaire hébergé décrit ici n'en demande aucune :
