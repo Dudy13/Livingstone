@@ -171,7 +171,7 @@
       /* Champs attendus par un formulaire Brevo heberge : le piege a
          robots doit rester vide, la locale fixe la langue des messages,
          et le champ telephone exige son indicatif a part. */
-      var fixes = { email_address_check: '', locale: 'fr', SMS__COUNTRY_CODE: '+33' };
+      var fixes = { email_address_check: '', locale: 'fr' };
       Object.keys(fixes).forEach(function (n) {
         if (f.querySelector('[name="' + n + '"]')) return;
         var i = document.createElement('input');
@@ -195,7 +195,13 @@
         if (n.indexOf('00') === 0) n = n.slice(2);
         if (n.indexOf('0') === 0) n = '33' + n.slice(1);
         else if (n.indexOf('33') !== 0 && n.length <= 10) n = '33' + n;
-        tel.value = n;
+
+        /* Garde-fou. Brevo rejette la demande ENTIERE si le numero ne lui
+           convient pas — on perdrait le lead pour un champ facultatif, ce
+           qui est le pire resultat possible. Si le numero ne ressemble pas
+           a un numero international plausible, on l'abandonne : mieux vaut
+           un contact sans telephone qu'aucun contact. */
+        tel.value = /^[1-9][0-9]{7,14}$/.test(n) ? n : '';
       });
     });
   }
