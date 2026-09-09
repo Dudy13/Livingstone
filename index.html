@@ -28,6 +28,26 @@
     html { scroll-snap-type: y proximity; }
     .pv { scroll-snap-align: start; }
     @media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; } }
+
+    /* Lisibilité du pied de page. Les mentions CIF et ORIAS étaient à
+       11px et à 4,06 de contraste, sur 139 caractères par ligne. Le
+       portail vidéo au-dessus n'est pas touché : ces règles ne visent
+       que le pied de page, que la page partage avec le reste du site
+       sans partager sa feuille de style (index.html ne charge pas
+       refonte.css, où la même correction est faite pour les autres
+       pages). */
+    .footer-copy { font-size: 13.5px; color: rgba(255, 255, 255, 0.58); }
+    .footer-compliance {
+      font-size: 13px;
+      line-height: 1.75;
+      max-width: 700px;
+      color: rgba(255, 255, 255, 0.58);
+    }
+    .footer-compliance p { max-width: 78ch; }
+    .footer-compliance a { color: rgba(255, 255, 255, 0.78); }
+
+    /* Le bandeau de consentement s'étirait sur 99 caractères par ligne. */
+    .lv-consent-inner p { max-width: 78ch; font-size: 14.5px; }
   </style>
 
   <script type="application/ld+json">

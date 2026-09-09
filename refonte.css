@@ -11,7 +11,7 @@
   --encre:#12181C;
   --encre-2:#1B242A;
   --texte:#2C363C;
-  --gris:#66727A;
+  --gris:#55606A;
   --trait:#D2D9DC;
   --petrole:#1C4A55;
   --petrole-clair:#2E6C78;
@@ -149,14 +149,17 @@ footer img{height:26px;margin-bottom:22px}
   --gold:        #1C4A55;
   --gold-light:  #2E6C78;
 
-  /* Textes */
+  /* Textes. Les deux gris secondaires ont ete fonces pour atteindre le
+     seuil AA (4,5:1) sur le fond perle : #66727A n'etait qu'a 4,44 et
+     #8A959B a 2,75, illisible pour les mentions sous les formulaires.
+     La hierarchie est conservee, elle passe par un ecart plus faible. */
   --text-dark:        #12181C;
   --text-dark-soft:   #2C363C;
-  --text-dark-muted:  #66727A;
-  --text-dark-faint:  #8A959B;
+  --text-dark-muted:  #55606A;
+  --text-dark-faint:  #626D75;
   --text-muted: rgba(255, 255, 255, 0.62);
   --text-soft:  rgba(255, 255, 255, 0.74);
-  --text-faint: rgba(255, 255, 255, 0.44);
+  --text-faint: rgba(255, 255, 255, 0.52);
 
   /* Traits */
   --border-gold:        rgba(28, 74, 85, 0.20);
@@ -398,21 +401,28 @@ textarea:focus-visible { outline: 2px solid var(--laiton); outline-offset: 3px; 
    refonte.css plafonne les paragraphes a 66ch, ce qui convient aux
    pages construites sur .contenu (760px). Dans les gabarits herites,
    le conteneur impose deja sa mesure : le plafond y produit un texte
-   sensiblement plus etroit que les titres et les filets qui l'entourent. */
+   sensiblement plus etroit que les titres et les filets qui l'entourent.
+   Le plafond est donc porte a 78ch, exprime dans l'unite de la police :
+   il ne se declenche que la ou le conteneur est trop large, et laisse
+   faire le conteneur partout ailleurs. */
 .legal-body p,
 .legal-body li,
+.legal-intro,
 .article-body > p,
 .article-body > ul,
 .article-body > ol,
 .faq-item p,
 .article-chapo,
+.article-disclaimer,
 .section-sub,
 .cas-card-hook,
 .capture-lead,
 .merci-lead,
 .rdv-lead,
 .article-cta-lead,
-.footer-compliance p { max-width: none; }
+.guide-offer-text,
+.lv-consent-inner p,
+.footer-compliance p { max-width: 78ch; }
 
 /* --- Bascule du menu en burger -------------------------------------
    styles.css passe la nav en burger a 768px, largeur calibree sur sa
@@ -427,4 +437,92 @@ textarea:focus-visible { outline: 2px solid var(--laiton); outline-offset: 3px; 
   .nav-links,
   .nav-cta { display: none; }
   .nav-burger { display: flex; padding: 10px; }
+}
+
+/* ==================================================================
+   CONFORT DE LECTURE
+   ------------------------------------------------------------------
+   Mesure faite dans Chromium a 375px et a 1280px sur les 18 pages.
+   Trois defauts en sortaient, tous corriges ici :
+
+   1. le texte courant tombait a 15px sur telephone (.article-body) et
+      restait a 14px sur les pages legales, quelle que soit la largeur ;
+   2. les petits textes (mentions de formulaire, signature d'article,
+      pied de page, bloc de conformite) etaient a 11px ;
+   3. plusieurs blocs depassaient largement la mesure lisible : 139
+      caracteres par ligne pour le bloc de conformite, 128 pour
+      l'accroche des cartes du hub, 98 pour les sous-titres de section.
+      Le plafond de 66ch avait ete leve plus haut parce qu'il rendait le
+      texte plus etroit que les titres ; il manquait de le remplacer par
+      une borne la ou le conteneur, lui, est large.
+
+   Aucune de ces regles ne s'applique a index.html, qui ne charge pas ce
+   fichier.
+   ================================================================== */
+
+/* --- Texte courant -------------------------------------------------
+   17px sur ecran, jamais moins de 16px sur telephone. */
+.article-body { font-size: 17px; line-height: 1.75; }
+.article-body li { margin-bottom: 10px; }
+.faq-item p { font-size: 16.5px; line-height: 1.75; }
+.legal-body { font-size: 16.5px; line-height: 1.8; }
+.legal-body h3 { font-size: 17px; }
+.article-chapo { font-size: 19px; line-height: 1.6; }
+.section-sub,
+.cas-card-hook { font-size: 16px; line-height: 1.7; }
+.capture-lead,
+.rdv-lead,
+.article-cta-lead { font-size: 17px; line-height: 1.65; }
+.guide-offer-text,
+.guide-toc li,
+.rdv-fallback p { font-size: 16px; line-height: 1.65; }
+.card p,
+.card-wide p,
+.frais-card p { font-size: 15.5px; line-height: 1.7; }
+.lv-consent-inner p { font-size: 14.5px; }
+.valo-text,
+.colonne-note,
+.colonne-sous,
+.values-item p { font-size: 15.5px; line-height: 1.7; }
+
+/* --- Petits textes -------------------------------------------------
+   Plancher a 13,5px. Ce sont des mentions, pas des ornements : elles
+   doivent rester lisibles, en particulier le bloc de conformite CIF. */
+.form-note,
+.article-meta,
+.field-optional,
+.footer-copy,
+.merci-hint,
+.article-disclaimer { font-size: 13.5px; line-height: 1.6; }
+.article-meta,
+.field-optional { letter-spacing: 0.06em; }
+.footer-compliance { font-size: 13px; line-height: 1.75; max-width: 760px; }
+.compare { font-size: 14.5px; }
+
+/* --- Mesure ---------------------------------------------------------
+   On ne remet pas de plafond la ou le conteneur en tient deja lieu
+   (720 a 760px, soit 62 a 76 caracteres aux tailles ci-dessus). Ces
+   deux blocs-ci sont poses dans un conteneur nettement plus large et
+   ont donc leur propre borne, plus serree que le plafond de 78ch. */
+.section-sub { max-width: 620px; }
+.cas-card-hook { max-width: 640px; }
+
+/* Le badge de la page de remerciement etait en laiton sur perle, a 3,09
+   de contraste. Le laiton n'est lisible que sur les fonds sombres. */
+.merci-badge { color: var(--petrole); }
+
+@media (max-width: 768px) {
+  body { font-size: 16.5px; }
+  .article-body { font-size: 16.5px; line-height: 1.72; }
+  .legal-body { font-size: 16px; }
+  .article-chapo { font-size: 18px; }
+  .faq-item p,
+  .section-sub,
+  .cas-card-hook { font-size: 16px; }
+  .capture-lead,
+  .rdv-lead,
+  .article-cta-lead { font-size: 16.5px; }
+  .compare { font-size: 14px; }
+  .compare th,
+  .compare td { padding: 14px 12px; }
 }
