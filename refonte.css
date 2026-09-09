@@ -413,3 +413,18 @@ textarea:focus-visible { outline: 2px solid var(--laiton); outline-offset: 3px; 
 .rdv-lead,
 .article-cta-lead,
 .footer-compliance p { max-width: none; }
+
+/* --- Bascule du menu en burger -------------------------------------
+   styles.css passe la nav en burger a 768px, largeur calibree sur sa
+   propre typographie. Cette charte met les liens de nav en IBM Plex
+   Mono avec un interlettrage, ce qui les elargit : entre 769px et
+   880px la barre ne tient plus et pousse toute la page en defilement
+   horizontal (+96px sur chacune des pages internes, soit exactement la
+   largeur d'un iPad en portrait). On avance donc la bascule a 900px.
+   index.html ne charge pas ce fichier et garde son seuil a 768px, ou
+   sa typographie tient sans deborder. */
+@media (max-width: 900px) {
+  .nav-links,
+  .nav-cta { display: none; }
+  .nav-burger { display: flex; padding: 10px; }
+}
