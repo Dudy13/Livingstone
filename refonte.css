@@ -255,6 +255,24 @@ h1, .legal-content h1 { font-weight: 300; letter-spacing: -0.015em; }
 .valorisation,
 .medias { background: var(--cream); }
 
+/* Parmi les sections ci-dessus, .values et .valorisation etaient noires
+   dans styles.css : leurs textes y sont ecrits en clair, en dur ou via
+   --white / --text-soft. Le fond passant au perle, ces textes se
+   retrouvaient a 1,0 de contraste, invisibles. On les repasse en encre.
+   Toute nouvelle section basculee du sombre au clair plus haut doit
+   recevoir le meme traitement ici. */
+.values { color: var(--texte); }
+.values-head h2 { color: var(--encre); }
+.values-lead { color: var(--texte); }
+.values-item h3 { color: var(--encre); }
+.values-item p { color: var(--gris); }
+
+.valorisation { color: var(--texte); }
+.valo-left h2,
+.valo-card h3 { color: var(--encre); }
+.valo-text,
+.valo-card p { color: var(--gris); }
+
 .section-blanche,
 .card,
 .frais-card,
