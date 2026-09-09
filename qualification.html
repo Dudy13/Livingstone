@@ -22,7 +22,7 @@
     --or: #C9A87C;
     --or-clair: #D4B88A;
     --or-vif: #F5D89E;
-    --or-fonce: #A88455;
+    --or-fonce: #7E6240;   /* etait #A88455, 2,91 sur l'ivoire */
     --texte: #2a2a2a;
     --texte-doux: #555;
     --bordure: #e0d6c0;
@@ -149,9 +149,11 @@
 
   .hero-mention {
     font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--or-fonce);
+    font-size: 12.5px;
+    letter-spacing: 2.4px;
+    /* --or-fonce est calibre pour l'ivoire ; sur le hero noir il tombe a
+       3,48 de contraste. Ici c'est l'or clair qui convient. */
+    color: var(--or);
     text-transform: uppercase;
     padding-top: 24px;
     border-top: 1px solid rgba(201, 168, 124, 0.3);
@@ -331,7 +333,7 @@
 
   .rendement-warning {
     font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 1.5px;
     color: var(--noir);
@@ -350,7 +352,7 @@
   @media (max-width: 600px) {
     .rendement-chiffre { font-size: 22px; }
     .rendement-chiffre em { font-size: 30px; }
-    .rendement-warning { font-size: 10px; letter-spacing: 1px; }
+    .rendement-warning { font-size: 13px; letter-spacing: 0.8px; }
   }
 
   /* === FORMULAIRE === */
@@ -394,10 +396,13 @@
     margin-bottom: 8px;
   }
 
+  .protection-item p { max-width: 78ch; }
+
   .warning-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 15.5px;
+    line-height: 1.65;
+    max-width: 78ch;
     color: #c4b89e;
     margin: 0;
     font-style: italic;
@@ -433,7 +438,7 @@
     margin-bottom: 6px;
   }
 
-  label .req { color: #b85a3c; }
+  label .req { color: #a85237; }
 
   input[type="text"],
   input[type="email"],
@@ -546,9 +551,10 @@
 
   .cities {
     font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-    letter-spacing: 4px;
-    color: var(--or-fonce);
+    font-size: 10.5px;
+    letter-spacing: 3.4px;
+    /* Sur fond sombre, comme .hero-mention : c'est l'or clair qui passe. */
+    color: var(--or);
     text-transform: uppercase;
   }
 
@@ -566,11 +572,11 @@
 
   .footer-content p {
     font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    line-height: 1.7;
+    font-size: 13px;
+    line-height: 1.75;
     color: var(--texte-doux);
     margin-bottom: 12px;
-    text-align: justify;
+    max-width: 78ch;
   }
 
   .footer-content p strong { color: var(--noir); }
@@ -584,7 +590,7 @@
 
   .footer-links a {
     font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
+    font-size: 12.5px;
     color: var(--or-fonce);
     text-decoration: none;
     margin: 0 10px;
