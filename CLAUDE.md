@@ -31,7 +31,7 @@ Each article in `cas-pratiques/` follows the same skeleton (use the existing fil
 - `<title>`, meta description, `<link rel="canonical">`, and all OG tags (`og:title`, `og:description`, `og:url`, `og:image`, `article:published_time`, `article:modified_time`, `article:section`)
 - **Two JSON-LD scripts** in the `<head>`: an `Article` block (headline, description, datePublished, dateModified, author=Mikael Guéviguian, publisher=Livingstone Family Office) and a `FAQPage` block whose `Question`/`Answer` entries must mirror the on-page FAQ markup 1-for-1
 - Heading hierarchy: a single `<h1>` in the article header, `<h2>` for major sections, `<h3>` for sub-sections and FAQ questions — never skip a level
-- The hidden form fields `_subject` ("Cas pratique — <titre>") and `source` ("/cas-pratiques/<slug>") in the bottom CTA so Formspree submissions are attributable
+- The hidden form fields `_subject` ("Cas pratique - <titre>") and `source` ("/cas-pratiques/<slug>") in the bottom CTA so Formspree submissions are attributable
 - The CTA submit button label must stay action-oriented ("Échanger sur ma situation"), never "Envoyer"
 - Add the new URL to `sitemap.xml` (cleanUrl form, no `.html`) and add a card to `cas-pratiques.html` (both the visible grid and the `ItemList` JSON-LD)
 
@@ -80,6 +80,13 @@ Brevo owns the redirect, set to `/merci-guide` in the form's own settings.
 The attribute names are a **contract**: they must exist in Brevo exactly as
 `docs/brevo-mise-en-route.md` lists them, or contacts land with empty fields and
 nothing reports it. That document is the click-by-click setup path.
+
+Three documents, three jobs, do not merge them: `docs/sequence-emails-cession.md`
+is the editorial source (why the sequence exists, what each email argues),
+`docs/brevo-sequence-a-coller.md` is its operational form (the same six emails with
+Brevo merge tags and real URLs, plus the automation table, ready to paste), and
+`docs/brevo-mise-en-route.md` covers the account setup that precedes both. When an
+email's wording changes, change it in the first two or in neither.
 
 Three traps the integration already handles — do not undo them:
 
@@ -198,4 +205,10 @@ Consequence: **never edit `styles.css` to change a colour or a font.** It is the
 - Contact form posts to Formspree (`https://formspree.io/f/xqegldel`). Server-side handling lives there, not in this repo.
 - YouTube embeds in the "Médias" section use `youtube-nocookie.com` — keep that domain when adding videos.
 - The site serves **compressed web versions**: `images/bureau-web.jpg` (~236 KB) and `images/mikael-portrait-web.jpg` (~124 KB), both 2000 px wide / JPEG q80, referenced by `index.html`. The high-res originals `images/bureau.jpg` (~24 MB) and `images/mikael-portrait.jpg` (~15 MB) are kept as masters but **not served** — don't reference them from pages. If you add or replace photos, compress before committing (e.g. sharp: resize 2000 px, JPEG q80) — assets ship as-is to every visitor.
+- **No em dashes in copy.** The site carries none: `—` reads as machine-written and the
+  founder's name is on every page. Use a colon for an explanation, a comma for an
+  apposition, parentheses for an accessory enumeration, or a full stop when the idea
+  stands alone. Two deliberate exceptions: the `.negatif` list bullet in `refonte.css`
+  (`content:"—"`, a typographic glyph, not prose) and the verbatim legal signature block
+  in `docs/sequence-emails-cession.md`, supplied as-is by Mikael Guéviguian.
 - `.gitignore` excludes `.claude/` and `*.txt` (local scratch). Don't commit either.

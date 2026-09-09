@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Livingstone — Family Office indépendant à Paris | Gestion de patrimoine</title>
+  <title>Livingstone, Family Office indépendant à Paris | Gestion de patrimoine</title>
   <meta name="description" content="Family office indépendant à Paris. Gestion de patrimoine sur-mesure pour dirigeants et familles de 1 à 50 M€+ : assurance-vie luxembourgeoise, private equity, transmission et conseil fiscal. Conseiller en Investissements Financiers immatriculé ORIAS 23007478." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://www.livingstone-wealth.com/" />
   <link rel="icon" type="image/png" href="images/livingstone_carre.png" />
 
-  <meta property="og:title" content="Livingstone — Family Office indépendant à Paris" />
+  <meta property="og:title" content="Livingstone, Family Office indépendant à Paris" />
   <meta property="og:description" content="Gestion de patrimoine sur-mesure pour dirigeants et familles de 1 à 50 M€+ : assurance-vie luxembourgeoise, private equity, transmission et conseil fiscal." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.livingstone-wealth.com/" />
@@ -24,10 +24,30 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Scroll par sections — limité à la page d'accueil */
+    /* Scroll par sections, limité à la page d'accueil */
     html { scroll-snap-type: y proximity; }
     .pv { scroll-snap-align: start; }
     @media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; } }
+
+    /* Lisibilité du pied de page. Les mentions CIF et ORIAS étaient à
+       11px et à 4,06 de contraste, sur 139 caractères par ligne. Le
+       portail vidéo au-dessus n'est pas touché : ces règles ne visent
+       que le pied de page, que la page partage avec le reste du site
+       sans partager sa feuille de style (index.html ne charge pas
+       refonte.css, où la même correction est faite pour les autres
+       pages). */
+    .footer-copy { font-size: 13.5px; color: rgba(255, 255, 255, 0.58); }
+    .footer-compliance {
+      font-size: 13px;
+      line-height: 1.75;
+      max-width: 700px;
+      color: rgba(255, 255, 255, 0.58);
+    }
+    .footer-compliance p { max-width: 78ch; }
+    .footer-compliance a { color: rgba(255, 255, 255, 0.78); }
+
+    /* Le bandeau de consentement s'étirait sur 99 caractères par ligne. */
+    .lv-consent-inner p { max-width: 78ch; font-size: 14.5px; }
   </style>
 
   <script type="application/ld+json">
@@ -138,7 +158,7 @@
     </nav>
   </header>
 
-  <!-- SECTION VIDÉO 1 — MARQUE -->
+  <!-- SECTION VIDÉO 1 : MARQUE -->
   <section class="pv" id="accueil">
     <video class="pv-media" data-vid="gulls" autoplay muted loop playsinline preload="none" poster="images/cote-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
@@ -157,11 +177,11 @@
     <div class="pv-scroll">Découvrir</div>
   </section>
 
-  <!-- SECTION VIDÉO 2 — NOTRE APPROCHE -->
+  <!-- SECTION VIDÉO 2 : NOTRE APPROCHE -->
   <section class="pv">
     <video class="pv-media" data-vid="paris" autoplay muted loop playsinline preload="none" poster="images/hero-paris-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
-    <span class="pv-index">01 — La maison</span>
+    <span class="pv-index">01 · La maison</span>
     <div class="pv-inner">
       <p class="eyebrow">Notre approche</p>
       <h2 class="pv-title">Une architecture patrimoniale sur-mesure</h2>
@@ -170,24 +190,24 @@
     </div>
   </section>
 
-  <!-- SECTION VIDÉO 3 — SOLUTIONS -->
+  <!-- SECTION VIDÉO 3 : SOLUTIONS -->
   <section class="pv">
     <video class="pv-media" data-vid="vignes" autoplay muted loop playsinline preload="none" poster="images/solutions-vignes-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
-    <span class="pv-index">02 — Ce que nous concevons</span>
+    <span class="pv-index">02 · Ce que nous concevons</span>
     <div class="pv-inner">
       <p class="eyebrow">Nos solutions</p>
       <h2 class="pv-title">Un univers inaccessible ailleurs</h2>
-      <p class="pv-lead">Assurance-vie luxembourgeoise, private equity, club deals, dette privée — jamais de produits de catalogue.</p>
+      <p class="pv-lead">Assurance-vie luxembourgeoise, private equity, club deals, dette privée : jamais de produits de catalogue.</p>
       <a href="nos-solutions.html" class="pv-link">Explorer les solutions →</a>
     </div>
   </section>
 
-  <!-- SECTION VIDÉO 4 — CAS PRATIQUES -->
+  <!-- SECTION VIDÉO 4 : CAS PRATIQUES -->
   <section class="pv">
     <video class="pv-media kb" data-vid="arches" autoplay muted loop playsinline preload="none" poster="images/cas-arches-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
-    <span class="pv-index">03 — Situations & opérations</span>
+    <span class="pv-index">03 · Situations & opérations</span>
     <div class="pv-inner">
       <p class="eyebrow">Cas pratiques</p>
       <h2 class="pv-title">Des situations concrètes, décryptées</h2>
@@ -196,11 +216,11 @@
     </div>
   </section>
 
-  <!-- SECTION VIDÉO 5 — CONTACT -->
+  <!-- SECTION VIDÉO 5 : CONTACT -->
   <section class="pv">
     <video class="pv-media" data-vid="voilier" autoplay muted loop playsinline preload="none" poster="images/contact-voilier-poster.jpg" aria-hidden="true"></video>
     <div class="pv-scrim"></div>
-    <span class="pv-index">04 — Rencontrer Livingstone</span>
+    <span class="pv-index">04 · Rencontrer Livingstone</span>
     <div class="pv-inner">
       <p class="eyebrow">Contact</p>
       <h2 class="pv-title">Échangeons sur votre situation</h2>
@@ -233,9 +253,9 @@
       <span class="diamond">◆</span>
       <a href="confidentialite.html">Confidentialité</a>
     </div>
-    <p class="footer-copy">© 2026 Livingstone — Family Office.</p>
+    <p class="footer-copy">© 2026 Livingstone Family Office.</p>
     <div class="footer-compliance">
-      <p><strong>Livingstone Family Office</strong> — SARL au capital de 500 €, RCS Paris 951 716 349, code APE 6619B, 49 rue de Courcelles, 75008 Paris — 07 78 51 13 07.</p>
+      <p><strong>Livingstone Family Office</strong>, SARL au capital de 500 €, RCS Paris 951 716 349, code APE 6619B, 49 rue de Courcelles, 75008 Paris. Téléphone : 07 78 51 13 07.</p>
       <p>Conseiller en Investissements Financiers (CIF) immatriculé à l'ORIAS sous le n° 23007478 (<a href="https://www.orias.fr" target="_blank" rel="noopener">www.orias.fr</a>), adhérent de LA COMPAGNIE CIF, association agréée par l'Autorité des Marchés Financiers (AMF). Courtier en assurance adhérent de LA CNCEF, association agréée par l'Autorité de Contrôle Prudentiel et de Résolution (ACPR). Responsabilité civile professionnelle souscrite auprès d'Assurup, contrat n° RCP23051083028.</p>
       <p><strong>Ne peut recevoir aucun fonds, effet, ou valeur.</strong></p>
     </div>

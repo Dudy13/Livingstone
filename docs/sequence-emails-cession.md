@@ -1,4 +1,4 @@
-# Séquence email — Guide de la cession
+# Séquence email : le guide de la cession
 
 Séquence de nurturing déclenchée par le formulaire de `/ceder-son-entreprise-guide-du-dirigeant`.
 À créer dans l'outil d'emailing (Brevo, Mailchimp, ConvertKit…) ; le site ne fait que
@@ -9,7 +9,7 @@ la capture, il n'envoie rien lui-même.
 Un dirigeant qui télécharge ce guide cède rarement dans les trois mois. Le délai
 médian entre le premier contact et l'opération se compte en **mois, souvent en
 années**. Sans relance systématique, la quasi-totalité de la valeur d'un lead se
-perd par simple oubli — c'est le poste de déperdition n°1 d'une acquisition en
+perd par simple oubli : c'est le poste de déperdition n°1 d'une acquisition en
 gestion de patrimoine, très loin devant le coût du clic.
 
 L'objectif de la séquence n'est donc pas de vendre. Il est de **rester présent
@@ -21,18 +21,18 @@ pense à ce moment-là.
 | | |
 |---|---|
 | Déclencheur | soumission du formulaire `#recevoir` |
-| Expéditeur | Mikael Guéviguian — adresse nominative, jamais `contact@` |
+| Expéditeur | Mikael Guéviguian, adresse nominative, jamais `contact@` |
 | Format | texte simple, sans bandeau graphique : un email de conseiller, pas une newsletter |
 | Sortie de séquence | dès qu'un rendez-vous est pris |
 | Pied de page | la signature légale ci-dessous, sur **tous** les envois |
 | Après la séquence | passage sur la liste « veille cession », un envoi par trimestre |
 
 **Conformité.** Lien de désinscription sur chaque envoi. Les personnes n'ayant
-pas coché le consentement téléphonique ne doivent pas être appelées — depuis le
+pas coché le consentement téléphonique ne doivent pas être appelées : depuis le
 passage du démarchage téléphonique à l'opt-in, cette case est la seule base
 valable pour un appel.
 
-## Signature légale — à faire figurer sur chaque email
+## Signature légale à faire figurer sur chaque email
 
 Bloc à reprendre **verbatim**, en bas de chaque envoi de la séquence. Dans Brevo,
 le placer une fois pour toutes dans le pied de page du modèle plutôt que de le
@@ -50,7 +50,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 
 ---
 
-## Email 1 — immédiat
+## Email 1 : immédiat
 
 **Objet :** Votre guide de la cession
 
@@ -63,7 +63,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 >
 > Une précision utile avant de vous laisser lire : la quasi-totalité des leviers
 > décrits dans ce guide doivent être mis en place **avant** la signature du
-> protocole de cession. Après, il est trop tard — la plus-value est due.
+> protocole de cession. Après, il est trop tard, la plus-value est due.
 >
 > Si votre projet est déjà engagé, écrivez-moi : je vous dirai en deux lignes ce
 > qui est encore ouvert dans votre calendrier.
@@ -74,7 +74,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 
 ---
 
-## Email 2 — J+2
+## Email 2 : J+2
 
 **Objet :** L'erreur à 400 000 €
 
@@ -84,7 +84,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 >
 > Un dirigeant signe une lettre d'intention. Tout se passe bien. Trois semaines
 > plus tard, son expert-comptable lui parle d'apport-cession. Il appelle un
-> conseil, qui lui confirme le mécanisme — et lui explique dans la foulée qu'il
+> conseil, qui lui confirme le mécanisme, et lui explique dans la foulée qu'il
 > est désormais trop tard : l'apport des titres à une holding devait précéder
 > l'engagement de cession, faute de quoi l'administration y voit une opération
 > montée pour les seuls besoins de l'impôt.
@@ -102,7 +102,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 
 ---
 
-## Email 3 — J+6
+## Email 3 : J+6
 
 **Objet :** Le calendrier d'une cession préparée
 
@@ -111,17 +111,17 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 > Pour rendre le propos concret, voici le calendrier tel que nous le déroulons
 > avec les dirigeants que nous accompagnons.
 >
-> **24 à 18 mois avant** — état des lieux patrimonial, valorisation de la
+> **24 à 18 mois avant** : état des lieux patrimonial, valorisation de la
 > société, arbitrage entre les schémas possibles.
 >
-> **18 à 12 mois avant** — création de la holding le cas échéant, apport des
+> **18 à 12 mois avant** : création de la holding le cas échéant, apport des
 > titres, mise en place des donations envisagées. C'est la fenêtre décisive :
 > tout ce qui n'est pas fait ici ne pourra plus l'être.
 >
-> **12 à 6 mois avant** — préparation de la cession elle-même, choix des
+> **12 à 6 mois avant** : préparation de la cession elle-même, choix des
 > conseils, structuration du réemploi du produit de vente.
 >
-> **Après la signature** — il ne reste que le placement des fonds. C'est
+> **Après la signature** : il ne reste que le placement des fonds. C'est
 > important, mais c'est la partie la moins créatrice de valeur.
 >
 > La plupart des dirigeants nous appellent pendant la dernière ligne. Ceux qui
@@ -131,7 +131,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 
 ---
 
-## Email 4 — J+12
+## Email 4 : J+12
 
 **Objet :** Et après la vente ?
 
@@ -154,7 +154,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 > coût réel.
 >
 > **Traiter la question fiscale après.** Le réemploi et la fiscalité se pensent
-> ensemble — surtout quand un engagement de réinvestissement court.
+> ensemble, surtout quand un engagement de réinvestissement court.
 >
 > Le chapitre 6 du guide traite cette phase en détail.
 >
@@ -162,7 +162,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 
 ---
 
-## Email 5 — J+20
+## Email 5 : J+20
 
 **Objet :** Pourquoi un family office et pas une banque privée
 
@@ -175,8 +175,8 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 > mais cela borne le champ de ce qu'elle peut vous proposer.
 >
 > Un family office indépendant n'a pas de produit maison. Notre travail consiste
-> à concevoir l'architecture — qui détient quoi, sous quelle forme, avec quelle
-> fiscalité — puis à aller chercher les meilleurs exécutants pour chaque brique,
+> à concevoir l'architecture (qui détient quoi, sous quelle forme, avec quelle
+> fiscalité) puis à aller chercher les meilleurs exécutants pour chaque brique,
 > y compris des banques privées.
 >
 > La différence se voit surtout sur les opérations complexes : cession,
@@ -190,13 +190,13 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 
 ---
 
-## Email 6 — J+30
+## Email 6 : J+30
 
 **Objet :** Vingt minutes, si c'est utile
 
 > Bonjour {{prénom}},
 >
-> Dernier message de cette série — je ne vous écrirai plus qu'occasionnellement
+> Dernier message de cette série. Je ne vous écrirai plus qu'occasionnellement
 > ensuite.
 >
 > Si votre cession est envisagée dans les vingt-quatre mois, un échange de vingt
@@ -208,7 +208,7 @@ RGPD, pas des mentions ORIAS, et l'un ne remplace pas l'autre.
 >
 > Et si ce n'est pas d'actualité, gardez simplement ce guide de côté. Le bon
 > moment pour le rouvrir, c'est le jour où vous commencez à y penser
-> sérieusement — pas celui où vous recevez une offre.
+> sérieusement, pas celui où vous recevez une offre.
 >
 > Bien à vous,
 > Mikael Guéviguian
@@ -222,7 +222,7 @@ Le taux d'ouverture n'est pas un indicateur de performance ici. Les deux chiffre
 qui comptent :
 
 1. **le nombre de rendez-vous pris**, rapporté au nombre d'entrées en séquence ;
-2. **le délai** entre l'entrée en séquence et le rendez-vous — c'est lui qui dira
+2. **le délai** entre l'entrée en séquence et le rendez-vous : c'est lui qui dira
    si la séquence doit être allongée au-delà de six emails.
 
 Le coût par lead ne veut rien dire tant que ces deux chiffres ne sont pas connus.
