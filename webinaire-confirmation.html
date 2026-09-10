@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Votre place est réservée | Livingstone Family Office</title>
+  <meta name="description" content="Confirmation d'inscription au webinaire Livingstone sur la protection du capital et le contrat d'assurance vie luxembourgeois." />
+  <!-- Page de confirmation du webinaire : jamais indexée, elle n'a de sens
+       qu'après l'envoi du formulaire d'inscription Meta.
+       Comme /swisslife-altitude, elle n'est PAS en Disallow dans robots.txt :
+       le robot facebookexternalhit doit pouvoir la lire pour l'aperçu de lien.
+       Elle reste hors résultats organiques via noindex, et hors sitemap.xml. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="images/livingstone_carre.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="refonte.css" />
+
+  <style>
+    /* Etapes de la confirmation : liste sobre, alignee sur la charte. */
+    .webinaire-etapes {
+      list-style: none;
+      margin: 2.5rem auto 0;
+      padding: 0;
+      max-width: 34rem;
+      text-align: left;
+    }
+    .webinaire-etapes li {
+      position: relative;
+      padding: 0 0 1.15rem 2.25rem;
+      line-height: 1.55;
+    }
+    .webinaire-etapes li::before {
+      content: "◆";
+      position: absolute;
+      left: 0;
+      top: 0.05em;
+      font-size: 0.7em;
+      opacity: 0.55;
+    }
+    .webinaire-quand {
+      margin: 1.75rem 0 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .webinaire-agenda {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html#accueil" class="nav-logo">
+        <img src="images/livingstone_nav.png" alt="Livingstone" />
+      </a>
+      <nav class="nav-links">
+        <a href="a-propos.html">Notre approche</a>
+        <a href="nos-solutions.html">Solutions</a>
+        <a href="nos-frais.html">Nos frais</a>
+        <a href="fiducie-surete.html">Fiducie-sûreté</a>
+        <a href="cas-pratiques.html">Cas pratiques</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="nav-cta">Demander un accès</a>
+      <button class="nav-burger" aria-label="Menu" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" id="navMobile">
+      <a href="a-propos.html">Notre approche</a>
+      <a href="nos-solutions.html">Solutions</a>
+      <a href="nos-frais.html">Nos frais</a>
+      <a href="fiducie-surete.html">Fiducie-sûreté</a>
+      <a href="cas-pratiques.html">Cas pratiques</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta nav-cta-mobile">Demander un accès</a>
+    </nav>
+  </header>
+
+  <!-- CONFIRMATION D'INSCRIPTION -->
+  <section class="merci">
+    <div class="merci-inner">
+      <span class="merci-badge">Inscription confirmée</span>
+      <h1>Votre place est réservée</h1>
+
+      <p class="webinaire-quand" id="webinaire-quand"></p>
+
+      <p class="merci-lead">Votre lien de connexion personnel vous est envoyé par email. Il n'est valable que pour vous. Ajoutez dès maintenant le webinaire à votre agenda : c'est le geste qui fait la différence entre une inscription et une présence.</p>
+
+      <div class="webinaire-agenda">
+        <a class="btn btn-gold" id="lien-google" href="#" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
+        <a class="btn" id="lien-ics" href="#" download="webinaire-livingstone.ics">Ajouter à Apple ou Outlook</a>
+      </div>
+
+      <ul class="webinaire-etapes">
+        <li><strong>Tout de suite :</strong> un email avec votre lien de connexion personnel. Si vous ne le voyez pas d'ici quelques minutes, regardez dans vos indésirables et marquez l'expéditeur comme fiable.</li>
+        <li><strong>Avant le direct :</strong> des rappels par email et par SMS, pour que la date ne vous échappe pas.</li>
+        <li><strong>Le jour même :</strong> connectez-vous cinq minutes avant. La session commence à l'heure et les places de connexion sont limitées par notre prestataire de diffusion.</li>
+        <li><strong>Pendant la session :</strong> vos questions sont posées par écrit et traitées en fin de séance. Rien ne vous sera demandé d'autre que votre attention.</li>
+      </ul>
+
+      <p class="merci-hint">Une question d'ici là : <a href="mailto:mikael.gueviguian@livingstone-wealth.com">mikael.gueviguian@livingstone-wealth.com</a> <span class="diamond">◆</span> <a href="tel:+33778511307">07 78 51 13 07</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="images/livingstone_nav.png" alt="Livingstone" />
+    </div>
+    <div class="footer-links">
+      <a href="a-propos.html">À propos</a>
+      <span class="diamond">◆</span>
+      <a href="nos-solutions.html">Solutions</a>
+      <span class="diamond">◆</span>
+      <a href="nos-frais.html">Nos frais</a>
+      <span class="diamond">◆</span>
+      <a href="fiducie-surete.html">Fiducie-sûreté</a>
+      <span class="diamond">◆</span>
+      <a href="cas-pratiques.html">Cas pratiques</a>
+      <span class="diamond">◆</span>
+      <a href="faq.html">FAQ</a>
+      <span class="diamond">◆</span>
+      <a href="contact.html">Contact</a>
+      <span class="diamond">◆</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <span class="diamond">◆</span>
+      <a href="reclamations.html">Réclamations</a>
+      <span class="diamond">◆</span>
+      <a href="confidentialite.html">Confidentialité</a>
+      <span class="diamond">◆</span>
+      <button type="button" id="lv-consent-rouvrir">Gérer mon consentement</button>
+    </div>
+    <p class="footer-copy">© 2026 Livingstone Family Office.</p>
+    <div class="footer-compliance">
+      <p><strong>Livingstone Family Office</strong>, SARL au capital de 500 €, RCS Paris 951 716 349, code APE 6619B, 49 rue de Courcelles, 75008 Paris. Téléphone : 07 78 51 13 07.</p>
+      <p>Conseiller en Investissements Financiers (CIF) immatriculé à l'ORIAS sous le n° 23007478 (<a href="https://www.orias.fr" target="_blank" rel="noopener">www.orias.fr</a>), adhérent de LA COMPAGNIE CIF, association agréée par l'Autorité des Marchés Financiers (AMF). Courtier en assurance adhérent de LA CNCEF, association agréée par l'Autorité de Contrôle Prudentiel et de Résolution (ACPR). Responsabilité civile professionnelle souscrite auprès d'Assurup, contrat n° RCP23051083028.</p>
+      <p><strong>Ne peut recevoir aucun fonds, effet, ou valeur.</strong></p>
+    </div>
+  </footer>
+
+  <script>
+  /* --- Date et heure du webinaire --------------------------------------
+     UN SEUL ENDROIT A MODIFIER si la date change. La phrase affichee,
+     le lien Google Agenda et le fichier .ics sont tous generes a partir
+     de ces valeurs.
+
+     debut / fin : format ISO avec le decalage horaire de Paris.
+                   +02:00 en heure d'ete (fin mars a fin octobre),
+                   +01:00 en heure d'hiver.
+
+     Exemple pour un report au jeudi 15 octobre 2026 a 20h :
+        debut: '2026-10-15T20:00:00+02:00',
+        fin:   '2026-10-15T21:00:00+02:00',
+  ------------------------------------------------------------------- */
+  var LV_WEBINAIRE = {
+    titre: 'Webinaire Livingstone : protéger son capital avec un contrat d\'assurance vie luxembourgeois',
+    debut: '2026-10-01T20:00:00+02:00',
+    fin:   '2026-10-01T21:00:00+02:00',
+    lieu:  'En ligne, lien de connexion envoyé par email',
+    description: 'Si votre assureur fait faillite, votre assurance vie n\'est garantie qu\'à hauteur de 70 000 € par assuré et par compagnie. Ce webinaire explique comment protéger le reste de votre capital avec un contrat d\'assurance vie luxembourgeois, légalement et sans quitter la France. Votre lien de connexion personnel vous a été envoyé par email.'
+  };
+
+  (function () {
+    var debut = new Date(LV_WEBINAIRE.debut);
+    var fin   = new Date(LV_WEBINAIRE.fin);
+    if (isNaN(debut)) return;
+
+    /* Phrase affichee, toujours exprimee en heure de Paris quel que soit
+       le fuseau du visiteur : c'est l'heure du direct qui compte. */
+    var quand = document.getElementById('webinaire-quand');
+    if (quand) {
+      var opts = {
+        weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
+      };
+      var texte = debut.toLocaleString('fr-FR', opts).replace(':', 'h');
+      /* En francais, le premier jour du mois s'ecrit « 1er ». */
+      texte = texte.replace(/(\s)1(\s)/, '$1' + '1er' + '$2');
+      quand.textContent = texte.charAt(0).toUpperCase() + texte.slice(1) + ' (heure de Paris)';
+    }
+
+    /* Format UTC compact attendu par Google Agenda et par le format iCalendar. */
+    function utc(d) {
+      return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    }
+
+    var google = document.getElementById('lien-google');
+    if (google) {
+      google.href = 'https://calendar.google.com/calendar/render'
+        + '?action=TEMPLATE'
+        + '&text='     + encodeURIComponent(LV_WEBINAIRE.titre)
+        + '&dates='    + utc(debut) + '/' + utc(fin)
+        + '&details='  + encodeURIComponent(LV_WEBINAIRE.description)
+        + '&location=' + encodeURIComponent(LV_WEBINAIRE.lieu);
+    }
+
+    var ics = document.getElementById('lien-ics');
+    if (ics) {
+      /* Les lignes d'un fichier iCalendar se terminent par CRLF. */
+      var lignes = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Livingstone Family Office//Webinaire//FR',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        'UID:' + utc(debut) + '-webinaire@livingstone-wealth.com',
+        'DTSTAMP:' + utc(new Date()),
+        'DTSTART:' + utc(debut),
+        'DTEND:' + utc(fin),
+        'SUMMARY:' + LV_WEBINAIRE.titre,
+        'DESCRIPTION:' + LV_WEBINAIRE.description.replace(/,/g, '\\,'),
+        'LOCATION:' + LV_WEBINAIRE.lieu.replace(/,/g, '\\,'),
+        'BEGIN:VALARM',
+        'TRIGGER:-PT30M',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:Le webinaire Livingstone commence dans 30 minutes',
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ];
+      var blob = new Blob([lignes.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+      ics.href = URL.createObjectURL(blob);
+    }
+  })();
+  </script>
+
+  <script src="script.js"></script>
+  <script src="analytics.js"></script>
+</body>
+</html>
