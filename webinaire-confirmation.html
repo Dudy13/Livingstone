@@ -46,6 +46,45 @@
       font-size: 1.15rem;
       font-weight: 600;
     }
+    .webinaire-decouvrir {
+      margin: 2.5rem auto 0;
+      max-width: 34rem;
+      text-align: left;
+    }
+    .webinaire-decouvrir h2 {
+      font-size: 1.2rem;
+      margin: 0 0 1rem;
+      text-align: center;
+    }
+    .webinaire-decouvrir ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .webinaire-decouvrir li {
+      position: relative;
+      padding: 0 0 1rem 2.25rem;
+      line-height: 1.55;
+    }
+    .webinaire-decouvrir li::before {
+      content: "◆";
+      position: absolute;
+      left: 0;
+      top: 0.05em;
+      font-size: 0.7em;
+      opacity: 0.55;
+    }
+    .webinaire-question {
+      margin: 1.5rem auto 0;
+      max-width: 34rem;
+      font-style: italic;
+    }
+    .webinaire-signature {
+      margin: 2rem auto 0;
+      max-width: 34rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
     .webinaire-agenda {
       display: flex;
       flex-wrap: wrap;
@@ -93,11 +132,22 @@
   <section class="merci">
     <div class="merci-inner">
       <span class="merci-badge">Inscription confirmée</span>
-      <h1>Votre place est réservée</h1>
+      <h1>Vous êtes inscrit. Votre place est réservée.</h1>
 
       <p class="webinaire-quand" id="webinaire-quand"></p>
 
       <p class="merci-lead">Votre lien de connexion personnel vous est envoyé par email. Il n'est valable que pour vous. Ajoutez dès maintenant le webinaire à votre agenda : c'est le geste qui fait la différence entre une inscription et une présence.</p>
+
+      <div class="webinaire-decouvrir">
+        <h2>Ce que vous allez découvrir</h2>
+        <ul>
+          <li>Pourquoi votre assurance vie française n'est garantie qu'à hauteur de 70 000 € si votre assureur fait défaut, et ce que cela signifie pour le reste de votre capital.</li>
+          <li>Ce que la loi Sapin 2 permet réellement : limiter vos retraits jusqu'à six mois. Jamais utilisée, mais toujours en vigueur.</li>
+          <li>Pourquoi ces protections comptent davantage aujourd'hui, alors que la dette publique française atteint un niveau record.</li>
+          <li>Comment le contrat d'assurance vie luxembourgeois protège votre capital : vos avoirs chez une banque dépositaire indépendante, un rang de créancier prioritaire, et aucune mesure équivalente à Sapin 2.</li>
+          <li>Dans quels cas ce contrat n'a aucun intérêt pour vous, et quelles questions poser à un conseiller avant de lui confier votre argent. Y compris à moi.</li>
+        </ul>
+      </div>
 
       <div class="webinaire-agenda">
         <a class="btn btn-gold" id="lien-google" href="#" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
