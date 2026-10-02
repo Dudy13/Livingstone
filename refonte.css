@@ -89,7 +89,7 @@ p{margin:0 0 18px;max-width:66ch}
 /* LISTE NEGATIVE */
 .negatif{list-style:none;padding:0;margin:0;border-top:1px solid var(--trait)}
 .negatif li{padding:15px 0 15px 30px;border-bottom:1px solid var(--trait);position:relative;font-size:16.5px;color:var(--encre)}
-.negatif li::before{content:"—";position:absolute;left:0;color:var(--petrole);font-family:var(--mono)}
+.negatif li::before{content:"·";position:absolute;left:0;color:var(--petrole);font-family:var(--mono)}
 
 /* NOTE LEGALE */
 .legal{border-left:2px solid var(--trait);padding-left:20px;font-size:14.5px;line-height:1.6;color:var(--gris)}
